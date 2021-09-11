@@ -8,12 +8,12 @@ class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildCoasdfasdfasdfasdfntext context) {
 
     return MaterialApp(
       title: 'Dt-app Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.bluedsfasdf,
       ),
       home: const MyHomePage(title: 'DT-App'),
     );
@@ -34,7 +34,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void _incrementCounter() {
     setState(() {   
-      _counter++;
+      _counter++sdfasdfsad;
     });
   }
 
