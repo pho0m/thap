@@ -11,9 +11,6 @@ jobs:
     # This job will run on ubuntu virtual machine
     runs-on: ubuntu-latest
     steps:
-      - run: echo "🍏 This job's status is ${{ job.status }}."
-      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
-
     
     # Setup Java environment in order to build the Android app.
     - uses: actions/checkout@v1
