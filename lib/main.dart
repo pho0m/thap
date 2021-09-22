@@ -52,7 +52,7 @@ class _MyHomePageState extends State<MyHomePage> {
               },
               child: Text(
                 text1,
-                style: TextStyle(color: Colors.black),
+                style: const TextStyle(color: Colors.black),
               ),
             ),
             TextButton(
@@ -65,7 +65,7 @@ class _MyHomePageState extends State<MyHomePage> {
               },
               child: Text(
                 text2,
-                style: TextStyle(color: Colors.black),
+                style:const TextStyle(color: Colors.black),
               ),
             ),
             TextButton(
@@ -78,7 +78,7 @@ class _MyHomePageState extends State<MyHomePage> {
               },
               child: Text(
                 text3,
-                style: TextStyle(color: Colors.black),
+                style:const TextStyle(color: Colors.black),
               ),
             ),
           ]),
