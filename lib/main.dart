@@ -33,7 +33,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void _printEvent(String text) {
     setState(() {
-      print(text);
     });
   }
 
