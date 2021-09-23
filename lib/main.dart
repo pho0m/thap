@@ -49,10 +49,12 @@ class _MyHomePageState extends State<MyHomePage> {
             icon: const Icon(Icons.add_alert),
             tooltip: 'Show Snackbar',
             onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Screens()),
-                );
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Screens()),
+              );
+              ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(content: Text('This is a snackjack')));
             },
           ),
         ],
