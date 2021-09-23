@@ -1,3 +1,4 @@
+import 'package:dt_app/screens/screens_1.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -13,9 +14,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Dt-app Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.red,
       ),
-      home: const MyHomePage(title: 'Tweed'),
+      home: const MyHomePage(title: "page 1",),
     );
   }
 }
@@ -33,7 +34,7 @@ class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
   void _incrementCounter() {
-    setState(() {   
+    setState(() {
       _counter++;
     });
   }
@@ -48,10 +49,13 @@ class _MyHomePageState extends State<MyHomePage> {
             icon: const Icon(Icons.add_alert),
             tooltip: 'Show Snackbar',
             onPressed: () {
-              ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text('This is a snackbar')));
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Screens()),
+                );
             },
-          ),],
+          ),
+        ],
         title: Text(widget.title),
       ),
       body: SingleChildScrollView(
@@ -59,7 +63,7 @@ class _MyHomePageState extends State<MyHomePage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Image.asset('assets/logo.png'),
+               CircleAvatar(child: Image.asset('assets/logo.png')),
               Image.asset('assets/team.png'),
               Text(
                 '$_counter',
@@ -69,10 +73,15 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
+      floatingActionButton: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          FloatingActionButton(
+            onPressed: _incrementCounter,
+            tooltip: 'Increment',
+            child: const Icon(Icons.add),
+          ),
+        ]
       ),
     );
   }
