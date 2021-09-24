@@ -1,9 +1,7 @@
 name: CI
-
 # This workflow is triggered on pushes to the repository.
 
-on: [push]
-    
+on: [push]  
 # on: push    # Default will running for every branch.
     
 jobs:
@@ -26,14 +24,14 @@ jobs:
     
     # Get flutter dependencies.
     - run: flutter pub get
-    
-    
+
     # Statically analyze the Dart code for any errors.
     - run: flutter analyze .
-    
+
     # # Run widget tests for our flutter project.
     # - run: flutter test
     
+
     # # Build apk.
     # - run: flutter build apk
     
@@ -42,3 +40,4 @@ jobs:
     #   with:
     #     name: release-apk
     #     path: build/app/outputs/apk/release/app-release.apk
+
