@@ -1,2 +1,3 @@
-export 'favorite.dart';
-export 'playlist.dart';
+export 'favorite/favorite.dart';
+export 'playlist/playlist.dart';
+export 'home/home.dart';
