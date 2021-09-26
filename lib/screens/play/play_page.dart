@@ -1,8 +1,16 @@
+import 'package:dt_app/theme/constant.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 
-class PlayerPage extends StatelessWidget {
+class PlayerPage extends StatefulWidget {
   const PlayerPage({Key? key}) : super(key: key);
+
+  @override
+  _PlayerPageState createState() => _PlayerPageState();
+}
+
+class _PlayerPageState extends State<PlayerPage> {
+  // AudioPlayer audioPlayer = AudioPlayer();
 
   @override
   Widget build(BuildContext context) {
@@ -38,9 +46,7 @@ class PlayerPage extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                const SizedBox(
-                  height: 70,
-                ),
+                const SizedBox(height: 70),
                 Container(
                   width: _width / 1.3,
                   height: _height / 3.2,
@@ -61,8 +67,42 @@ class PlayerPage extends StatelessWidget {
                     Column(
                       children: const [
                         Text("Title"),
+                        sizeBoxs20,
                         Text("Artist"),
                       ],
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 60),
+                const Text("progress bar"),
+                const SizedBox(height: 60),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    IconButton(
+                      color: Colors.black,
+                      icon: const Icon(FeatherIcons.shuffle),
+                      onPressed: () {},
+                    ),
+                    IconButton(
+                      color: Colors.black,
+                      icon: const Icon(FeatherIcons.skipBack),
+                      onPressed: () {},
+                    ),
+                    IconButton(
+                      color: Colors.black,
+                      icon: const Icon(FeatherIcons.play),
+                      onPressed: () {},
+                    ),
+                    IconButton(
+                      color: Colors.black,
+                      icon: const Icon(FeatherIcons.skipForward),
+                      onPressed: () {},
+                    ),
+                    IconButton(
+                      color: Colors.black,
+                      icon: const Icon(FeatherIcons.repeat),
+                      onPressed: () {},
                     ),
                   ],
                 ),
