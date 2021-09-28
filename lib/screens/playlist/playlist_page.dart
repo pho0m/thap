@@ -5,8 +5,7 @@ import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 class PlaylistPage extends StatelessWidget {
   PlaylistPage({Key? key}) : super(key: key);
 
-  final playlistdetails =
-      PlaylistDetails(artist: "test", title: "yoloooooooooooooooo");
+  final playlistdetails = PlaylistDetails(artist: "test", title: "test");
 
   final List<Widget> mockPlList = [
     Container(
@@ -78,7 +77,7 @@ class PlaylistPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double _width = MediaQuery.of(context).size.width;
+    //double _width = MediaQuery.of(context).size.width;
     //double _height = MediaQuery.of(context).size.height;
 
     return Scaffold(
@@ -98,26 +97,7 @@ class PlaylistPage extends StatelessWidget {
           ),
         ],
       ),
-      body: Container(
-        child: GridView.count(
-          primary: false,
-          padding: const EdgeInsets.all(20),
-          crossAxisSpacing: 10,
-          mainAxisSpacing: 10,
-          crossAxisCount: 3,
-          children: mockPlList,
-        ),
-      ),
-    );
-  }
-
-  Widget _gridContainer(double _width) {
-    return Container(
-      padding: const EdgeInsets.all(8),
-      color: Colors.grey,
-      height: 300,
-      width: _width - 30,
-      child: GridView.count(
+      body: GridView.count(
         primary: false,
         padding: const EdgeInsets.all(20),
         crossAxisSpacing: 10,
