@@ -79,9 +79,9 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
             sizeBoxs20,
-            _gridContainer(_width, "test"),
+            _gridContainer(_width),
             sizeBoxs20,
-            _gridContainer(_width, "test"),
+            _gridContainer(_width),
           ],
         ),
       ),
@@ -202,7 +202,7 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget _gridContainer(_width, String text) {
+  Widget _gridContainer(_width) {
     return Container(
       padding: const EdgeInsets.all(8),
       color: Colors.grey,
