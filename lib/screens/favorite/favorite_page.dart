@@ -1,5 +1,8 @@
 import 'package:dt_app/theme/constant.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
+import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 
 class FavoritePage extends StatelessWidget {
   const FavoritePage({Key? key}) : super(key: key);
@@ -10,20 +13,16 @@ class FavoritePage extends StatelessWidget {
     double _height = MediaQuery.of(context).size.height;
     List<Widget> litems = [
       Card(
+        color: CupertinoColors.extraLightBackgroundGray,
         child: ListTile(
-          leading: const FlutterLogo(size: 56.0),
-          title: const Text('yolo ListTile'),
-          subtitle: const Text('Here is a second line'),
-          trailing: const Icon(Icons.more_vert),
-          onTap: () {},
-        ),
-      ),
-      Card(
-        child: ListTile(
-          leading: const FlutterLogo(size: 56.0),
-          title: const Text('Two-line ListTile'),
-          subtitle: const Text('Here is a second line'),
-          trailing: const Icon(Icons.more_vert),
+          leading: const Icon(
+            FeatherIcons.headphones,
+            size: 40.0,
+          ),
+          // leading: const FlutterLogo(size: 56.0),
+          title: const Text('title'),
+          subtitle: const Text('artist'),
+          // trailing: const Icon(Icons.more_vert),
           onTap: () {},
         ),
       ),
