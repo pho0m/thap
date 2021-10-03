@@ -36,6 +36,8 @@ class _HomePageState extends State<HomePage> {
     return DefaultTextStyle(
       style: const TextStyle(color: Colors.black),
       child: Body(
+        haveFAB: true,
+        context: context,
         appBar: _appbar(context),
         body: [
           ImageContent(
@@ -76,15 +78,15 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget testPlay() {
-    final MusicData mockData = MusicData(
-      title: "if you shy (let me knows)",
-      artist: "1975",
-      image:
-          "https://images.squarespace-cdn.com/content/v1/56858337cbced60d3b293aef/1572288107885-V2AZJF8YVG5NARZRU7YE/Albumism_The1975_ABriefInquiryIntoOnlineRelationships_MainImage.png.jpg?format=1000w",
-      musicPlay: "musics/testmusic.mp3",
-    );
+  final MusicData mockData = MusicData(
+    title: "if you shy (let me knows)",
+    artist: "1975",
+    image:
+        "https://images.squarespace-cdn.com/content/v1/56858337cbced60d3b293aef/1572288107885-V2AZJF8YVG5NARZRU7YE/Albumism_The1975_ABriefInquiryIntoOnlineRelationships_MainImage.png.jpg?format=1000w",
+    musicPlay: "musics/testmusic.mp3",
+  );
 
+  Widget testPlay() {
     return Padding(
       padding: const EdgeInsets.all(20.0),
       child: Card(
@@ -116,6 +118,34 @@ class _HomePageState extends State<HomePage> {
               ),
             );
           },
+        ),
+      ),
+    );
+  }
+
+  Widget nowPlaying() {
+    return Padding(
+      padding: const EdgeInsets.all(20),
+      child: Card(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(25.15),
+        ),
+        color: Colors.grey[300],
+        child: ListTile(
+          leading: const Icon(
+            FeatherIcons.headphones,
+            size: 40.0,
+          ),
+          // leading: const FlutterLogo(size: 56.0),
+          title: Text(
+            mockData.title,
+            style: head4,
+          ),
+          subtitle: Text(
+            mockData.artist,
+            style: sub1,
+          ),
+          onTap: () {},
         ),
       ),
     );

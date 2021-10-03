@@ -96,6 +96,7 @@ class _PlayerPageState extends State<PlayerPage> {
             color: Colors.black,
             icon: const Icon(FeatherIcons.chevronLeft),
             onPressed: () {
+              setState(() {});
               Navigator.pop(context);
             },
           ),
