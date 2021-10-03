@@ -46,7 +46,7 @@ class _MusicCardState extends State<MusicCard> {
               ),
               color: Colors.grey[300],
               child: ListTile(
-                leading: Container(
+                leading: SizedBox(
                   width: 50,
                   height: 50,
                   child: Image(
