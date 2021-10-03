@@ -76,7 +76,7 @@ class FavoritePage extends StatelessWidget {
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(25.15),
                         ),
-                        color: CupertinoColors.extraLightBackgroundGray,
+                        color: Colors.grey[300],
                         child: ListTile(
                           leading: const Icon(
                             FeatherIcons.headphones,
