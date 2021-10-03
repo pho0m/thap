@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:dt_app/theme/constant.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -10,7 +11,7 @@ class FavoritePage extends StatelessWidget {
   FavoritePage({Key? key}) : super(key: key);
   final List<MusicData> mockMusicData = [
     MusicData(
-      title: "if you shy (let me knows)",
+      title: "if you shy (let me knows) icutmyhairbecauseyoudontcaremyheart",
       artist: "1975",
       image:
           "https://images.squarespace-cdn.com/content/v1/56858337cbced60d3b293aef/1572288107885-V2AZJF8YVG5NARZRU7YE/Albumism_The1975_ABriefInquiryIntoOnlineRelationships_MainImage.png.jpg?format=1000w",
@@ -22,23 +23,6 @@ class FavoritePage extends StatelessWidget {
           "https://i1.sndcdn.com/artworks-YTJNfuXwL5a59d4E-xezZzw-t500x500.jpg",
     ),
   ];
-
-/*
-
-{
-  "id": index, 0
-  "title": "title $index", title 0
-},
-{
-  "id": index, 1
-  "title": "title $index", title 1
-},
-{  |key|  |value|
-  "id": index, 2
-  "title": "title $index", title 2    //JSON    .json
-},
-
-*/
 
   @override
   Widget build(BuildContext context) {
@@ -82,15 +66,32 @@ class FavoritePage extends StatelessWidget {
                             FeatherIcons.headphones,
                             size: 40.0,
                           ),
-                          // leading: const FlutterLogo(size: 56.0),
-                          title: Text(
+
+                          title: AutoSizeText(
                             mockMusicData[idx].title,
                             style: head4,
+                            minFontSize: 10,
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
                           ),
-                          subtitle: Text(
+                          subtitle: AutoSizeText(
                             mockMusicData[idx].artist,
-                            style: sub1,
+                            style: head4,
+                            minFontSize: 10,
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
                           ),
+                          //  Text(
+                          //   mockMusicData[idx].title,
+                          //   overflow: TextOverflow.fade,
+                          //   maxLines: 1,
+                          //   softWrap: false,
+                          //   style: head4,
+                          // ),
+                          // subtitle: Text(
+                          //   mockMusicData[idx].artist,
+                          //   style: sub1,
+                          // ),
                           // trailing: const Icon(Icons.more_vert),
                           onTap: () {},
                         ),
@@ -99,16 +100,6 @@ class FavoritePage extends StatelessWidget {
                   },
                 ),
               ),
-              // const Text("Favorite Page"),
-              // const SizedBox(
-              //   height: 20,
-              // ),
-              // ElevatedButton(
-              //   onPressed: () {
-              //     Navigator.pop(context);
-              //   },
-              //   child: const Text('Go back!'),
-              // ),
             ],
           ),
         )
