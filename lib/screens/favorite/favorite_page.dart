@@ -1,26 +1,27 @@
-import 'package:auto_size_text/auto_size_text.dart';
+import 'package:dt_app/components/components.dart';
 import 'package:dt_app/theme/constant.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 
 import '../route.dart';
 
 class FavoritePage extends StatelessWidget {
   FavoritePage({Key? key}) : super(key: key);
+
   final List<MusicData> mockMusicData = [
     MusicData(
-      title: "if you shy (let me knows) icutmyhairbecauseyoudontcaremyheart",
+      title: "if you shy (let me knows)",
       artist: "1975",
       image:
           "https://images.squarespace-cdn.com/content/v1/56858337cbced60d3b293aef/1572288107885-V2AZJF8YVG5NARZRU7YE/Albumism_The1975_ABriefInquiryIntoOnlineRelationships_MainImage.png.jpg?format=1000w",
+      musicPlay: "musics/testmusic.mp3",
     ),
     MusicData(
       title: "cheapest flight",
       artist: "PERP",
       image:
           "https://i1.sndcdn.com/artworks-YTJNfuXwL5a59d4E-xezZzw-t500x500.jpg",
+      musicPlay: "musics/preptestmusic.mp3",
     ),
   ];
 
@@ -29,91 +30,34 @@ class FavoritePage extends StatelessWidget {
     double _width = MediaQuery.of(context).size.width;
     double _height = MediaQuery.of(context).size.height;
 
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          "Favorite Page",
-          style: head3,
-        ),
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-      ),
-      body: _body([
-        Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              SizedBox(
-                width: _width,
-                height: _height,
-                child: ListView.builder(
-                  itemCount: mockMusicData.length,
-                  itemBuilder: (BuildContext ctxt, int idx) {
-                    return Padding(
-                      padding: const EdgeInsets.only(
-                        left: 15.0,
-                        top: 5.0,
-                        right: 15.0,
-                        bottom: 5.0,
-                      ),
-                      child: Card(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(25.15),
-                        ),
-                        color: Colors.grey[300],
-                        child: ListTile(
-                          leading: const Icon(
-                            FeatherIcons.headphones,
-                            size: 40.0,
-                          ),
-
-                          title: AutoSizeText(
-                            mockMusicData[idx].title,
-                            style: head4,
-                            minFontSize: 10,
-                            maxLines: 2,
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                          subtitle: AutoSizeText(
-                            mockMusicData[idx].artist,
-                            style: head4,
-                            minFontSize: 10,
-                            maxLines: 2,
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                          //  Text(
-                          //   mockMusicData[idx].title,
-                          //   overflow: TextOverflow.fade,
-                          //   maxLines: 1,
-                          //   softWrap: false,
-                          //   style: head4,
-                          // ),
-                          // subtitle: Text(
-                          //   mockMusicData[idx].artist,
-                          //   style: sub1,
-                          // ),
-                          // trailing: const Icon(Icons.more_vert),
-                          onTap: () {},
-                        ),
-                      ),
-                    );
-                  },
-                ),
-              ),
-            ],
+    AppBar _appbar(BuildContext context) {
+      return HomeAppBar(
+        context: context,
+        title: "Favorite Page",
+        style: head3,
+        iconButton: [
+          IconButton(
+            color: Colors.black,
+            icon: const Icon(FeatherIcons.chevronLeft),
+            onPressed: () {
+              Navigator.pop(context);
+            },
           ),
-        )
-      ]),
-    );
-  }
+        ],
+      );
+    }
 
-  Widget _body(List<Widget> inhome) {
-    return SafeArea(
-      child: SingleChildScrollView(
-        child: Column(
-          children: inhome,
+    return Body(
+      appBar: _appbar(context),
+      body: [
+        MusicCard(
+          height: _height,
+          width: _width,
+          music: mockMusicData,
+          styletitle: head4,
+          stylesuptitle: head5,
         ),
-      ),
+      ],
     );
   }
 }
