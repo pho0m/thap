@@ -48,6 +48,8 @@ class FavoritePage extends StatelessWidget {
     }
 
     return Body(
+      context: context,
+      haveFAB: true,
       appBar: _appbar(context),
       body: [
         MusicCard(
