@@ -6,19 +6,19 @@ import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import '../route.dart';
 
 class PlayerPage extends StatefulWidget {
-  const PlayerPage({Key? key}) : super(key: key);
+  final MusicData musicData;
+
+  const PlayerPage({
+    Key? key,
+    required this.musicData,
+  }) : super(key: key);
 
   @override
   _PlayerPageState createState() => _PlayerPageState();
 }
 
 class _PlayerPageState extends State<PlayerPage> {
-  final MusicData mockData = MusicData(
-    title: "if you shy (let me knows)",
-    artist: "1975",
-    image:
-        "https://images.squarespace-cdn.com/content/v1/56858337cbced60d3b293aef/1572288107885-V2AZJF8YVG5NARZRU7YE/Albumism_The1975_ABriefInquiryIntoOnlineRelationships_MainImage.png.jpg?format=1000w",
-  );
+  late MusicData music;
 
   bool playing = false;
   IconData playBtn = FeatherIcons.play;
@@ -37,6 +37,9 @@ class _PlayerPageState extends State<PlayerPage> {
   @override
   void initState() {
     super.initState();
+
+    music = widget.musicData;
+
     _player = AudioPlayer();
     cache = AudioCache(fixedPlayer: _player);
 
@@ -69,6 +72,7 @@ class _PlayerPageState extends State<PlayerPage> {
 
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         backgroundColor: Colors.transparent,
         shadowColor: Colors.transparent,
         elevation: 0,
@@ -88,6 +92,13 @@ class _PlayerPageState extends State<PlayerPage> {
             icon: const Icon(FeatherIcons.circle),
             onPressed: () {},
           ),
+          IconButton(
+            color: Colors.black,
+            icon: const Icon(FeatherIcons.chevronLeft),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          ),
         ],
       ),
       body: _body(
@@ -103,7 +114,7 @@ class _PlayerPageState extends State<PlayerPage> {
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(30.0),
                     image: DecorationImage(
-                      image: NetworkImage(mockData.image),
+                      image: NetworkImage(music.image),
                       fit: BoxFit.cover,
                     ),
                     shape: BoxShape.rectangle,
@@ -118,9 +129,9 @@ class _PlayerPageState extends State<PlayerPage> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(mockData.title),
+                        Text(music.title),
                         sizeBoxs20,
-                        Text(mockData.artist),
+                        Text(music.artist),
                       ],
                     ),
                   ],
@@ -166,7 +177,7 @@ class _PlayerPageState extends State<PlayerPage> {
                       onPressed: () {
                         if (!playing) {
                           //now let's play the song
-                          cache.play("musics/testmusic.mp3");
+                          cache.play(music.musicPlay);
                           setState(() {
                             playBtn = FeatherIcons.pause;
                             playing = true;
