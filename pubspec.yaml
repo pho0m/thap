@@ -13,7 +13,8 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter_feather_icons: ^2.0.0
   carousel_slider: ^4.0.0
-  # audioplayers: ^0.20.0
+  audioplayers: ^0.20.0
+  auto_size_text: ^3.0.0-nullsafety.0
 
 dev_dependencies:
   flutter_test:
@@ -34,7 +35,8 @@ flutter:
           
   assets:
       - assets/images/
-      - assets/musics/
+      - assets/musics/testmusic.mp3
+      - assets/musics/preptestmusic.mp3
 
   uses-material-design: true
 
