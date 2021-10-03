@@ -4,21 +4,23 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 
+import '../route.dart';
+
 class FavoritePage extends StatelessWidget {
   FavoritePage({Key? key}) : super(key: key);
-
-  final List<Map> music = List.generate(
-    21, //0 1 2 3 4 5 6 7 8 9 10 11 12
-    (index) => {
-      "id": index + 1,
-      "title": "title ${index + 1}",
-      "artist": "artist ${index + 1}",
-    },
-  ).toList();
-
-  final List<Map> mockData = [
-    {"id": "1", "title": "if you shy", "artist": "1975"},
-    {"id": "2", "title": "เนื้อของฉัน", "artist": "ยังกู"},
+  final List<MusicData> mockMusicData = [
+    MusicData(
+      title: "if you shy (let me knows)",
+      artist: "1975",
+      image:
+          "https://images.squarespace-cdn.com/content/v1/56858337cbced60d3b293aef/1572288107885-V2AZJF8YVG5NARZRU7YE/Albumism_The1975_ABriefInquiryIntoOnlineRelationships_MainImage.png.jpg?format=1000w",
+    ),
+    MusicData(
+      title: "cheapest flight",
+      artist: "PERP",
+      image:
+          "https://i1.sndcdn.com/artworks-YTJNfuXwL5a59d4E-xezZzw-t500x500.jpg",
+    ),
   ];
 
 /*
@@ -61,23 +63,37 @@ class FavoritePage extends StatelessWidget {
                 width: _width,
                 height: _height,
                 child: ListView.builder(
-                  itemCount: mockData.length,
-                  itemBuilder: (BuildContext ctxt, int index) {
-                    return Card(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(25.15),
+                  itemCount: mockMusicData.length,
+                  itemBuilder: (BuildContext ctxt, int idx) {
+                    return Padding(
+                      padding: const EdgeInsets.only(
+                        left: 15.0,
+                        top: 5.0,
+                        right: 15.0,
+                        bottom: 5.0,
                       ),
-                      color: CupertinoColors.extraLightBackgroundGray,
-                      child: ListTile(
-                        leading: const Icon(
-                          FeatherIcons.headphones,
-                          size: 40.0,
+                      child: Card(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(25.15),
                         ),
-                        // leading: const FlutterLogo(size: 56.0),
-                        title: Text(mockData[index]['title']),
-                        subtitle: Text(mockData[index]['artist']),
-                        // trailing: const Icon(Icons.more_vert),
-                        onTap: () {},
+                        color: CupertinoColors.extraLightBackgroundGray,
+                        child: ListTile(
+                          leading: const Icon(
+                            FeatherIcons.headphones,
+                            size: 40.0,
+                          ),
+                          // leading: const FlutterLogo(size: 56.0),
+                          title: Text(
+                            mockMusicData[idx].title,
+                            style: head4,
+                          ),
+                          subtitle: Text(
+                            mockMusicData[idx].artist,
+                            style: sub1,
+                          ),
+                          // trailing: const Icon(Icons.more_vert),
+                          onTap: () {},
+                        ),
                       ),
                     );
                   },
