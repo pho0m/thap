@@ -1,8 +1,13 @@
-import 'package:dt_app/screens/route.dart';
+import 'music_data.dart';
 
 class Playlist {
-  final String title;
-  final String artist;
+  final String playlistName;
+  final String description;
+  final List<MusicData> musicList;
 
-  Playlist({required this.title, required this.artist});
+  Playlist({
+    required this.playlistName,
+    required this.description,
+    required this.musicList,
+  });
 }

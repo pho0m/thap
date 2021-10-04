@@ -1,39 +1,33 @@
 import 'package:dt_app/components/components.dart';
+import 'package:dt_app/models/playlist.dart';
 import 'package:dt_app/theme/constant.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 
-import '../route.dart';
+class PlaylistDetailPage extends StatefulWidget {
+  final Playlist playlistData;
 
-class FavoritePage extends StatelessWidget {
-  const FavoritePage({Key? key}) : super(key: key);
+  const PlaylistDetailPage({
+    Key? key,
+    required this.playlistData,
+  }) : super(key: key);
 
   @override
+  _PlaylistDetailPageState createState() => _PlaylistDetailPageState();
+}
+
+class _PlaylistDetailPageState extends State<PlaylistDetailPage> {
+  @override
   Widget build(BuildContext context) {
+    var playlistData = widget.playlistData;
+
     double _width = MediaQuery.of(context).size.width;
     double _height = MediaQuery.of(context).size.height;
-
-    List<MusicData> mockMusicData = [
-      MusicData(
-        title: "if you shy (let me knows)",
-        artist: "1975",
-        image:
-            "https://images.squarespace-cdn.com/content/v1/56858337cbced60d3b293aef/1572288107885-V2AZJF8YVG5NARZRU7YE/Albumism_The1975_ABriefInquiryIntoOnlineRelationships_MainImage.png.jpg?format=1000w",
-        musicPlay: "musics/testmusic.mp3",
-      ),
-      MusicData(
-        title: "cheapest flight",
-        artist: "PERP",
-        image:
-            "https://i1.sndcdn.com/artworks-YTJNfuXwL5a59d4E-xezZzw-t500x500.jpg",
-        musicPlay: "musics/preptestmusic.mp3",
-      ),
-    ];
 
     AppBar _appbar(BuildContext context) {
       return HomeAppBar(
         context: context,
-        title: "Favorite Page",
+        title: playlistData.playlistName,
         style: head3,
         iconButton: [
           IconButton(
@@ -55,7 +49,7 @@ class FavoritePage extends StatelessWidget {
         MusicCard(
           height: _height,
           width: _width,
-          music: mockMusicData,
+          music: playlistData.musicList,
           styletitle: head4,
           stylesuptitle: head5,
         ),
