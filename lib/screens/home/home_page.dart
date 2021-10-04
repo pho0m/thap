@@ -1,4 +1,4 @@
-import 'package:carousel_slider/carousel_slider.dart';
+import 'package:dt_app/components/components.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 
@@ -23,94 +23,131 @@ class _HomePageState extends State<HomePage> {
     'assets/images/placeholder-black.jpg',
   ];
 
-  final List<Widget> mockPlList = [
-    Container(
-      padding: const EdgeInsets.all(8),
-      child: const Text("He'd have you all unravel at the"),
-      color: Colors.amber[100],
-    ),
-    Container(
-      padding: const EdgeInsets.all(8),
-      child: const Text('Heed not the rabble'),
-      color: Colors.amber[200],
-    ),
-    Container(
-      padding: const EdgeInsets.all(8),
-      child: const Text('Sound of screams but the'),
-      color: Colors.amber[300],
-    ),
-    Container(
-      padding: const EdgeInsets.all(8),
-      child: const Text('Who scream'),
-      color: Colors.amber[400],
-    ),
-    Container(
-      padding: const EdgeInsets.all(8),
-      child: const Text('Revolution is coming...'),
-      color: Colors.amber[500],
-    ),
-    Container(
-      padding: const EdgeInsets.all(8),
-      child: const Text('Revolution, they...'),
-      color: Colors.amber[600],
-    ),
-  ];
+  @override
+  void initState() {
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
-    double _width = MediaQuery.of(context).size.width;
+    //double _width = MediaQuery.of(context).size.width;
     //double _height = MediaQuery.of(context).size.height;
 
     return DefaultTextStyle(
       style: const TextStyle(color: Colors.black),
-      child: Scaffold(
-        appBar: appBar(_width),
-        body: _body(
-          [
-            imageContent(_width),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                playlist(),
-                sizeBoxs20,
-                favorite(),
-                sizeBoxs20,
-                play(),
-              ],
-            ),
-            sizeBoxs20,
-            _gridContainer(_width),
-            sizeBoxs20,
-            _gridContainer(_width),
-          ],
+      child: Body(
+        haveFAB: true,
+        context: context,
+        appBar: _appbar(context),
+        body: [
+          ImageContent(
+            imageData: imageList,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              playlist(),
+              sizeBoxs20,
+              favorite(),
+              sizeBoxs20,
+            ],
+          ),
+          testPlay(),
+        ],
+      ),
+    );
+  }
+
+  AppBar _appbar(BuildContext context) {
+    return HomeAppBar(
+      context: context,
+      title: 'Music Explorer',
+      style: head3,
+      iconButton: [
+        IconButton(
+          color: Colors.black,
+          icon: const Icon(FeatherIcons.bell),
+          onPressed: () {},
+        ),
+        IconButton(
+          color: Colors.black,
+          icon: const Icon(FeatherIcons.search),
+          onPressed: () {},
+        ),
+      ],
+    );
+  }
+
+  final MusicData mockData = MusicData(
+    title: "if you shy (let me knows)",
+    artist: "1975",
+    image:
+        "https://images.squarespace-cdn.com/content/v1/56858337cbced60d3b293aef/1572288107885-V2AZJF8YVG5NARZRU7YE/Albumism_The1975_ABriefInquiryIntoOnlineRelationships_MainImage.png.jpg?format=1000w",
+    musicPlay: "musics/testmusic.mp3",
+  );
+
+  Widget testPlay() {
+    return Padding(
+      padding: const EdgeInsets.all(20.0),
+      child: Card(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(25.15),
+        ),
+        color: Colors.grey[300],
+        child: ListTile(
+          leading: const Icon(
+            FeatherIcons.headphones,
+            size: 40.0,
+          ),
+          // leading: const FlutterLogo(size: 56.0),
+          title: Text(
+            mockData.title,
+            style: head4,
+          ),
+          subtitle: Text(
+            mockData.artist,
+            style: sub1,
+          ),
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => PlayerPage(
+                  musicData: mockData,
+                ),
+              ),
+            );
+          },
         ),
       ),
     );
   }
 
-  Widget _body(List<Widget> inhome) {
-    return SafeArea(
-      child: SingleChildScrollView(
-        child: Column(
-          children: inhome,
+  Widget nowPlaying() {
+    return Padding(
+      padding: const EdgeInsets.all(20),
+      child: Card(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(25.15),
+        ),
+        color: Colors.grey[300],
+        child: ListTile(
+          leading: const Icon(
+            FeatherIcons.headphones,
+            size: 40.0,
+          ),
+          // leading: const FlutterLogo(size: 56.0),
+          title: Text(
+            mockData.title,
+            style: head4,
+          ),
+          subtitle: Text(
+            mockData.artist,
+            style: sub1,
+          ),
+          onTap: () {},
         ),
       ),
-    );
-  }
-
-  Widget play() {
-    return ElevatedButton(
-      child: const Text("Play"),
-      style: ElevatedButton.styleFrom(
-        primary: Colors.grey,
-        padding: const EdgeInsets.all(20),
-      ),
-      onPressed: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => const PlayerPage()),
-        );
-      },
     );
   }
 
@@ -140,82 +177,9 @@ class _HomePageState extends State<HomePage> {
       onPressed: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => const FavoritePage()),
+          MaterialPageRoute(builder: (context) => FavoritePage()),
         );
       },
-    );
-  }
-
-  Widget imageContent(double width) {
-    return Container(
-      padding: const EdgeInsets.all(20),
-      child: CarouselSlider(
-        options: CarouselOptions(
-          enlargeCenterPage: true,
-          enableInfiniteScroll: false,
-          autoPlay: true,
-        ),
-        items: imageList
-            .map(
-              (e) => ClipRRect(
-                borderRadius: BorderRadius.circular(8),
-                child: Stack(
-                  fit: StackFit.expand,
-                  children: <Widget>[
-                    Image.asset(
-                      e,
-                      width: 1050,
-                      height: 350,
-                      fit: BoxFit.cover,
-                    )
-                  ],
-                ),
-              ),
-            )
-            .toList(),
-      ),
-    );
-  }
-
-  AppBar appBar(double width) {
-    return AppBar(
-      automaticallyImplyLeading: false,
-      backgroundColor: Colors.transparent,
-      shadowColor: Colors.transparent,
-      title: const Text(
-        "Music Explorer",
-        style: head3,
-      ),
-      elevation: 0,
-      actions: [
-        IconButton(
-          color: Colors.black,
-          icon: const Icon(FeatherIcons.bell),
-          onPressed: () {},
-        ),
-        IconButton(
-          color: Colors.black,
-          icon: const Icon(FeatherIcons.search),
-          onPressed: () {},
-        ),
-      ],
-    );
-  }
-
-  Widget _gridContainer(_width) {
-    return Container(
-      padding: const EdgeInsets.all(8),
-      color: Colors.grey,
-      height: 300,
-      width: _width - 30,
-      child: GridView.count(
-        primary: false,
-        padding: const EdgeInsets.all(20),
-        crossAxisSpacing: 10,
-        mainAxisSpacing: 10,
-        crossAxisCount: 3,
-        children: mockPlList,
-      ),
     );
   }
 }
