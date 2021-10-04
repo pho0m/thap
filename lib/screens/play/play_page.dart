@@ -22,10 +22,11 @@ class _PlayerPageState extends State<PlayerPage> {
   late MusicData music;
 
   bool playing = false;
-  IconData playBtn = FeatherIcons.play;
+  bool repeat = false;
 
   late AudioPlayer _player;
   late AudioCache cache;
+  late PlayerState playerState;
 
   Duration position = const Duration();
   Duration musicLength = const Duration();
@@ -33,6 +34,53 @@ class _PlayerPageState extends State<PlayerPage> {
   void seekToSec(int sec) {
     Duration newPos = Duration(seconds: sec);
     _player.seek(newPos);
+  }
+
+  Widget playBtn() {
+    return IconButton(
+      padding: const EdgeInsets.all(4),
+      icon: playing
+          ? const Icon(FeatherIcons.pause)
+          : const Icon(FeatherIcons.play),
+      onPressed: () {
+        if (!playing) {
+          cache.play(music.musicPlay);
+          setState(() {
+            playBtn();
+            playing = true;
+          });
+        } else {
+          _player.pause();
+          setState(() {
+            playBtn();
+            playing = false;
+          });
+        }
+      },
+    );
+  }
+
+  Widget repeatBtn() {
+    return IconButton(
+      padding: const EdgeInsets.all(4),
+      icon: const Icon(FeatherIcons.repeat),
+      color: repeat ? Colors.grey : Colors.black,
+      onPressed: () {
+        if (!repeat) {
+          _player.setReleaseMode(ReleaseMode.LOOP);
+          setState(() {
+            repeatBtn();
+            repeat = true;
+          });
+        } else {
+          setState(() {
+            _player.setReleaseMode(ReleaseMode.RELEASE);
+            repeatBtn();
+            repeat = false;
+          });
+        }
+      },
+    );
   }
 
   @override
@@ -43,10 +91,13 @@ class _PlayerPageState extends State<PlayerPage> {
     _player = AudioPlayer();
     cache = AudioCache(fixedPlayer: _player);
 
+    _player.onPlayerStateChanged
+        .listen((PlayerState s) => {setState(() => playerState = s)});
+
     cache.play(music.musicPlay);
 
     setState(() {
-      playBtn = FeatherIcons.pause;
+      playBtn();
       playing = true;
     });
 
@@ -62,6 +113,20 @@ class _PlayerPageState extends State<PlayerPage> {
   Widget build(BuildContext context) {
     double _width = MediaQuery.of(context).size.width;
     double _height = MediaQuery.of(context).size.height;
+
+    Widget slider() {
+      return SizedBox(
+        width: _width / 1.5,
+        child: Slider.adaptive(
+            activeColor: Colors.grey[800],
+            inactiveColor: Colors.grey[350],
+            value: position.inSeconds.toDouble(),
+            max: musicLength.inSeconds.toDouble(),
+            onChanged: (value) {
+              seekToSec(value.toInt());
+            }),
+      );
+    }
 
     AppBar _appbar(BuildContext context) {
       return HomeAppBar(
@@ -128,12 +193,23 @@ class _PlayerPageState extends State<PlayerPage> {
                 ],
               ),
               sizeBoxs60,
-              MusicProgressBar(
-                width: _width,
-                musicLength: musicLength,
-                player: _player,
-                position: position,
-                style: head4,
+              SizedBox(
+                width: 500.0,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      "${position.inMinutes}:${position.inSeconds.remainder(60)}",
+                      style: head4,
+                    ),
+                    slider(),
+                    Text(
+                      "${musicLength.inMinutes}:${musicLength.inSeconds.remainder(60)}",
+                      style: head4,
+                    ),
+                  ],
+                ),
               ),
               sizeBoxs60,
               Row(
@@ -149,37 +225,13 @@ class _PlayerPageState extends State<PlayerPage> {
                     icon: const Icon(FeatherIcons.skipBack),
                     onPressed: () {},
                   ),
-                  IconButton(
-                    color: Colors.black,
-                    icon: Icon(
-                      playBtn,
-                    ),
-                    onPressed: () {
-                      if (!playing) {
-                        cache.play(music.musicPlay);
-                        setState(() {
-                          playBtn = FeatherIcons.pause;
-                          playing = true;
-                        });
-                      } else {
-                        _player.pause();
-                        setState(() {
-                          playBtn = FeatherIcons.play;
-                          playing = false;
-                        });
-                      }
-                    },
-                  ),
+                  playBtn(),
                   IconButton(
                     color: Colors.black,
                     icon: const Icon(FeatherIcons.skipForward),
                     onPressed: () {},
                   ),
-                  IconButton(
-                    color: Colors.black,
-                    icon: const Icon(FeatherIcons.repeat),
-                    onPressed: () {},
-                  ),
+                  repeatBtn()
                 ],
               ),
             ],
