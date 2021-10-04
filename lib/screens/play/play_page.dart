@@ -37,11 +37,17 @@ class _PlayerPageState extends State<PlayerPage> {
   @override
   void initState() {
     super.initState();
-
     music = widget.musicData;
 
     _player = AudioPlayer();
     cache = AudioCache(fixedPlayer: _player);
+
+    cache.play(music.musicPlay);
+
+    setState(() {
+      playBtn = FeatherIcons.pause;
+      playing = true;
+    });
 
     _player.onDurationChanged.listen((Duration d) {
       setState(() => musicLength = d);
@@ -177,7 +183,6 @@ class _PlayerPageState extends State<PlayerPage> {
                       ),
                       onPressed: () {
                         if (!playing) {
-                          //now let's play the song
                           cache.play(music.musicPlay);
                           setState(() {
                             playBtn = FeatherIcons.pause;
