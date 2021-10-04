@@ -1,9 +1,9 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:dt_app/theme/constant.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 
 import 'package:dt_app/screens/route.dart';
+import 'package:dt_app/theme/constant.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({
@@ -27,32 +27,32 @@ class _HomePageState extends State<HomePage> {
     Container(
       padding: const EdgeInsets.all(8),
       child: const Text("He'd have you all unravel at the"),
-      color: Colors.teal[100],
+      color: Colors.amber[100],
     ),
     Container(
       padding: const EdgeInsets.all(8),
       child: const Text('Heed not the rabble'),
-      color: Colors.teal[200],
+      color: Colors.amber[200],
     ),
     Container(
       padding: const EdgeInsets.all(8),
       child: const Text('Sound of screams but the'),
-      color: Colors.teal[300],
+      color: Colors.amber[300],
     ),
     Container(
       padding: const EdgeInsets.all(8),
       child: const Text('Who scream'),
-      color: Colors.teal[400],
+      color: Colors.amber[400],
     ),
     Container(
       padding: const EdgeInsets.all(8),
       child: const Text('Revolution is coming...'),
-      color: Colors.teal[500],
+      color: Colors.amber[500],
     ),
     Container(
       padding: const EdgeInsets.all(8),
       child: const Text('Revolution, they...'),
-      color: Colors.teal[600],
+      color: Colors.amber[600],
     ),
   ];
 
@@ -79,35 +79,9 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
             sizeBoxs20,
-            Container(
-              padding: const EdgeInsets.all(8),
-              color: Colors.grey,
-              height: 300,
-              width: _width - 30,
-              child: GridView.count(
-                primary: false,
-                padding: const EdgeInsets.all(20),
-                crossAxisSpacing: 10,
-                mainAxisSpacing: 10,
-                crossAxisCount: 3,
-                children: mockPlList,
-              ),
-            ),
+            _gridContainer(_width),
             sizeBoxs20,
-            Container(
-              padding: const EdgeInsets.all(8),
-              color: Colors.grey,
-              height: 300,
-              width: _width - 30,
-              child: GridView.count(
-                primary: false,
-                padding: const EdgeInsets.all(20),
-                crossAxisSpacing: 10,
-                mainAxisSpacing: 10,
-                crossAxisCount: 3,
-                children: mockPlList,
-              ),
-            )
+            _gridContainer(_width),
           ],
         ),
       ),
@@ -225,6 +199,23 @@ class _HomePageState extends State<HomePage> {
           onPressed: () {},
         ),
       ],
+    );
+  }
+
+  Widget _gridContainer(_width) {
+    return Container(
+      padding: const EdgeInsets.all(8),
+      color: Colors.grey,
+      height: 300,
+      width: _width - 30,
+      child: GridView.count(
+        primary: false,
+        padding: const EdgeInsets.all(20),
+        crossAxisSpacing: 10,
+        mainAxisSpacing: 10,
+        crossAxisCount: 3,
+        children: mockPlList,
+      ),
     );
   }
 }
