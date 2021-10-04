@@ -1,3 +1,4 @@
+import 'package:dt_app/components/components.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:dt_app/models/playlist.dart';
@@ -65,58 +66,42 @@ class _PlaylistPage extends State<PlaylistPage> {
         musicList: mockMusicData2,
       )
     ];
-
-    return Scaffold(
-      appBar: appBar(_width),
-      body: _body(
-        [
-          sizeBoxs10,
-          PlaylistCrad(
-            playList: mockPlaylist,
-            width: _width,
-            bgColor: Colors.grey[300],
-            cardColor: Colors.grey[400],
-            pNameStyle: head3,
-            desStyle: head5,
-          )
-        ],
-      ),
-    );
-  }
-
-  Widget _body(List<Widget> inhome) {
-    return SafeArea(
-      child: SingleChildScrollView(
-        child: Column(
-          children: inhome,
-        ),
-      ),
-    );
-  }
-
-  AppBar appBar(double width) {
-    return AppBar(
-      automaticallyImplyLeading: false,
-      backgroundColor: Colors.transparent,
-      shadowColor: Colors.transparent,
-      title: const Text(
-        "PlayList",
+    AppBar _appbar(BuildContext context) {
+      return HomeAppBar(
+        context: context,
+        title: "Playlist Page",
         style: head3,
-      ),
-      elevation: 0,
-      actions: [
-        IconButton(
-          color: Colors.black,
-          icon: const Icon(FeatherIcons.circle),
-          onPressed: () {},
-        ),
-        IconButton(
-          color: Colors.black,
-          icon: const Icon(FeatherIcons.chevronLeft),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
+        iconButton: [
+          IconButton(
+            color: Colors.black,
+            icon: const Icon(FeatherIcons.circle),
+            onPressed: () {},
+          ),
+          IconButton(
+            color: Colors.black,
+            icon: const Icon(FeatherIcons.chevronLeft),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          ),
+        ],
+      );
+    }
+
+    return Body(
+      context: context,
+      haveFAB: true,
+      appBar: _appbar(context),
+      body: [
+        sizeBoxs10,
+        PlaylistCrad(
+          playList: mockPlaylist,
+          width: _width,
+          bgColor: Colors.grey[300],
+          cardColor: Colors.grey[400],
+          pNameStyle: head3,
+          desStyle: head5,
+        )
       ],
     );
   }
