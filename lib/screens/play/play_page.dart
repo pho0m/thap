@@ -107,6 +107,14 @@ class _PlayerPageState extends State<PlayerPage> {
 
     _player.onAudioPositionChanged
         .listen((Duration p) => {setState(() => position = p)});
+
+    _player.onPlayerCompletion.listen((event) {
+      setState(() {
+        position = const Duration(seconds: 0);
+        playing = false;
+        repeat = false;
+      });
+    });
   }
 
   @override
