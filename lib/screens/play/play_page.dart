@@ -1,4 +1,5 @@
 import 'package:audioplayers/audioplayers.dart';
+import 'package:dt_app/components/components.dart';
 import 'package:dt_app/theme/constant.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
@@ -62,27 +63,12 @@ class _PlayerPageState extends State<PlayerPage> {
     double _width = MediaQuery.of(context).size.width;
     double _height = MediaQuery.of(context).size.height;
 
-    Widget slider() {
-      return SizedBox(
-        width: _width / 1.5,
-        child: Slider.adaptive(
-            activeColor: Colors.grey[800],
-            inactiveColor: Colors.grey[350],
-            value: position.inSeconds.toDouble(),
-            max: musicLength.inSeconds.toDouble(),
-            onChanged: (value) {
-              seekToSec(value.toInt());
-            }),
-      );
-    }
-
-    return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        backgroundColor: Colors.transparent,
-        shadowColor: Colors.transparent,
-        elevation: 0,
-        actions: [
+    AppBar _appbar(BuildContext context) {
+      return HomeAppBar(
+        context: context,
+        title: "",
+        style: head3,
+        iconButton: [
           IconButton(
             color: Colors.black,
             icon: const Icon(FeatherIcons.fileText),
@@ -107,123 +93,99 @@ class _PlayerPageState extends State<PlayerPage> {
             },
           ),
         ],
-      ),
-      body: _body(
-        [
-          Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                const SizedBox(height: 70),
-                Container(
-                  width: _width / 1.3,
-                  height: _height / 3.2,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(30.0),
-                    image: DecorationImage(
-                      image: NetworkImage(music.image),
-                      fit: BoxFit.cover,
-                    ),
-                    shape: BoxShape.rectangle,
-                  ),
-                ),
-                const SizedBox(height: 60),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    const SizedBox(width: 60),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(music.title),
-                        sizeBoxs20,
-                        Text(music.artist),
-                      ],
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 60),
-                SizedBox(
-                  width: 500.0,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
+      );
+    }
+
+    return Body(
+      context: context,
+      haveFAB: false,
+      appBar: _appbar(context),
+      body: [
+        Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              sizeBoxs60,
+              MusicImage(
+                height: _height,
+                width: _width,
+                musicImage: music.image,
+              ),
+              sizeBoxs60,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  sizeBoxs60,
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        "${position.inMinutes}:${position.inSeconds.remainder(60)}",
-                        style: head4,
-                      ),
-                      slider(),
-                      Text(
-                        "${musicLength.inMinutes}:${musicLength.inSeconds.remainder(60)}",
-                        style: head4,
-                      ),
+                      Text(music.title),
+                      sizeBoxs20,
+                      Text(music.artist),
                     ],
                   ),
-                ),
-                const SizedBox(height: 60),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    IconButton(
-                      color: Colors.black,
-                      icon: const Icon(FeatherIcons.shuffle),
-                      onPressed: () {},
+                ],
+              ),
+              sizeBoxs60,
+              MusicProgressBar(
+                width: _width,
+                musicLength: musicLength,
+                player: _player,
+                position: position,
+                style: head4,
+              ),
+              sizeBoxs60,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  IconButton(
+                    color: Colors.black,
+                    icon: const Icon(FeatherIcons.shuffle),
+                    onPressed: () {},
+                  ),
+                  IconButton(
+                    color: Colors.black,
+                    icon: const Icon(FeatherIcons.skipBack),
+                    onPressed: () {},
+                  ),
+                  IconButton(
+                    color: Colors.black,
+                    icon: Icon(
+                      playBtn,
                     ),
-                    IconButton(
-                      color: Colors.black,
-                      icon: const Icon(FeatherIcons.skipBack),
-                      onPressed: () {},
-                    ),
-                    IconButton(
-                      color: Colors.black,
-                      icon: Icon(
-                        playBtn,
-                      ),
-                      onPressed: () {
-                        if (!playing) {
-                          cache.play(music.musicPlay);
-                          setState(() {
-                            playBtn = FeatherIcons.pause;
-                            playing = true;
-                          });
-                        } else {
-                          _player.pause();
-                          setState(() {
-                            playBtn = FeatherIcons.play;
-                            playing = false;
-                          });
-                        }
-                      },
-                    ),
-                    IconButton(
-                      color: Colors.black,
-                      icon: const Icon(FeatherIcons.skipForward),
-                      onPressed: () {},
-                    ),
-                    IconButton(
-                      color: Colors.black,
-                      icon: const Icon(FeatherIcons.repeat),
-                      onPressed: () {},
-                    ),
-                  ],
-                ),
-              ],
-            ),
+                    onPressed: () {
+                      if (!playing) {
+                        cache.play(music.musicPlay);
+                        setState(() {
+                          playBtn = FeatherIcons.pause;
+                          playing = true;
+                        });
+                      } else {
+                        _player.pause();
+                        setState(() {
+                          playBtn = FeatherIcons.play;
+                          playing = false;
+                        });
+                      }
+                    },
+                  ),
+                  IconButton(
+                    color: Colors.black,
+                    icon: const Icon(FeatherIcons.skipForward),
+                    onPressed: () {},
+                  ),
+                  IconButton(
+                    color: Colors.black,
+                    icon: const Icon(FeatherIcons.repeat),
+                    onPressed: () {},
+                  ),
+                ],
+              ),
+            ],
           ),
-        ],
-      ),
-    );
-  }
-
-  Widget _body(List<Widget> inhome) {
-    return SafeArea(
-      child: SingleChildScrollView(
-        child: Column(
-          children: inhome,
         ),
-      ),
+      ],
     );
   }
 }

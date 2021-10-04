@@ -17,6 +17,7 @@ const double fontSizeH4 = 15.00;
 const double fontSizeH5 = 12.00;
 const double fontSizeH6 = 10.00;
 
+const sizeBoxs60 = SizedBox(height: 60, width: 60);
 const sizeBoxs20 = SizedBox(height: 20, width: 20);
 const sizeBoxs10 = SizedBox(height: 10, width: 10);
 const sizeBoxs5 = SizedBox(height: 5, width: 5);
