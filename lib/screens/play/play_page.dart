@@ -26,7 +26,6 @@ class _PlayerPageState extends State<PlayerPage> {
 
   late AudioPlayer _player;
   late AudioCache cache;
-  late PlayerState playerState;
 
   Duration position = const Duration();
   Duration musicLength = const Duration();
@@ -87,12 +86,8 @@ class _PlayerPageState extends State<PlayerPage> {
   void initState() {
     super.initState();
     music = widget.musicData;
-
     _player = AudioPlayer();
     cache = AudioCache(fixedPlayer: _player);
-
-    _player.onPlayerStateChanged
-        .listen((PlayerState s) => {setState(() => playerState = s)});
 
     cache.play(music.musicPlay);
 
@@ -136,7 +131,7 @@ class _PlayerPageState extends State<PlayerPage> {
       );
     }
 
-    AppBar _appbar(BuildContext context) {
+    AppBar _appbar(context) {
       return HomeAppBar(
         context: context,
         title: "",
@@ -161,8 +156,8 @@ class _PlayerPageState extends State<PlayerPage> {
             color: Colors.black,
             icon: const Icon(FeatherIcons.chevronLeft),
             onPressed: () {
-              setState(() {});
-              Navigator.pop(context);
+              _player.stop();
+              Navigator.of(context).pop();
             },
           ),
         ],
