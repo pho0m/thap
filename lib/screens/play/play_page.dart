@@ -36,49 +36,66 @@ class _PlayerPageState extends State<PlayerPage> {
   }
 
   Widget playBtn() {
-    return IconButton(
-      padding: const EdgeInsets.all(4),
-      icon: playing
-          ? const Icon(FeatherIcons.pause)
-          : const Icon(FeatherIcons.play),
-      onPressed: () {
-        if (!playing) {
-          cache.play(music.musicPlay);
-          setState(() {
-            playBtn();
-            playing = true;
-          });
-        } else {
-          _player.pause();
-          setState(() {
-            playBtn();
-            playing = false;
-          });
-        }
-      },
+    return SizedBox(
+      height: 80,
+      width: 80,
+      child: Card(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(15.0),
+        ),
+        elevation: 5,
+        child: IconButton(
+          padding: const EdgeInsets.all(4),
+          icon: playing
+              ? const Icon(FeatherIcons.pause)
+              : const Icon(FeatherIcons.play),
+          iconSize: 40,
+          onPressed: () {
+            if (!playing) {
+              cache.play(music.musicPlay);
+              setState(() {
+                playBtn();
+                playing = true;
+              });
+            } else {
+              _player.pause();
+              setState(() {
+                playBtn();
+                playing = false;
+              });
+            }
+          },
+        ),
+      ),
     );
   }
 
   Widget repeatBtn() {
-    return IconButton(
-      padding: const EdgeInsets.all(4),
-      icon: const Icon(FeatherIcons.repeat),
-      color: repeat ? Colors.grey : Colors.black,
-      onPressed: () {
-        if (!repeat) {
-          _player.setReleaseMode(ReleaseMode.LOOP);
-          setState(() {
-            repeatBtn();
-            repeat = true;
-          });
-        } else {
-          setState(() {
-            _player.setReleaseMode(ReleaseMode.RELEASE);
-            repeatBtn();
-            repeat = false;
-          });
-        }
-      },
+    return Card(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(15.0),
+      ),
+      elevation: 5,
+      child: IconButton(
+        padding: const EdgeInsets.all(4),
+        icon: const Icon(FeatherIcons.repeat),
+        color: repeat ? Colors.grey : Colors.black,
+        onPressed: () {
+          if (!repeat) {
+            _player.setReleaseMode(ReleaseMode.LOOP);
+            setState(() {
+              repeatBtn();
+              repeat = true;
+            });
+          } else {
+            setState(() {
+              _player.setReleaseMode(ReleaseMode.RELEASE);
+              repeatBtn();
+              repeat = false;
+            });
+          }
+        },
+      ),
     );
   }
 
@@ -139,21 +156,6 @@ class _PlayerPageState extends State<PlayerPage> {
         iconButton: [
           IconButton(
             color: Colors.black,
-            icon: const Icon(FeatherIcons.fileText),
-            onPressed: () {},
-          ),
-          IconButton(
-            color: Colors.black,
-            icon: const Icon(FeatherIcons.heart),
-            onPressed: () {},
-          ),
-          IconButton(
-            color: Colors.black,
-            icon: const Icon(FeatherIcons.circle),
-            onPressed: () {},
-          ),
-          IconButton(
-            color: Colors.black,
             icon: const Icon(FeatherIcons.chevronLeft),
             onPressed: () {
               _player.stop();
@@ -164,83 +166,159 @@ class _PlayerPageState extends State<PlayerPage> {
       );
     }
 
-    return Body(
-      context: context,
-      haveFAB: false,
-      appBar: _appbar(context),
-      body: [
-        Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              sizeBoxs60,
-              MusicImage(
-                height: _height,
-                width: _width,
-                musicImage: music.image,
-              ),
-              sizeBoxs60,
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  sizeBoxs60,
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
+    return Container(
+      decoration: const BoxDecoration(
+          gradient: LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: [Colors.white, Colors.grey])),
+      child: Body(
+        context: context,
+        haveFAB: false,
+        appBar: _appbar(context),
+        body: [
+          Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                sizeBoxs10,
+                MusicImage(
+                  height: _height,
+                  width: _width,
+                  musicImage: music.image,
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(right: 50.0, top: 20),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      Text(music.title),
-                      sizeBoxs20,
-                      Text(music.artist),
+                      Card(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15.0),
+                        ),
+                        elevation: 5,
+                        child: IconButton(
+                          color: Colors.black,
+                          icon: const Icon(FeatherIcons.fileText),
+                          onPressed: () {},
+                        ),
+                      ),
+                      Card(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15.0),
+                        ),
+                        elevation: 5,
+                        child: IconButton(
+                          color: Colors.black,
+                          icon: const Icon(FeatherIcons.heart),
+                          onPressed: () {},
+                        ),
+                      ),
                     ],
                   ),
-                ],
-              ),
-              sizeBoxs60,
-              SizedBox(
-                width: 500.0,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
+                ),
+                sizeBoxs30,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Text(
-                      "${position.inMinutes}:${position.inSeconds.remainder(60)}",
-                      style: head4,
-                    ),
-                    slider(),
-                    Text(
-                      "${musicLength.inMinutes}:${musicLength.inSeconds.remainder(60)}",
-                      style: head4,
+                    sizeBoxs60,
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        ShadowText(
+                          style: head4,
+                          data: music.title,
+                          opacity: 0.2,
+                        ),
+                        sizeBoxs20,
+                        ShadowText(
+                          style: head4,
+                          data: music.artist,
+                          opacity: 0.2,
+                        ),
+                      ],
                     ),
                   ],
                 ),
-              ),
-              sizeBoxs60,
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  IconButton(
-                    color: Colors.black,
-                    icon: const Icon(FeatherIcons.shuffle),
-                    onPressed: () {},
+                sizeBoxs60,
+                SizedBox(
+                  width: 500.0,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        "${position.inMinutes}:${position.inSeconds.remainder(60)}",
+                        style: head4,
+                      ),
+                      slider(),
+                      Text(
+                        "${musicLength.inMinutes}:${musicLength.inSeconds.remainder(60)}",
+                        style: head4,
+                      ),
+                    ],
                   ),
-                  IconButton(
-                    color: Colors.black,
-                    icon: const Icon(FeatherIcons.skipBack),
-                    onPressed: () {},
+                ),
+                sizeBoxs20,
+                Card(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15.0),
                   ),
-                  playBtn(),
-                  IconButton(
-                    color: Colors.black,
-                    icon: const Icon(FeatherIcons.skipForward),
-                    onPressed: () {},
+                  elevation: 10,
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: SizedBox(
+                      width: _width / 1.25,
+                      height: _height / 6.8,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Card(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15.0),
+                            ),
+                            elevation: 5,
+                            child: IconButton(
+                              color: Colors.black,
+                              icon: const Icon(FeatherIcons.shuffle),
+                              onPressed: () {},
+                            ),
+                          ),
+                          Card(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15.0),
+                            ),
+                            elevation: 5,
+                            child: IconButton(
+                              color: Colors.black,
+                              icon: const Icon(FeatherIcons.skipBack),
+                              onPressed: () {},
+                            ),
+                          ),
+                          playBtn(),
+                          Card(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15.0),
+                            ),
+                            elevation: 5,
+                            child: IconButton(
+                              color: Colors.black,
+                              icon: const Icon(FeatherIcons.skipForward),
+                              onPressed: () {},
+                            ),
+                          ),
+                          repeatBtn()
+                        ],
+                      ),
+                    ),
                   ),
-                  repeatBtn()
-                ],
-              ),
-            ],
+                ),
+              ],
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

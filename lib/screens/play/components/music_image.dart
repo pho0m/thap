@@ -15,16 +15,22 @@ class MusicImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: width / 1.3,
-      height: height / 3.2,
-      decoration: BoxDecoration(
+    return Card(
+      shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(30.0),
-        image: DecorationImage(
-          image: NetworkImage(musicImage),
-          fit: BoxFit.cover,
+      ),
+      elevation: 5,
+      child: Container(
+        width: width / 1.3,
+        height: height / 3.0,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(30.0),
+          image: DecorationImage(
+            image: NetworkImage(musicImage),
+            fit: BoxFit.cover,
+          ),
+          shape: BoxShape.rectangle,
         ),
-        shape: BoxShape.rectangle,
       ),
     );
   }
