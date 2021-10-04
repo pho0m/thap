@@ -71,52 +71,14 @@ class _PlaylistPage extends State<PlaylistPage> {
       body: _body(
         [
           sizeBoxs10,
-          Center(
-            child: Container(
-              decoration: BoxDecoration(
-                color: Colors.grey[300],
-                borderRadius: BorderRadius.circular(15),
-              ),
-              height: 700,
-              width: _width - 30,
-              child: Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: GridView.builder(
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    mainAxisSpacing: 20, //horizon
-                    crossAxisSpacing: 20, //vertical
-                    childAspectRatio: 1.5,
-                    crossAxisCount: 2,
-                  ),
-                  itemCount: mockPlaylist.length,
-                  itemBuilder: (BuildContext ctx, index) {
-                    return GestureDetector(
-                      child: Container(
-                        height: 10,
-                        width: 10,
-                        alignment: Alignment.centerLeft,
-                        decoration: BoxDecoration(
-                          color: Colors.grey[400],
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                        child: Text(mockPlaylist[index].playlistName),
-                      ),
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => PlaylistDetailPage(
-                              playlistData: mockPlaylist[index],
-                            ),
-                          ),
-                        );
-                      },
-                    );
-                  },
-                ),
-              ),
-            ),
-          ),
+          PlaylistCrad(
+            playList: mockPlaylist,
+            width: _width,
+            bgColor: Colors.grey[300],
+            cardColor: Colors.grey[400],
+            pNameStyle: head3,
+            desStyle: head5,
+          )
         ],
       ),
     );
@@ -134,6 +96,7 @@ class _PlaylistPage extends State<PlaylistPage> {
 
   AppBar appBar(double width) {
     return AppBar(
+      automaticallyImplyLeading: false,
       backgroundColor: Colors.transparent,
       shadowColor: Colors.transparent,
       title: const Text(
@@ -145,8 +108,13 @@ class _PlaylistPage extends State<PlaylistPage> {
         IconButton(
           color: Colors.black,
           icon: const Icon(FeatherIcons.circle),
+          onPressed: () {},
+        ),
+        IconButton(
+          color: Colors.black,
+          icon: const Icon(FeatherIcons.chevronLeft),
           onPressed: () {
-            //FIXME
+            Navigator.pop(context);
           },
         ),
       ],
