@@ -160,7 +160,7 @@ class _HomePageState extends State<HomePage> {
       onPressed: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => PlaylistPage()),
+          MaterialPageRoute(builder: (context) => const PlaylistPage()),
         );
       },
     );
@@ -176,7 +176,7 @@ class _HomePageState extends State<HomePage> {
       onPressed: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => FavoritePage()),
+          MaterialPageRoute(builder: (context) => const FavoritePage()),
         );
       },
     );
