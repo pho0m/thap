@@ -1,18 +1,19 @@
 import 'package:dt_app/components/components.dart';
 import 'package:dt_app/theme/constant.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 
 import '../route.dart';
 
-class ProfileArtist extends StatefulWidget {
-  const ProfileArtist({Key? key}) : super(key: key);
+class ProfileArtistPage extends StatefulWidget {
+  const ProfileArtistPage({Key? key}) : super(key: key);
 
   @override
-  _ProfileArtist createState() => _ProfileArtist();
+  _ProfileArtistPage createState() => _ProfileArtistPage();
 }
 
-class _ProfileArtist extends State<ProfileArtist> {
+class _ProfileArtistPage extends State<ProfileArtistPage> {
   @override
   Widget build(BuildContext context) {
     return Body(
@@ -25,16 +26,29 @@ class _ProfileArtist extends State<ProfileArtist> {
           child: Column(
             children: [
               Container(
-                decoration: const BoxDecoration(
+                decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  color: Colors.red,
+                  color: Colors.grey[300],
                 ),
-                width: 200,
+                width: 300,
                 height: 200,
-                child: const Center(child: Text("image")), //FIXME,
+                child: const Center(
+                  child: Text("image"),
+                ),
               ),
             ],
           ),
+        ),
+        sizeBoxs20,
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: const [
+            Text(
+              "History",
+              style: TextStyle(fontSize: 30.0),
+            )
+          ],
         ),
         sizeBoxs20,
         Center(
@@ -42,14 +56,15 @@ class _ProfileArtist extends State<ProfileArtist> {
             children: [
               Container(
                 padding: const EdgeInsets.all(8),
-                decoration: const BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(20)),
-                  color: Colors.green,
+                decoration: BoxDecoration(
+                  borderRadius: const BorderRadius.all(
+                    Radius.circular(20),
+                  ),
+                  color: Colors.grey[300],
                 ),
                 width: 350,
-                height: 450,
-                child: const Text(
-                    "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."),
+                height: 300,
+                child: const Text("Hello Artist Profile"),
               ),
             ],
           ),
