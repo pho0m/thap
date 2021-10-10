@@ -15,6 +15,7 @@ class FavoritePage extends StatelessWidget {
       image:
           "https://images.squarespace-cdn.com/content/v1/56858337cbced60d3b293aef/1572288107885-V2AZJF8YVG5NARZRU7YE/Albumism_The1975_ABriefInquiryIntoOnlineRelationships_MainImage.png.jpg?format=1000w",
       musicPlay: "musics/testmusic.mp3",
+      lyrics: "test  lyrics  if you shy",
     ),
     MusicData(
       title: "cheapest flight",
@@ -22,6 +23,7 @@ class FavoritePage extends StatelessWidget {
       image:
           "https://i1.sndcdn.com/artworks-YTJNfuXwL5a59d4E-xezZzw-t500x500.jpg",
       musicPlay: "musics/preptestmusic.mp3",
+      lyrics: "test lyrics  cheapest flight",
     ),
   ];
 

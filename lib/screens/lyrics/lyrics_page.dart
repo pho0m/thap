@@ -1,15 +1,28 @@
-import 'package:dt_app/models/lyrics_data.dart';
+import 'package:dt_app/models/music_data.dart';
 import 'package:dt_app/theme/constant.dart';
 import 'package:flutter/material.dart';
 
 class LyricsPage extends StatelessWidget {
-  LyricsPage({Key? key}) : super(key: key);
+  final MusicData music;
 
-  final List<LyricsData> mockLyricsData = [
-    LyricsData(
-        lyrics:
-            "           Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsumgggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg."),
-  ];
+  const LyricsPage({
+    Key? key,
+    required this.music,
+  }) : super(key: key);
+
+// final string
+  // final <LyricsData> mockLyricsData = [
+  //   LyricsData(
+  //       lyrics:
+  //           "           Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+  //           "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an"
+  //           "unknown printer took a galley of type and scrambled it to make a type specimen book."
+  //           "It has survived not only five centuries, but also the leap into electronic typesetting,"
+  //           "remaining essentially unchanged. It was popularised in the s with the release of Letraset"
+  //           "sheets containing Lorem Ipsum passages, and more recently with desktop publishing software"
+  //           "like Aldus PageMaker including versions of Lorem Ipsumggggggggggggggggggggggggggggggggggg"
+  //           "ggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg."),
+  // ];
 
   @override
   Widget build(BuildContext context) {
@@ -29,8 +42,8 @@ class LyricsPage extends StatelessWidget {
             },
           )
         ],
-        title: const Text(
-          "Lyrics MusicName",
+        title: Text(
+          "Lyrics  ${music.title} ",
           style: head2,
         ),
       ),
@@ -48,12 +61,11 @@ class LyricsPage extends StatelessWidget {
           width: 300,
           height: 700,
           child: ListView(
-            children: const [
-              Text(
-                  "           Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsumgggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg."),
+            children: [
+              Text(music.lyrics),
             ],
           ),
-          // child: const Text(
+
           //     "           Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsumgggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg."),
         ),
       ),

@@ -84,8 +84,9 @@ class _PlayerPageState extends State<PlayerPage> {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                      // ignore: prefer_const_constructors
-                      builder: (context) => LyricsPage()));
+                      builder: (context) => LyricsPage(
+                            music: music,
+                          )));
             },
           ),
           IconButton(
