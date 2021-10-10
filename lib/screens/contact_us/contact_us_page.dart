@@ -6,14 +6,14 @@ import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 
 import '../route.dart';
 
-class ContactUs_Page extends StatefulWidget {
-  const ContactUs_Page({Key? key}) : super(key: key);
+class ContactUsPage extends StatefulWidget {
+  const ContactUsPage({Key? key}) : super(key: key);
 
   @override
   _ContactUs createState() => _ContactUs();
 }
 
-class _ContactUs extends State<ContactUs_Page> {
+class _ContactUs extends State<ContactUsPage> {
   @override
   Widget build(BuildContext context) {
     return Body(
