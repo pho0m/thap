@@ -61,9 +61,11 @@ class _PlaylistCrad extends State<PlaylistCrad> {
                           color: Colors.red,
                           borderRadius: BorderRadius.circular(15),
                           image: const DecorationImage(
-                              image: AssetImage(
-                                  'assets/images/placeholder-black.jpg'),
-                              fit: BoxFit.cover),
+                            image: AssetImage(
+                              'assets/images/placeholder-black.jpg',
+                            ),
+                            fit: BoxFit.cover,
+                          ),
                         ),
                       ),
                     ),
