@@ -80,7 +80,13 @@ class _PlayerPageState extends State<PlayerPage> {
           IconButton(
             color: Colors.black,
             icon: const Icon(FeatherIcons.fileText),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      // ignore: prefer_const_constructors
+                      builder: (context) => LyricsPage()));
+            },
           ),
           IconButton(
             color: Colors.black,
