@@ -1,6 +1,8 @@
+import 'package:dt_app/components/appbar.dart';
 import 'package:dt_app/models/music_data.dart';
 import 'package:dt_app/theme/constant.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 
 class LyricsPage extends StatelessWidget {
   final MusicData music;
@@ -12,27 +14,29 @@ class LyricsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        actions: <Widget>[
+    AppBar _appbar(BuildContext context) {
+      return HomeAppBar(
+        context: context,
+        title: "Lyrics ${music.title}",
+        style: head3,
+        iconButton: [
           IconButton(
-            icon: const Icon(
-              Icons.chevron_left,
               color: Colors.black,
-            ),
+              icon: const Icon(FeatherIcons.music),
+              onPressed: () {}),
+          IconButton(
+            color: Colors.black,
+            icon: const Icon(FeatherIcons.chevronLeft),
             onPressed: () {
               Navigator.pop(context);
-              // do something
             },
-          )
+          ),
         ],
-        title: Text(
-          "Lyrics  ${music.title} ",
-          style: head2,
-        ),
-      ),
+      );
+    }
+
+    return Scaffold(
+      appBar: _appbar(context),
       body: Center(
         child: Container(
           padding: const EdgeInsets.only(
