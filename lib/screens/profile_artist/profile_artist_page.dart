@@ -43,7 +43,6 @@ class _ProfileArtistPage extends State<ProfileArtistPage> {
                 height: 200,
                 decoration: const BoxDecoration(
                   shape: BoxShape.circle,
-                  // color: Colors.grey[300],
                   image: DecorationImage(
                     image:
                         ExactAssetImage('assets/images/placeholder-black.jpg'),
