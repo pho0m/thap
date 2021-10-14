@@ -126,14 +126,26 @@ class _PlayerPageState extends State<PlayerPage> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     const SizedBox(width: 60),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(music.title),
-                        sizeBoxs20,
-                        Text(music.artist),
-                      ],
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ProfileArtistPage(
+                              music: music,
+                            ),
+                          ),
+                        );
+                      },
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(music.title),
+                          sizeBoxs20,
+                          Text(music.artist),
+                        ],
+                      ),
                     ),
                   ],
                 ),
