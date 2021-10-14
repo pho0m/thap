@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:dt_app/components/appbar.dart';
 import 'package:dt_app/models/music_data.dart';
 import 'package:dt_app/theme/constant.dart';
@@ -17,7 +18,7 @@ class LyricsPage extends StatelessWidget {
     AppBar _appbar(BuildContext context) {
       return HomeAppBar(
         context: context,
-        title: "Lyrics ${music.title}",
+        title: "Lyrics  :  ${music.title}",
         style: head3,
         iconButton: [
           IconButton(
@@ -37,23 +38,32 @@ class LyricsPage extends StatelessWidget {
 
     return Scaffold(
       appBar: _appbar(context),
-      body: Center(
-        child: Container(
-          padding: const EdgeInsets.only(
-            left: 20.0,
-            top: 20.0,
-            right: 20.0,
+      body: Padding(
+        padding: const EdgeInsets.only(
+          top: 20.0,
+          right: 18.0,
+          left: 18.0,
+        ),
+        child: Card(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(25.15),
           ),
-          decoration: const BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(20)),
-            color: Colors.grey,
-          ),
-          width: 300,
-          height: 700,
-          child: ListView(
-            children: [
-              Text(music.lyrics),
-            ],
+          color: Colors.grey[300],
+          child: ListTile(
+            title: AutoSizeText(
+              music.title,
+              style: head4,
+              minFontSize: 10,
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+            ),
+            subtitle: AutoSizeText(
+              music.lyrics,
+              style: sub1,
+              minFontSize: 10,
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+            ),
           ),
         ),
       ),
