@@ -131,7 +131,9 @@ class _PlayerPageState extends State<PlayerPage> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const ProfileArtistPage(),
+                            builder: (context) => ProfileArtistPage(
+                              music: music,
+                            ),
                           ),
                         );
                       },

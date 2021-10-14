@@ -7,13 +7,26 @@ import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import '../route.dart';
 
 class ProfileArtistPage extends StatefulWidget {
-  const ProfileArtistPage({Key? key}) : super(key: key);
+  final MusicData music;
+  const ProfileArtistPage({
+    required this.music,
+    Key? key,
+  }) : super(key: key);
 
   @override
   _ProfileArtistPage createState() => _ProfileArtistPage();
 }
 
 class _ProfileArtistPage extends State<ProfileArtistPage> {
+  final MusicData mockData = MusicData(
+    title: "if you shy (let me knows)",
+    artist: "1975",
+    image:
+        "https://images.squarespace-cdn.com/content/v1/56858337cbced60d3b293aef/1572288107885-V2AZJF8YVG5NARZRU7YE/Albumism_The1975_ABriefInquiryIntoOnlineRelationships_MainImage.png.jpg?format=1000w",
+    musicPlay: "musics/testmusic.mp3",
+    dataArtist:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+  );
   @override
   Widget build(BuildContext context) {
     return Body(
@@ -26,14 +39,16 @@ class _ProfileArtistPage extends State<ProfileArtistPage> {
           child: Column(
             children: [
               Container(
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: Colors.grey[300],
-                ),
                 width: 300,
                 height: 200,
-                child: const Center(
-                  child: Text("image"),
+                decoration: const BoxDecoration(
+                  shape: BoxShape.circle,
+                  // color: Colors.grey[300],
+                  image: DecorationImage(
+                    image:
+                        ExactAssetImage('assets/images/placeholder-black.jpg'),
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
             ],
@@ -63,8 +78,12 @@ class _ProfileArtistPage extends State<ProfileArtistPage> {
                   color: Colors.grey[300],
                 ),
                 width: 350,
-                height: 300,
-                child: const Text("Hello Artist Profile"),
+                height: 375,
+                child: ListView(
+                  children: [
+                    Text(mockData.dataArtist),
+                  ],
+                ),
               ),
             ],
           ),
