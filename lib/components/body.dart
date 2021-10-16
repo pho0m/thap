@@ -36,6 +36,7 @@ class _BodyState extends State<Body> {
             ),
             floatingActionButton: MusicBar(context: context))
         : Scaffold(
+            backgroundColor: Colors.transparent,
             appBar: widget.appBar,
             body: SafeArea(
               child: SingleChildScrollView(

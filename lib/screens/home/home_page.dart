@@ -100,7 +100,6 @@ class _HomePageState extends State<HomePage> {
             FeatherIcons.headphones,
             size: 40.0,
           ),
-          // leading: const FlutterLogo(size: 56.0),
           title: Text(
             mockData.title,
             style: head4,
