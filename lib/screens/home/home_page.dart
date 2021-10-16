@@ -85,6 +85,7 @@ class _HomePageState extends State<HomePage> {
         "https://images.squarespace-cdn.com/content/v1/56858337cbced60d3b293aef/1572288107885-V2AZJF8YVG5NARZRU7YE/Albumism_The1975_ABriefInquiryIntoOnlineRelationships_MainImage.png.jpg?format=1000w",
     musicPlay: "musics/testmusic.mp3",
     lyrics: "test",
+    dataArtist: "test",
   );
 
   Widget testPlay() {
@@ -162,7 +163,7 @@ class _HomePageState extends State<HomePage> {
       onPressed: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => PlaylistPage()),
+          MaterialPageRoute(builder: (context) => const PlaylistPage()),
         );
       },
     );
@@ -178,7 +179,7 @@ class _HomePageState extends State<HomePage> {
       onPressed: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => FavoritePage()),
+          MaterialPageRoute(builder: (context) => const FavoritePage()),
         );
       },
     );

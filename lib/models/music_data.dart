@@ -4,6 +4,7 @@ class MusicData {
   final String image;
   final String musicPlay;
   final String lyrics;
+  final String dataArtist;
 
   MusicData({
     required this.title,
@@ -11,5 +12,6 @@ class MusicData {
     required this.image,
     required this.musicPlay,
     required this.lyrics,
+    required this.dataArtist,
   });
 }
