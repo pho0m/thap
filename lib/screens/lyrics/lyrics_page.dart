@@ -71,6 +71,16 @@ class LyricsPage extends StatelessWidget {
             ),
           ),
         ),
+        // child: Container(
+        //   width: 500,
+        //   height: 650,
+        //   color: dtPrimaryColor,
+        //   decoration: BoxDecoration(borderRadius: BorderRadius.circular(20.0)),
+        //   child: AutoSizeText(
+        //     music.lyrics,
+        //     style: sub1,
+        //   ),
+        // ),
       ),
     );
   }
