@@ -22,8 +22,13 @@ class LyricsPage extends StatelessWidget {
         style: head3,
         iconButton: [
           IconButton(
+            color: Colors.black,
+            icon: const Icon(FeatherIcons.volume2),
+            onPressed: () {},
+          ),
+          IconButton(
               color: Colors.black,
-              icon: const Icon(FeatherIcons.music),
+              icon: const Icon(FeatherIcons.mic),
               onPressed: () {}),
           IconButton(
             color: Colors.black,
