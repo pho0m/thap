@@ -45,42 +45,36 @@ class LyricsPage extends StatelessWidget {
       appBar: _appbar(context),
       body: Padding(
         padding: const EdgeInsets.only(
-          top: 20.0,
-          right: 18.0,
-          left: 18.0,
+          left: 30,
+          right: 30,
+          top: 30,
+          bottom: 30,
         ),
-        child: Card(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(25.15),
-          ),
-          color: Colors.grey[300],
-          child: ListTile(
-            title: AutoSizeText(
-              music.title,
-              style: head4,
-              minFontSize: 10,
-              maxLines: 2,
-              overflow: TextOverflow.ellipsis,
+        child: ListView(
+          children: [
+            Card(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(25.15),
+              ),
+              color: Colors.grey[300],
+              child: ListTile(
+                title: Text(
+                  music.title,
+                  style: head2,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                ),
+                subtitle: Text(
+                  music.lyrics,
+                  style: head4,
+                  // minFontSize: 10,
+                  maxLines: 100,
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ),
             ),
-            subtitle: AutoSizeText(
-              music.lyrics,
-              style: sub1,
-              minFontSize: 10,
-              maxLines: 2,
-              overflow: TextOverflow.ellipsis,
-            ),
-          ),
+          ],
         ),
-        // child: Container(
-        //   width: 500,
-        //   height: 650,
-        //   color: dtPrimaryColor,
-        //   decoration: BoxDecoration(borderRadius: BorderRadius.circular(20.0)),
-        //   child: AutoSizeText(
-        //     music.lyrics,
-        //     style: sub1,
-        //   ),
-        // ),
       ),
     );
   }

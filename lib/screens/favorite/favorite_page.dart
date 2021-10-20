@@ -30,7 +30,8 @@ class FavoritePage extends StatelessWidget {
             "https://i1.sndcdn.com/artworks-YTJNfuXwL5a59d4E-xezZzw-t500x500.jpg",
         musicPlay: "musics/preptestmusic.mp3",
         dataArtist: "test",
-        lyrics: "test lyrics",
+        lyrics:
+            " test lyrics iudbiuhsdojgbiusdggf kjbh guy guy fyty fytdt dtfthfyfhjhhfhjgf jhf jghf jgf jf jhf jhdj fjg djg djg djy djd j dtydjyttvytgvtufc tyr ffc vtrvytguv trctc crtfc v756 fvyt fvfrtv r6trccv7trcr vr7tvtc7 c86tf 6tfv i6tf6 tiusigjipsdhgjsh gkdu gfuydhjgf iudg iufg iu igdfighi duhfgiudhfgiu hdfiug hiudfhg iudfhgiuf diughf iudhigufh diughdiufhgiudfhgufdhgudhfuigdhfh9uhgu9fdhgui dhfuigh uidfh guidf iguiiy gyf ytu uytf uytf fytdy tsyt dduy fl kgvghf vku yfvh bv kh jv bnvutf vv ytdftyf ihgfv hgfv tyfgt fgjf  jtygf yjgtf jygtf tyg ftygf ty tg uj t yt yj oihsdogs8dgfyitsfuyg8surytto8sueryhuitseyuirgttuisgrtiusegriutgseiurhtiusheiusthuirehtiuserhtiueghrtuihersuithrueihtuiershtiurehtuisheriuthuisehrtiuhertuiheurhtuherutiheriugtsiuerghtgiuoegrtyusgertyutgt87ayetgr87uswegyutgsuergtuirhiugbdifjgnuifhguidhgiudfhgfbguyv gsy gydyfg syeeg ysdgfuys bfyesg fuysygfuyeg yusgefofgyue sgiuyfg esuygfyu esgyufg syuegyufgysg efygyi gsyige fyseg ygsyifyg ysegof gseyf gsy g",
       ),
     ];
 
