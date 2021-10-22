@@ -17,8 +17,8 @@ class ContactUsPage extends StatelessWidget {
       appBar: _appbar(context),
       body: [
         Container(
-          width: 500,
-          height: 500,
+          width: 300,
+          height: 400,
           color: Colors.grey[400],
         ),
       ],
