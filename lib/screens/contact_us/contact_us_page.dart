@@ -6,27 +6,23 @@ import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 
 import '../route.dart';
 
-class ContactUsPage extends StatefulWidget {
+class ContactUsPage extends StatelessWidget {
   const ContactUsPage({Key? key}) : super(key: key);
 
   @override
-  _ContactUs createState() => _ContactUs();
-}
-
-class _ContactUs extends State<ContactUsPage> {
-  @override
   Widget build(BuildContext context) {
     return Body(
-        context: context,
-        haveFAB: false,
-        appBar: _appbar(context),
-        body: [
-          Container(
-            width: 500,
-            height: 500,
-            color: Colors.grey[400],
-          ),
-        ]);
+      context: context,
+      haveFAB: true,
+      appBar: _appbar(context),
+      body: [
+        Container(
+          width: 500,
+          height: 500,
+          color: Colors.grey[400],
+        ),
+      ],
+    );
   }
 
   AppBar _appbar(BuildContext context) {

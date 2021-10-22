@@ -5,21 +5,14 @@ import 'package:dt_app/theme/constant.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 
-import '../route.dart';
-
-class NotificationPage extends StatefulWidget {
+class NotificationPage extends StatelessWidget {
   const NotificationPage({Key? key}) : super(key: key);
 
-  @override
-  _Notification createState() => _Notification();
-}
-
-class _Notification extends State<NotificationPage> {
   @override
   Widget build(BuildContext context) {
     return Body(
       context: context,
-      haveFAB: false,
+      haveFAB: true,
       appBar: _appbar(context),
       body: [
         Container(
