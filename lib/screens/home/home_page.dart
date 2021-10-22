@@ -1,4 +1,5 @@
 import 'package:dt_app/components/components.dart';
+import 'package:dt_app/screens/notification/notification.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 
@@ -67,7 +68,14 @@ class _HomePageState extends State<HomePage> {
         IconButton(
           color: Colors.black,
           icon: const Icon(FeatherIcons.bell),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => NotificationPage(),
+              ),
+            );
+          },
         ),
         IconButton(
           color: Colors.black,
