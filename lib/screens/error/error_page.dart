@@ -37,18 +37,6 @@ class _Error extends State<ErrorPage> {
       iconButton: [
         IconButton(
           color: Colors.black,
-          icon: const Icon(FeatherIcons.home),
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => const HomePage(),
-              ),
-            );
-          },
-        ),
-        IconButton(
-          color: Colors.black,
           icon: const Icon(FeatherIcons.chevronLeft),
           onPressed: () {
             Navigator.pop(context);
