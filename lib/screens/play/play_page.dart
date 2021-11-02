@@ -8,10 +8,12 @@ import '../route.dart';
 
 class PlayerPage extends StatefulWidget {
   final MusicData musicData;
+  final List<MusicData> queue;
 
   const PlayerPage({
     Key? key,
     required this.musicData,
+    required this.queue,
   }) : super(key: key);
 
   @override
@@ -138,8 +140,8 @@ class _PlayerPageState extends State<PlayerPage> {
       return SizedBox(
         width: _width / 1.5,
         child: Slider.adaptive(
-            activeColor: Colors.grey[800],
-            inactiveColor: music.color,
+            activeColor: music.color,
+            inactiveColor: Colors.grey[800],
             value: position.inSeconds.toDouble(),
             max: musicLength.inSeconds.toDouble(),
             onChanged: (value) {

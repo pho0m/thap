@@ -1,10 +1,10 @@
-import 'package:dt_app/components/components.dart';
 import 'package:dt_app/screens/notification/notification.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 
 import 'package:dt_app/screens/route.dart';
 import 'package:dt_app/theme/constant.dart';
+import 'package:dt_app/components/components.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({
@@ -24,6 +24,28 @@ class _HomePageState extends State<HomePage> {
     'assets/images/placeholder-black.jpg',
   ];
 
+  List<MusicData> mockMusicData = [
+    MusicData(
+      title: "if you shy (let me knows)",
+      artist: "1975",
+      image:
+          "https://images.squarespace-cdn.com/content/v1/56858337cbced60d3b293aef/1572288107885-V2AZJF8YVG5NARZRU7YE/Albumism_The1975_ABriefInquiryIntoOnlineRelationships_MainImage.png.jpg?format=1000w",
+      musicPlay: "musics/testmusic.mp3",
+      dataArtist: "test",
+      lyrics: "test lyrics",
+    ),
+    MusicData(
+      title: "cheapest flight",
+      artist: "PERP",
+      image:
+          "https://i1.sndcdn.com/artworks-YTJNfuXwL5a59d4E-xezZzw-t500x500.jpg",
+      musicPlay: "musics/preptestmusic.mp3",
+      dataArtist: "test",
+      lyrics: "test lyrics",
+      color: Colors.lightBlue,
+    ),
+  ];
+
   @override
   void initState() {
     super.initState();
@@ -31,8 +53,8 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    //double _width = MediaQuery.of(context).size.width;
-    //double _height = MediaQuery.of(context).size.height;
+    double _width = MediaQuery.of(context).size.width;
+    double _height = MediaQuery.of(context).size.height;
 
     return DefaultTextStyle(
       style: const TextStyle(color: Colors.black),
@@ -53,7 +75,14 @@ class _HomePageState extends State<HomePage> {
               sizeBoxs20,
             ],
           ),
-          testPlay(),
+          sizeBoxs20,
+          MusicCard(
+            height: _height,
+            width: _width,
+            music: mockMusicData,
+            styletitle: head4,
+            stylesuptitle: head5,
+          ),
         ],
       ),
     );
@@ -81,52 +110,6 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  final MusicData mockData = MusicData(
-    title: "if you shy (let me knows)",
-    artist: "1975",
-    image:
-        "https://images.squarespace-cdn.com/content/v1/56858337cbced60d3b293aef/1572288107885-V2AZJF8YVG5NARZRU7YE/Albumism_The1975_ABriefInquiryIntoOnlineRelationships_MainImage.png.jpg?format=1000w",
-    musicPlay: "musics/testmusic.mp3",
-    lyrics: "test",
-    dataArtist: "test",
-  );
-
-  Widget testPlay() {
-    return Padding(
-      padding: const EdgeInsets.all(20.0),
-      child: Card(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(25.15),
-        ),
-        color: Colors.grey[300],
-        child: ListTile(
-          leading: const Icon(
-            FeatherIcons.headphones,
-            size: 40.0,
-          ),
-          title: Text(
-            mockData.title,
-            style: head4,
-          ),
-          subtitle: Text(
-            mockData.artist,
-            style: sub1,
-          ),
-          onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => PlayerPage(
-                  musicData: mockData,
-                ),
-              ),
-            );
-          },
-        ),
-      ),
-    );
-  }
-
   Widget nowPlaying() {
     return Padding(
       padding: const EdgeInsets.all(20),
@@ -142,11 +125,11 @@ class _HomePageState extends State<HomePage> {
           ),
           // leading: const FlutterLogo(size: 56.0),
           title: Text(
-            mockData.title,
+            mockMusicData[0].title,
             style: head4,
           ),
           subtitle: Text(
-            mockData.artist,
+            mockMusicData[0].artist,
             style: sub1,
           ),
           onTap: () {},

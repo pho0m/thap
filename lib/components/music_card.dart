@@ -76,6 +76,7 @@ class _MusicCardState extends State<MusicCard> {
                     MaterialPageRoute(
                       builder: (context) => PlayerPage(
                         musicData: widget.music[idx],
+                        queue: widget.music,
                       ),
                     ),
                   );
