@@ -147,12 +147,10 @@ class _HomePageState extends State<HomePage> {
             imageData: imageList,
           ),
           Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               playlist(),
-              sizeBoxs20,
               favorite(),
-              sizeBoxs20,
             ],
           ),
           sizeBoxs20,
@@ -223,23 +221,20 @@ class _HomePageState extends State<HomePage> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const Padding(
-          padding: EdgeInsets.only(left: 25.0),
+          padding: EdgeInsets.only(left: 5.0),
           child: Text("Playlist"),
         ),
-        Padding(
-          padding: const EdgeInsets.only(left: 20.0),
-          child: SizedBox(
-            width: 150,
-            height: 150,
-            child: Card(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10.0),
-              ),
-              color: Colors.grey[300],
-              child: const Icon(
-                FeatherIcons.list,
-                size: 40.0,
-              ),
+        SizedBox(
+          width: 150,
+          height: 150,
+          child: Card(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10.0),
+            ),
+            color: Colors.grey[300],
+            child: const Icon(
+              FeatherIcons.list,
+              size: 40.0,
             ),
           ),
         ),

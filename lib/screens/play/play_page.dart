@@ -7,8 +7,8 @@ import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import '../route.dart';
 
 class PlayerPage extends StatefulWidget {
-  final MusicData musicData;
-  final List<MusicData> queue;
+  final int queue;
+  final List<MusicData> musicData;
 
   const PlayerPage({
     Key? key,
@@ -22,6 +22,7 @@ class PlayerPage extends StatefulWidget {
 
 class _PlayerPageState extends State<PlayerPage> {
   late MusicData music;
+  late int queue;
 
   bool playing = false;
   bool repeat = false;
@@ -83,8 +84,46 @@ class _PlayerPageState extends State<PlayerPage> {
         icon: const Icon(FeatherIcons.skipForward),
         onPressed: () {
           setState(() {
-            playBtn();
-            playing = false;
+            if (!playing) {
+              queue++;
+              cache.play(music.musicPlay);
+              setState(() {
+                playBtn();
+                playing = true;
+              });
+            } else {
+              _player.stop();
+              queue++;
+              cache.play(music.musicPlay);
+              setState(() {
+                playBtn();
+                playing = true;
+              });
+            }
+
+            print("queue : ${queue}");
+          });
+        },
+      ),
+    );
+  }
+
+  Widget previousBtn() {
+    return Card(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(15.0),
+      ),
+      elevation: 5,
+      child: IconButton(
+        padding: const EdgeInsets.all(4),
+        icon: const Icon(FeatherIcons.skipBack),
+        onPressed: () {
+          setState(() {
+            // _player.stop();
+            // playing = false;
+            // queue--;
+            // playing = true;
+            // print("queue : ${queue}");
           });
         },
       ),
@@ -123,7 +162,11 @@ class _PlayerPageState extends State<PlayerPage> {
   @override
   void initState() {
     super.initState();
-    music = widget.musicData;
+
+    queue = widget.queue;
+    print("queue : ${queue}");
+
+    music = widget.musicData[queue];
     _player = AudioPlayer();
     cache = AudioCache(fixedPlayer: _player);
 
@@ -152,6 +195,11 @@ class _PlayerPageState extends State<PlayerPage> {
 
   @override
   Widget build(BuildContext context) {
+    queue = widget.queue;
+    music = widget.musicData[queue];
+
+    print(widget.musicData[queue].title);
+
     double _width = MediaQuery.of(context).size.width;
     double _height = MediaQuery.of(context).size.height;
 
@@ -229,7 +277,7 @@ class _PlayerPageState extends State<PlayerPage> {
                               context,
                               MaterialPageRoute(
                                 builder: (context) => LyricsPage(
-                                  music: widget.musicData,
+                                  music: music,
                                 ),
                               ),
                             );
@@ -318,17 +366,7 @@ class _PlayerPageState extends State<PlayerPage> {
                               onPressed: () {},
                             ),
                           ),
-                          Card(
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15.0),
-                            ),
-                            elevation: 5,
-                            child: IconButton(
-                              color: Colors.black,
-                              icon: const Icon(FeatherIcons.skipBack),
-                              onPressed: () {},
-                            ),
-                          ),
+                          previousBtn(),
                           playBtn(),
                           nextBtn(),
                           repeatBtn()
