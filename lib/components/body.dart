@@ -27,24 +27,20 @@ class _BodyState extends State<Body> {
     return widget.haveFAB
         ? Scaffold(
             appBar: widget.appBar,
-            body: SafeArea(
-              child: SingleChildScrollView(
-                physics: const BouncingScrollPhysics(),
-                child: Column(
-                  children: widget.body,
-                ),
+            body: SingleChildScrollView(
+              physics: const BouncingScrollPhysics(),
+              child: Column(
+                children: widget.body,
               ),
             ),
             floatingActionButton: MusicBar(context: context),
           )
         : Scaffold(
             appBar: widget.appBar,
-            body: SafeArea(
-              child: SingleChildScrollView(
-                physics: const BouncingScrollPhysics(),
-                child: Column(
-                  children: widget.body,
-                ),
+            body: SingleChildScrollView(
+              physics: const BouncingScrollPhysics(),
+              child: Column(
+                children: widget.body,
               ),
             ),
           );
