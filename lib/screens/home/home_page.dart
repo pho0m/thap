@@ -217,28 +217,49 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget playlist() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const Padding(
-          padding: EdgeInsets.only(left: 5.0),
-          child: Text("Playlist"),
-        ),
-        SizedBox(
-          width: 150,
-          height: 150,
-          child: Card(
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10.0),
-            ),
-            color: Colors.grey[300],
-            child: const Icon(
-              FeatherIcons.list,
-              size: 40.0,
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => const PlaylistPage()));
+      },
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Padding(
+            padding: EdgeInsets.only(left: 25.0),
+            child: Text("Playlist"),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 20.0),
+            child: SizedBox(
+              width: 150,
+              height: 150,
+              child: Card(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
+                color: Colors.grey[300],
+                child: InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const FavoritePage(),
+                      ),
+                    );
+                  },
+                  child: const SizedBox(
+                    child: Icon(
+                      FeatherIcons.list,
+                      size: 40.0,
+                    ),
+                  ),
+                ),
+              ),
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 
@@ -258,10 +279,22 @@ class _HomePageState extends State<HomePage> {
                 borderRadius: BorderRadius.circular(10.0),
               ),
               color: Colors.grey[300],
-              child: const Icon(
-                Icons.favorite,
-                color: Colors.black,
-                size: 40.0,
+              child: InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const FavoritePage(),
+                    ),
+                  );
+                },
+                child: const SizedBox(
+                  child: Icon(
+                    Icons.favorite,
+                    color: Colors.black,
+                    size: 40.0,
+                  ),
+                ),
               )),
         ),
       ],
