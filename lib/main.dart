@@ -12,7 +12,6 @@ class DTapp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Dt-app Demo',
       theme: ThemeData(
         fontFamily: dtFontFamily,
         primarySwatch: dtPrimaryColor,

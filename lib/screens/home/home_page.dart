@@ -77,11 +77,6 @@ class _HomePageState extends State<HomePage> {
             );
           },
         ),
-        IconButton(
-          color: Colors.black,
-          icon: const Icon(FeatherIcons.search),
-          onPressed: () {},
-        ),
       ],
     );
   }
