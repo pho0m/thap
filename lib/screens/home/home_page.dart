@@ -219,34 +219,57 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget playlist() {
-    return ElevatedButton(
-      child: const Text("Playlist"),
-      style: ElevatedButton.styleFrom(
-        primary: Colors.grey,
-        padding: const EdgeInsets.all(20),
-      ),
-      onPressed: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => const PlaylistPage()),
-        );
-      },
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Padding(
+          padding: EdgeInsets.only(left: 25.0),
+          child: Text("Playlist"),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(left: 20.0),
+          child: SizedBox(
+            width: 150,
+            height: 150,
+            child: Card(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10.0),
+              ),
+              color: Colors.grey[300],
+              child: const Icon(
+                FeatherIcons.list,
+                size: 40.0,
+              ),
+            ),
+          ),
+        ),
+      ],
     );
   }
 
   Widget favorite() {
-    return ElevatedButton(
-      child: const Text("favorite"),
-      style: ElevatedButton.styleFrom(
-        primary: Colors.grey,
-        padding: const EdgeInsets.all(20),
-      ),
-      onPressed: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => const FavoritePage()),
-        );
-      },
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Padding(
+          padding: EdgeInsets.only(left: 5.0),
+          child: Text("Favorite"),
+        ),
+        SizedBox(
+          width: 150,
+          height: 150,
+          child: Card(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10.0),
+              ),
+              color: Colors.grey[300],
+              child: const Icon(
+                Icons.favorite,
+                color: Colors.black,
+                size: 40.0,
+              )),
+        ),
+      ],
     );
   }
 }
