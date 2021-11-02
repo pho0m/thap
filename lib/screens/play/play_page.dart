@@ -101,8 +101,6 @@ class _PlayerPageState extends State<PlayerPage> {
           //     playing = true;
           //   });
           // }
-
-          print("queue : ${queue}");
         },
       ),
     );
@@ -125,9 +123,7 @@ class _PlayerPageState extends State<PlayerPage> {
             // playing = false;
             // queue--;
             // playing = true;
-            // print("queue : ${queue}");
           });
-          print("queue : ${queue}");
         },
       ),
     );
@@ -198,8 +194,6 @@ class _PlayerPageState extends State<PlayerPage> {
   Widget build(BuildContext context) {
     queue = widget.queue;
     music = widget.musicData[queue];
-
-    print(widget.musicData[queue].title);
 
     double _width = MediaQuery.of(context).size.width;
     double _height = MediaQuery.of(context).size.height;
