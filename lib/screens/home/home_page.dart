@@ -45,8 +45,8 @@ class _HomePageState extends State<HomePage> {
       color: Colors.lightBlue,
     ),
     MusicData(
-      title: "cheapest flight",
-      artist: "PERP",
+      title: "cheapest flight 1",
+      artist: "PERP 1",
       image:
           "https://i1.sndcdn.com/artworks-YTJNfuXwL5a59d4E-xezZzw-t500x500.jpg",
       musicPlay: "musics/preptestmusic.mp3",
