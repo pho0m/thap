@@ -34,7 +34,8 @@ class _BodyState extends State<Body> {
                 ),
               ),
             ),
-            floatingActionButton: MusicBar(context: context))
+            floatingActionButton: MusicBar(context: context),
+          )
         : Scaffold(
             appBar: widget.appBar,
             body: SafeArea(
