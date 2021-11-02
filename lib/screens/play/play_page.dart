@@ -72,6 +72,25 @@ class _PlayerPageState extends State<PlayerPage> {
     );
   }
 
+  Widget nextBtn() {
+    return Card(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(15.0),
+      ),
+      elevation: 5,
+      child: IconButton(
+        padding: const EdgeInsets.all(4),
+        icon: const Icon(FeatherIcons.skipForward),
+        onPressed: () {
+          setState(() {
+            playBtn();
+            playing = false;
+          });
+        },
+      ),
+    );
+  }
+
   Widget repeatBtn() {
     return Card(
       shape: RoundedRectangleBorder(
@@ -311,17 +330,7 @@ class _PlayerPageState extends State<PlayerPage> {
                             ),
                           ),
                           playBtn(),
-                          Card(
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15.0),
-                            ),
-                            elevation: 5,
-                            child: IconButton(
-                              color: Colors.black,
-                              icon: const Icon(FeatherIcons.skipForward),
-                              onPressed: () {},
-                            ),
-                          ),
+                          nextBtn(),
                           repeatBtn()
                         ],
                       ),
