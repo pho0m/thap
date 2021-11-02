@@ -29,6 +29,7 @@ class _BodyState extends State<Body> {
             appBar: widget.appBar,
             body: SafeArea(
               child: SingleChildScrollView(
+                physics: const BouncingScrollPhysics(),
                 child: Column(
                   children: widget.body,
                 ),
@@ -40,6 +41,7 @@ class _BodyState extends State<Body> {
             appBar: widget.appBar,
             body: SafeArea(
               child: SingleChildScrollView(
+                physics: const BouncingScrollPhysics(),
                 child: Column(
                   children: widget.body,
                 ),
