@@ -139,36 +139,57 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget playlist() {
-    return SizedBox(
-      width: 150,
-      height: 150,
-      child: Card(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10.0),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Padding(
+          padding: EdgeInsets.only(left: 25.0),
+          child: Text("Playlist"),
         ),
-        color: Colors.grey[300],
-        child: const Icon(
-          FeatherIcons.list,
-          size: 40.0,
+        Padding(
+          padding: const EdgeInsets.only(left: 20.0),
+          child: SizedBox(
+            width: 150,
+            height: 150,
+            child: Card(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10.0),
+              ),
+              color: Colors.grey[300],
+              child: const Icon(
+                FeatherIcons.list,
+                size: 40.0,
+              ),
+            ),
+          ),
         ),
-      ),
+      ],
     );
   }
 
   Widget favorite() {
-    return SizedBox(
-      width: 150,
-      height: 150,
-      child: Card(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10.0),
-          ),
-          color: Colors.grey[300],
-          child: const Icon(
-            Icons.favorite,
-            color: Colors.black,
-            size: 40.0,
-          )),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Padding(
+          padding: EdgeInsets.only(left: 5.0),
+          child: Text("Favorite"),
+        ),
+        SizedBox(
+          width: 150,
+          height: 150,
+          child: Card(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10.0),
+              ),
+              color: Colors.grey[300],
+              child: const Icon(
+                Icons.favorite,
+                color: Colors.black,
+                size: 40.0,
+              )),
+        ),
+      ],
     );
   }
 }
