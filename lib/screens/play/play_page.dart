@@ -8,10 +8,12 @@ import '../route.dart';
 
 class PlayerPage extends StatefulWidget {
   final MusicData musicData;
+  final List<MusicData> queue;
 
   const PlayerPage({
     Key? key,
     required this.musicData,
+    required this.queue,
   }) : super(key: key);
 
   @override
@@ -138,8 +140,8 @@ class _PlayerPageState extends State<PlayerPage> {
       return SizedBox(
         width: _width / 1.5,
         child: Slider.adaptive(
-            activeColor: Colors.grey[800],
-            inactiveColor: Colors.grey[350],
+            activeColor: music.color,
+            inactiveColor: Colors.grey[800],
             value: position.inSeconds.toDouble(),
             max: musicLength.inSeconds.toDouble(),
             onChanged: (value) {
@@ -166,18 +168,21 @@ class _PlayerPageState extends State<PlayerPage> {
       );
     }
 
-    return Container(
-      decoration: const BoxDecoration(
-          gradient: LinearGradient(
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-              colors: [Colors.white, Colors.grey])),
-      child: Body(
-        context: context,
-        haveFAB: false,
-        appBar: _appbar(context),
-        body: [
-          Center(
+    return Body(
+      context: context,
+      haveFAB: false,
+      appBar: _appbar(context),
+      body: [
+        Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: NetworkImage(music.image),
+              colorFilter: ColorFilter.mode(
+                  Colors.black.withOpacity(0.2), BlendMode.dstATop),
+              fit: BoxFit.cover,
+            ),
+          ),
+          child: Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
@@ -326,8 +331,8 @@ class _PlayerPageState extends State<PlayerPage> {
               ],
             ),
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
