@@ -1,4 +1,4 @@
-import 'music_data.dart';
+import 'music.dart';
 
 class Playlist {
   final String playlistName;

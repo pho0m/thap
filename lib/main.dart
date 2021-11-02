@@ -1,6 +1,7 @@
 import 'package:dt_app/screens/route.dart';
 import 'package:dt_app/theme/constant.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 void main() {
   runApp(const DTapp());
@@ -11,8 +12,9 @@ class DTapp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+
     return MaterialApp(
-      title: 'Dt-app Demo',
       theme: ThemeData(
         fontFamily: dtFontFamily,
         primarySwatch: dtPrimaryColor,

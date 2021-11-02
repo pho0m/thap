@@ -12,7 +12,7 @@ class NotificationPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Body(
       context: context,
-      haveFAB: true,
+      haveFAB: false,
       appBar: _appbar(context),
       body: [
         Container(

@@ -1,5 +1,5 @@
 import 'package:dt_app/components/appbar.dart';
-import 'package:dt_app/models/music_data.dart';
+import 'package:dt_app/models/music.dart';
 import 'package:dt_app/theme/constant.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
