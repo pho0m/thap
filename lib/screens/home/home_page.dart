@@ -1,3 +1,5 @@
+// import 'dart:html';
+
 import 'package:dt_app/components/components.dart';
 import 'package:dt_app/screens/notification/notification.dart';
 import 'package:flutter/material.dart';
@@ -161,34 +163,36 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget playlist() {
-    return ElevatedButton(
-      child: const Text("Playlist"),
-      style: ElevatedButton.styleFrom(
-        primary: Colors.grey,
-        padding: const EdgeInsets.all(20),
+    return SizedBox(
+      width: 150,
+      height: 150,
+      child: Card(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10.0),
+        ),
+        color: Colors.grey[300],
+        child: const Icon(
+          FeatherIcons.list,
+          size: 40.0,
+        ),
       ),
-      onPressed: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => const PlaylistPage()),
-        );
-      },
     );
   }
 
   Widget favorite() {
-    return ElevatedButton(
-      child: const Text("favorite"),
-      style: ElevatedButton.styleFrom(
-        primary: Colors.grey,
-        padding: const EdgeInsets.all(20),
-      ),
-      onPressed: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => const FavoritePage()),
-        );
-      },
+    return SizedBox(
+      width: 150,
+      height: 150,
+      child: Card(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10.0),
+          ),
+          color: Colors.grey[300],
+          child: const Icon(
+            Icons.favorite,
+            color: Colors.black,
+            size: 40.0,
+          )),
     );
   }
 }
