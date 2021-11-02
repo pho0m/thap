@@ -1,13 +1,12 @@
-import 'package:dt_app/components/components.dart';
+import 'package:dt_app/components/appbar.dart';
+import 'package:dt_app/components/body.dart';
+import 'package:dt_app/screens/contact_us/contact_us.dart';
 import 'package:dt_app/theme/constant.dart';
 import 'package:flutter/material.dart';
-
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 
-import '../route.dart';
-
-class ContactUsPage extends StatelessWidget {
-  const ContactUsPage({Key? key}) : super(key: key);
+class NotificationPage extends StatelessWidget {
+  const NotificationPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -17,8 +16,8 @@ class ContactUsPage extends StatelessWidget {
       appBar: _appbar(context),
       body: [
         Container(
-          width: 300,
-          height: 400,
+          width: 500,
+          height: 500,
           color: Colors.grey[400],
         ),
       ],
@@ -28,17 +27,17 @@ class ContactUsPage extends StatelessWidget {
   AppBar _appbar(BuildContext context) {
     return HomeAppBar(
       context: context,
-      title: "Contact us",
+      title: "What's new",
       style: head3,
       iconButton: [
         IconButton(
           color: Colors.black,
-          icon: const Icon(FeatherIcons.home),
+          icon: const Icon(FeatherIcons.trello),
           onPressed: () {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => const HomePage(),
+                builder: (context) => const ContactUsPage(),
               ),
             );
           },

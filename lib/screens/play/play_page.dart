@@ -200,7 +200,16 @@ class _PlayerPageState extends State<PlayerPage> {
                         child: IconButton(
                           color: Colors.black,
                           icon: const Icon(FeatherIcons.fileText),
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => LyricsPage(
+                                  music: widget.musicData,
+                                ),
+                              ),
+                            );
+                          },
                         ),
                       ),
                       Card(

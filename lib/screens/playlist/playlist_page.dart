@@ -26,6 +26,7 @@ class _PlaylistPage extends State<PlaylistPage> {
             "https://images.squarespace-cdn.com/content/v1/56858337cbced60d3b293aef/1572288107885-V2AZJF8YVG5NARZRU7YE/Albumism_The1975_ABriefInquiryIntoOnlineRelationships_MainImage.png.jpg?format=1000w",
         musicPlay: "musics/testmusic.mp3",
         dataArtist: "test",
+        lyrics: "test lyrics",
       ),
       MusicData(
         title: "cheapest flight",
@@ -34,6 +35,7 @@ class _PlaylistPage extends State<PlaylistPage> {
             "https://i1.sndcdn.com/artworks-YTJNfuXwL5a59d4E-xezZzw-t500x500.jpg",
         musicPlay: "musics/preptestmusic.mp3",
         dataArtist: "test",
+        lyrics: "test lyrics",
       ),
       MusicData(
         title: "cheapest flight",
@@ -42,6 +44,7 @@ class _PlaylistPage extends State<PlaylistPage> {
             "https://i1.sndcdn.com/artworks-YTJNfuXwL5a59d4E-xezZzw-t500x500.jpg",
         musicPlay: "musics/preptestmusic.mp3",
         dataArtist: "test",
+        lyrics: "test lyrics",
       ),
     ];
 
@@ -53,6 +56,7 @@ class _PlaylistPage extends State<PlaylistPage> {
             "https://images.squarespace-cdn.com/content/v1/56858337cbced60d3b293aef/1572288107885-V2AZJF8YVG5NARZRU7YE/Albumism_The1975_ABriefInquiryIntoOnlineRelationships_MainImage.png.jpg?format=1000w",
         musicPlay: "musics/testmusic.mp3",
         dataArtist: "test",
+        lyrics: "test lyrics",
       ),
     ];
 

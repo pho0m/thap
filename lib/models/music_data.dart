@@ -3,6 +3,7 @@ class MusicData {
   final String artist;
   final String image;
   final String musicPlay;
+  final String lyrics;
   final String dataArtist;
 
   MusicData({
@@ -10,6 +11,7 @@ class MusicData {
     required this.artist,
     required this.image,
     required this.musicPlay,
+    required this.lyrics,
     required this.dataArtist,
   });
 }

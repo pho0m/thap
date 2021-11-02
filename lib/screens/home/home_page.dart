@@ -1,4 +1,5 @@
 import 'package:dt_app/components/components.dart';
+import 'package:dt_app/screens/notification/notification.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 
@@ -67,7 +68,14 @@ class _HomePageState extends State<HomePage> {
         IconButton(
           color: Colors.black,
           icon: const Icon(FeatherIcons.bell),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const NotificationPage(),
+              ),
+            );
+          },
         ),
         IconButton(
           color: Colors.black,
@@ -84,6 +92,7 @@ class _HomePageState extends State<HomePage> {
     image:
         "https://images.squarespace-cdn.com/content/v1/56858337cbced60d3b293aef/1572288107885-V2AZJF8YVG5NARZRU7YE/Albumism_The1975_ABriefInquiryIntoOnlineRelationships_MainImage.png.jpg?format=1000w",
     musicPlay: "musics/testmusic.mp3",
+    lyrics: "test",
     dataArtist: "test",
   );
 
