@@ -231,20 +231,7 @@ class _PlayerPageState extends State<PlayerPage> {
     }
 
     return Scaffold(
-      appBar: HomeAppBar(
-        context: context,
-        title: "",
-        style: head3,
-        iconButton: [
-          IconButton(
-            color: Colors.black,
-            icon: const Icon(FeatherIcons.chevronLeft),
-            onPressed: () {
-              Navigator.pop(context);
-            },
-          ),
-        ],
-      ),
+      appBar: _appbar(context),
       body: SingleChildScrollView(
         physics: const NeverScrollableScrollPhysics(),
         child: Column(
@@ -359,7 +346,7 @@ class _PlayerPageState extends State<PlayerPage> {
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: SizedBox(
-                          width: _width / 1.25,
+                          width: _width / 1.27,
                           height: _height / 6.8,
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
