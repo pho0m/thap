@@ -241,9 +241,21 @@ class _HomePageState extends State<HomePage> {
                   borderRadius: BorderRadius.circular(10.0),
                 ),
                 color: Colors.grey[300],
-                child: const Icon(
-                  FeatherIcons.list,
-                  size: 40.0,
+                child: InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const FavoritePage(),
+                      ),
+                    );
+                  },
+                  child: const SizedBox(
+                    child: Icon(
+                      FeatherIcons.list,
+                      size: 40.0,
+                    ),
+                  ),
                 ),
               ),
             ),
@@ -254,34 +266,40 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget favorite() {
-    return GestureDetector(
-      onTap: () {
-        Navigator.push(context,
-            MaterialPageRoute(builder: (context) => const FavoritePage()));
-      },
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const Padding(
-            padding: EdgeInsets.only(left: 5.0),
-            child: Text("Favorite"),
-          ),
-          SizedBox(
-            width: 150,
-            height: 150,
-            child: Card(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10.0),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Padding(
+          padding: EdgeInsets.only(left: 5.0),
+          child: Text("Favorite"),
+        ),
+        SizedBox(
+          width: 150,
+          height: 150,
+          child: Card(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10.0),
+              ),
+              color: Colors.grey[300],
+              child: InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const FavoritePage(),
+                    ),
+                  );
+                },
+                child: const SizedBox(
+                  child: Icon(
+                    Icons.favorite,
+                    color: Colors.black,
+                    size: 40.0,
+                  ),
                 ),
-                color: Colors.grey[300],
-                child: const Icon(
-                  Icons.favorite,
-                  color: Colors.black,
-                  size: 40.0,
-                )),
-          ),
-        ],
-      ),
+              )),
+        ),
+      ],
     );
   }
 }
