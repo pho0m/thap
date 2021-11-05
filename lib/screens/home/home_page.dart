@@ -187,6 +187,33 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
+  Future<bool> _onWillPop() async {
+    return (await showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+            title: const Text(
+              'Are you sure?',
+              style: head3,
+            ),
+            content: const Text(
+              'Do you want to exit an App',
+              style: head4,
+            ),
+            actions: <Widget>[
+              TextButton(
+                onPressed: () => Navigator.of(context).pop(false),
+                child: const Text('No'),
+              ),
+              TextButton(
+                onPressed: () => Navigator.of(context).pop(true),
+                child: const Text('Yes'),
+              ),
+            ],
+          ),
+        )) ??
+        false;
+  }
+
   @override
   void initState() {
     super.initState();
@@ -199,32 +226,35 @@ class _HomePageState extends State<HomePage> {
 
     return DefaultTextStyle(
       style: const TextStyle(color: Colors.black),
-      child: Body(
-        haveFAB: true,
-        context: context,
-        appBar: _appbar(context),
-        body: [
-          ImageContent(
-            imageData: imageList,
-          ),
-          Center(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                playlist(),
-                favorite(),
-              ],
+      child: WillPopScope(
+        onWillPop: _onWillPop,
+        child: Body(
+          haveFAB: true,
+          context: context,
+          appBar: _appbar(context),
+          body: [
+            ImageContent(
+              imageData: imageList,
             ),
-          ),
-          sizeBoxs20,
-          MusicCard(
-            height: _height,
-            width: _width,
-            music: mockMusicData,
-            styletitle: head4,
-            stylesuptitle: head5,
-          ),
-        ],
+            Center(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  playlist(),
+                  favorite(),
+                ],
+              ),
+            ),
+            sizeBoxs20,
+            MusicCard(
+              height: _height,
+              width: _width,
+              music: mockMusicData,
+              styletitle: head4,
+              stylesuptitle: head5,
+            ),
+          ],
+        ),
       ),
     );
   }
