@@ -12,13 +12,31 @@ class NotificationPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Body(
       context: context,
-      haveFAB: false,
+      haveFAB: true,
       appBar: _appbar(context),
       body: [
-        Container(
-          width: 500,
-          height: 500,
-          color: Colors.grey[400],
+        const Padding(
+          padding: EdgeInsets.only(
+            top: 20.0,
+            right: 180.0,
+          ),
+          child: Text("New Update"),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(30.0),
+          child: Container(
+            width: 330,
+            height: 180,
+            decoration: const BoxDecoration(
+              color: Colors.grey,
+              borderRadius: BorderRadius.all(Radius.circular(20)),
+            ),
+            child: const Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Text(
+                  "-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, "),
+            ),
+          ),
         ),
       ],
     );
