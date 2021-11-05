@@ -15,6 +15,7 @@ class DTapp extends StatelessWidget {
     SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
 
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         fontFamily: dtFontFamily,
         primarySwatch: dtPrimaryColor,

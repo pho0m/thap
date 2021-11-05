@@ -24,13 +24,14 @@ class MusicCard extends StatefulWidget {
 }
 
 class _MusicCardState extends State<MusicCard> {
+  late int idx;
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
       physics: const NeverScrollableScrollPhysics(),
       shrinkWrap: true,
       itemCount: widget.music.length,
-      itemBuilder: (BuildContext ctxt, int idx) {
+      itemBuilder: (BuildContext ctxt, int index) {
         return Padding(
           padding: const EdgeInsets.only(
             left: 15.0,
@@ -49,35 +50,31 @@ class _MusicCardState extends State<MusicCard> {
                 height: 50,
                 child: Image(
                   image: NetworkImage(
-                    widget.music[idx].image,
+                    widget.music[index].image,
                   ),
                   fit: BoxFit.cover,
                 ),
               ),
               title: AutoSizeText(
-                widget.music[idx].title,
+                widget.music[index].title,
                 style: widget.styletitle,
                 minFontSize: 10,
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
               ),
               subtitle: AutoSizeText(
-                widget.music[idx].artist,
+                widget.music[index].artist,
                 style: widget.stylesuptitle,
                 minFontSize: 10,
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
               ),
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => PlayerPage(
-                      musicData: widget.music,
-                      queue: idx,
-                    ),
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => PlayerPage(
+                    musicData: widget.music[index],
                   ),
-                );
+                ));
               },
             ),
           ),

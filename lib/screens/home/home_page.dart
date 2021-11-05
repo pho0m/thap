@@ -45,126 +45,15 @@ class _HomePageState extends State<HomePage> {
       color: Colors.lightBlue,
     ),
     MusicData(
-      title: "cheapest flight 1",
-      artist: "PERP 1",
-      image:
-          "https://i1.sndcdn.com/artworks-YTJNfuXwL5a59d4E-xezZzw-t500x500.jpg",
-      musicPlay: "musics/preptestmusic.mp3",
+      title: "Young Japaness",
+      artist: "OKAMOTO",
+      image: "https://i.ytimg.com/vi/qRrwK84G3fg/maxresdefault.jpg",
+      musicPlay: "musics/youngjapaness.mp3",
       dataArtist: "test",
       lyrics: "test lyrics",
-      color: Colors.lightBlue,
-    ),
-    MusicData(
-      title: "cheapest flight",
-      artist: "PERP",
-      image:
-          "https://i1.sndcdn.com/artworks-YTJNfuXwL5a59d4E-xezZzw-t500x500.jpg",
-      musicPlay: "musics/preptestmusic.mp3",
-      dataArtist: "test",
-      lyrics: "test lyrics",
-      color: Colors.lightBlue,
-    ),
-    MusicData(
-      title: "cheapest flight",
-      artist: "PERP",
-      image:
-          "https://i1.sndcdn.com/artworks-YTJNfuXwL5a59d4E-xezZzw-t500x500.jpg",
-      musicPlay: "musics/preptestmusic.mp3",
-      dataArtist: "test",
-      lyrics: "test lyrics",
-      color: Colors.lightBlue,
-    ),
-    MusicData(
-      title: "cheapest flight",
-      artist: "PERP",
-      image:
-          "https://i1.sndcdn.com/artworks-YTJNfuXwL5a59d4E-xezZzw-t500x500.jpg",
-      musicPlay: "musics/preptestmusic.mp3",
-      dataArtist: "test",
-      lyrics: "test lyrics",
-      color: Colors.lightBlue,
-    ),
-    MusicData(
-      title: "cheapest flight",
-      artist: "PERP",
-      image:
-          "https://i1.sndcdn.com/artworks-YTJNfuXwL5a59d4E-xezZzw-t500x500.jpg",
-      musicPlay: "musics/preptestmusic.mp3",
-      dataArtist: "test",
-      lyrics: "test lyrics",
-      color: Colors.lightBlue,
-    ),
-    MusicData(
-      title: "cheapest flight",
-      artist: "PERP",
-      image:
-          "https://i1.sndcdn.com/artworks-YTJNfuXwL5a59d4E-xezZzw-t500x500.jpg",
-      musicPlay: "musics/preptestmusic.mp3",
-      dataArtist: "test",
-      lyrics: "test lyrics",
-      color: Colors.lightBlue,
-    ),
-    MusicData(
-      title: "cheapest flight",
-      artist: "PERP",
-      image:
-          "https://i1.sndcdn.com/artworks-YTJNfuXwL5a59d4E-xezZzw-t500x500.jpg",
-      musicPlay: "musics/preptestmusic.mp3",
-      dataArtist: "test",
-      lyrics: "test lyrics",
-      color: Colors.lightBlue,
-    ),
-    MusicData(
-      title: "cheapest flight",
-      artist: "PERP",
-      image:
-          "https://i1.sndcdn.com/artworks-YTJNfuXwL5a59d4E-xezZzw-t500x500.jpg",
-      musicPlay: "musics/preptestmusic.mp3",
-      dataArtist: "test",
-      lyrics: "test lyrics",
-      color: Colors.lightBlue,
+      color: Colors.red,
     ),
   ];
-
-  @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    double _width = MediaQuery.of(context).size.width;
-    double _height = MediaQuery.of(context).size.height;
-
-    return DefaultTextStyle(
-      style: const TextStyle(color: Colors.black),
-      child: Body(
-        haveFAB: true,
-        context: context,
-        appBar: _appbar(context),
-        body: [
-          ImageContent(
-            imageData: imageList,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              playlist(),
-              favorite(),
-            ],
-          ),
-          sizeBoxs20,
-          MusicCard(
-            height: _height,
-            width: _width,
-            music: mockMusicData,
-            styletitle: head4,
-            stylesuptitle: head5,
-          ),
-        ],
-      ),
-    );
-  }
 
   AppBar _appbar(BuildContext context) {
     return HomeAppBar(
@@ -226,33 +115,30 @@ class _HomePageState extends State<HomePage> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Padding(
-            padding: EdgeInsets.only(left: 25.0),
+            padding: EdgeInsets.only(left: 5.0),
             child: Text("Playlist"),
           ),
-          Padding(
-            padding: const EdgeInsets.only(left: 20.0),
-            child: SizedBox(
-              width: 150,
-              height: 150,
-              child: Card(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10.0),
-                ),
-                color: Colors.grey[300],
-                child: InkWell(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const FavoritePage(),
-                      ),
-                    );
-                  },
-                  child: const SizedBox(
-                    child: Icon(
-                      FeatherIcons.list,
-                      size: 40.0,
+          SizedBox(
+            width: 150,
+            height: 150,
+            child: Card(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10.0),
+              ),
+              color: Colors.grey[300],
+              child: InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const FavoritePage(),
                     ),
+                  );
+                },
+                child: const SizedBox(
+                  child: Icon(
+                    FeatherIcons.list,
+                    size: 40.0,
                   ),
                 ),
               ),
@@ -298,6 +184,48 @@ class _HomePageState extends State<HomePage> {
               )),
         ),
       ],
+    );
+  }
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    double _width = MediaQuery.of(context).size.width;
+    double _height = MediaQuery.of(context).size.height;
+
+    return DefaultTextStyle(
+      style: const TextStyle(color: Colors.black),
+      child: Body(
+        haveFAB: true,
+        context: context,
+        appBar: _appbar(context),
+        body: [
+          ImageContent(
+            imageData: imageList,
+          ),
+          Center(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                playlist(),
+                favorite(),
+              ],
+            ),
+          ),
+          sizeBoxs20,
+          MusicCard(
+            height: _height,
+            width: _width,
+            music: mockMusicData,
+            styletitle: head4,
+            stylesuptitle: head5,
+          ),
+        ],
+      ),
     );
   }
 }
