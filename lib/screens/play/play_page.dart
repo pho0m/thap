@@ -175,7 +175,6 @@ class _PlayerPageState extends State<PlayerPage> {
       setState(() {
         position = const Duration(seconds: 0);
         playing = false;
-        repeat = false;
       });
     });
   }
@@ -283,11 +282,11 @@ class _PlayerPageState extends State<PlayerPage> {
                             ],
                           ),
                         ),
-                        sizeBoxs10,
+                        sizeBoxs20,
                         Row(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            sizeBoxs60,
+                            sizeBoxs30,
                             Column(
                               mainAxisAlignment: MainAxisAlignment.start,
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -319,7 +318,7 @@ class _PlayerPageState extends State<PlayerPage> {
                             ),
                           ],
                         ),
-                        sizeBoxs30,
+                        sizeBoxs10,
                         SizedBox(
                           width: 500.0,
                           child: Row(

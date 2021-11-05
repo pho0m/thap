@@ -38,13 +38,13 @@ class _PlaylistPage extends State<PlaylistPage> {
         lyrics: "test lyrics",
       ),
       MusicData(
-        title: "cheapest flight",
-        artist: "PERP",
-        image:
-            "https://i1.sndcdn.com/artworks-YTJNfuXwL5a59d4E-xezZzw-t500x500.jpg",
-        musicPlay: "musics/preptestmusic.mp3",
+        title: "Young Japaness",
+        artist: "OKAMOTO",
+        image: "https://i.ytimg.com/vi/qRrwK84G3fg/maxresdefault.jpg",
+        musicPlay: "musics/youngjapaness.mp3",
         dataArtist: "test",
         lyrics: "test lyrics",
+        color: Colors.red,
       ),
     ];
 
@@ -80,11 +80,6 @@ class _PlaylistPage extends State<PlaylistPage> {
         title: "Playlist Page",
         style: head3,
         iconButton: [
-          IconButton(
-            color: Colors.black,
-            icon: const Icon(FeatherIcons.circle),
-            onPressed: () {},
-          ),
           IconButton(
             color: Colors.black,
             icon: const Icon(FeatherIcons.chevronLeft),
