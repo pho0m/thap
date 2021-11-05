@@ -339,36 +339,39 @@ class _PlayerPageState extends State<PlayerPage> {
                           ),
                         ),
                         sizeBoxs20,
-                        Card(
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(15.0),
-                          ),
-                          elevation: 10,
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: SizedBox(
-                              width: _width / 1.27,
-                              height: _height / 6.8,
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
-                                children: [
-                                  Card(
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(15.0),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 15),
+                          child: Card(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15.0),
+                            ),
+                            elevation: 10,
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: SizedBox(
+                                width: _width,
+                                height: _height / 6.8,
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  children: [
+                                    Card(
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(15),
+                                      ),
+                                      elevation: 5,
+                                      child: IconButton(
+                                        color: Colors.black,
+                                        icon: const Icon(FeatherIcons.shuffle),
+                                        onPressed: () {},
+                                      ),
                                     ),
-                                    elevation: 5,
-                                    child: IconButton(
-                                      color: Colors.black,
-                                      icon: const Icon(FeatherIcons.shuffle),
-                                      onPressed: () {},
-                                    ),
-                                  ),
-                                  previousBtn(),
-                                  playBtn(),
-                                  nextBtn(),
-                                  repeatBtn()
-                                ],
+                                    previousBtn(),
+                                    playBtn(),
+                                    nextBtn(),
+                                    repeatBtn()
+                                  ],
+                                ),
                               ),
                             ),
                           ),
