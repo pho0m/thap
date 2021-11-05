@@ -309,10 +309,22 @@ class _PlayerPageState extends State<PlayerPage> {
                               opacity: 0.2,
                             ),
                             sizeBoxs20,
-                            ShadowText(
-                              style: head4,
-                              data: music.artist,
-                              opacity: 0.2,
+                            GestureDetector(
+                              child: ShadowText(
+                                style: head4,
+                                data: music.artist,
+                                opacity: 0.2,
+                              ),
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => ProfileArtistPage(
+                                      music: music,
+                                    ),
+                                  ),
+                                );
+                              },
                             ),
                           ],
                         ),
