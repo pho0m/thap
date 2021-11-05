@@ -12,7 +12,7 @@ class NotificationPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Body(
       context: context,
-      haveFAB: true,
+      haveFAB: false,
       appBar: _appbar(context),
       body: [
         const Padding(
@@ -27,9 +27,9 @@ class NotificationPage extends StatelessWidget {
           child: Container(
             width: 330,
             height: 180,
-            decoration: const BoxDecoration(
-              color: Colors.grey,
-              borderRadius: BorderRadius.all(Radius.circular(20)),
+            decoration: BoxDecoration(
+              color: Colors.grey[300],
+              borderRadius: const BorderRadius.all(Radius.circular(20)),
             ),
             child: const Padding(
               padding: EdgeInsets.all(8.0),
