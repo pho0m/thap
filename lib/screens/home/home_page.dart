@@ -45,84 +45,13 @@ class _HomePageState extends State<HomePage> {
       color: Colors.lightBlue,
     ),
     MusicData(
-      title: "cheapest flight 1",
-      artist: "PERP 1",
-      image:
-          "https://i1.sndcdn.com/artworks-YTJNfuXwL5a59d4E-xezZzw-t500x500.jpg",
-      musicPlay: "musics/preptestmusic.mp3",
+      title: "Young Japaness",
+      artist: "OKAMOTO",
+      image: "https://i.ytimg.com/vi/qRrwK84G3fg/maxresdefault.jpg",
+      musicPlay: "musics/youngjapaness.mp3",
       dataArtist: "test",
       lyrics: "test lyrics",
-      color: Colors.lightBlue,
-    ),
-    MusicData(
-      title: "cheapest flight",
-      artist: "PERP",
-      image:
-          "https://i1.sndcdn.com/artworks-YTJNfuXwL5a59d4E-xezZzw-t500x500.jpg",
-      musicPlay: "musics/preptestmusic.mp3",
-      dataArtist: "test",
-      lyrics: "test lyrics",
-      color: Colors.lightBlue,
-    ),
-    MusicData(
-      title: "cheapest flight",
-      artist: "PERP",
-      image:
-          "https://i1.sndcdn.com/artworks-YTJNfuXwL5a59d4E-xezZzw-t500x500.jpg",
-      musicPlay: "musics/preptestmusic.mp3",
-      dataArtist: "test",
-      lyrics: "test lyrics",
-      color: Colors.lightBlue,
-    ),
-    MusicData(
-      title: "cheapest flight",
-      artist: "PERP",
-      image:
-          "https://i1.sndcdn.com/artworks-YTJNfuXwL5a59d4E-xezZzw-t500x500.jpg",
-      musicPlay: "musics/preptestmusic.mp3",
-      dataArtist: "test",
-      lyrics: "test lyrics",
-      color: Colors.lightBlue,
-    ),
-    MusicData(
-      title: "cheapest flight",
-      artist: "PERP",
-      image:
-          "https://i1.sndcdn.com/artworks-YTJNfuXwL5a59d4E-xezZzw-t500x500.jpg",
-      musicPlay: "musics/preptestmusic.mp3",
-      dataArtist: "test",
-      lyrics: "test lyrics",
-      color: Colors.lightBlue,
-    ),
-    MusicData(
-      title: "cheapest flight",
-      artist: "PERP",
-      image:
-          "https://i1.sndcdn.com/artworks-YTJNfuXwL5a59d4E-xezZzw-t500x500.jpg",
-      musicPlay: "musics/preptestmusic.mp3",
-      dataArtist: "test",
-      lyrics: "test lyrics",
-      color: Colors.lightBlue,
-    ),
-    MusicData(
-      title: "cheapest flight",
-      artist: "PERP",
-      image:
-          "https://i1.sndcdn.com/artworks-YTJNfuXwL5a59d4E-xezZzw-t500x500.jpg",
-      musicPlay: "musics/preptestmusic.mp3",
-      dataArtist: "test",
-      lyrics: "test lyrics",
-      color: Colors.lightBlue,
-    ),
-    MusicData(
-      title: "cheapest flight",
-      artist: "PERP",
-      image:
-          "https://i1.sndcdn.com/artworks-YTJNfuXwL5a59d4E-xezZzw-t500x500.jpg",
-      musicPlay: "musics/preptestmusic.mp3",
-      dataArtist: "test",
-      lyrics: "test lyrics",
-      color: Colors.lightBlue,
+      color: Colors.red,
     ),
   ];
 
