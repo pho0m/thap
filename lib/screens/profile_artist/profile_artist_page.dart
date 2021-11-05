@@ -64,9 +64,13 @@ class _ProfileArtistPage extends State<ProfileArtistPage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Text(
-              mockData.artistName,
+            ShadowText(
               style: const TextStyle(fontSize: 30.0),
+              data: mockData.artistName,
+              opacity: 0.2,
+              maxLines: 2,
+              minFontSize: 10,
+              overflow: TextOverflow.ellipsis,
             )
           ],
         ),
@@ -94,7 +98,14 @@ class _ProfileArtistPage extends State<ProfileArtistPage> {
                   height: 300,
                   child: ListView(
                     children: [
-                      Text(mockData.artistHistory),
+                      ShadowText(
+                        style: head5,
+                        data: mockData.artistHistory,
+                        opacity: 0.2,
+                        maxLines: 2,
+                        minFontSize: 10,
+                        overflow: TextOverflow.ellipsis,
+                      ),
                     ],
                   ),
                 ),

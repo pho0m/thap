@@ -39,16 +39,24 @@ class ContactUsPage extends StatelessWidget {
                 ),
                 const Padding(
                   padding: EdgeInsets.only(right: 130),
-                  child: Text(
-                    "Contact",
+                  child: ShadowText(
+                    data: "Contact",
                     style: head2,
+                    opacity: 0.2,
+                    maxLines: 2,
+                    minFontSize: 10,
+                    overflow: TextOverflow.ellipsis,
                   ),
                 ),
                 const Padding(
                   padding: EdgeInsets.only(right: 80),
-                  child: Text(
-                    "Phoom : 0987654321",
+                  child: ShadowText(
+                    data: "Phoom : 0987654321",
                     style: sub1,
+                    opacity: 0.2,
+                    maxLines: 2,
+                    minFontSize: 10,
+                    overflow: TextOverflow.ellipsis,
                   ),
                 ),
                 const Padding(
@@ -56,9 +64,14 @@ class ContactUsPage extends StatelessWidget {
                     right: 10,
                     left: 30,
                   ),
-                  child: Text(
-                    "address :  is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only",
+                  child: ShadowText(
+                    data:
+                        "address :  is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only",
                     style: sub1,
+                    opacity: 0.2,
+                    maxLines: 2,
+                    minFontSize: 10,
+                    overflow: TextOverflow.ellipsis,
                   ),
                 ),
               ],
