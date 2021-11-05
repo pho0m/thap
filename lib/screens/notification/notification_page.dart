@@ -20,7 +20,10 @@ class NotificationPage extends StatelessWidget {
             top: 20.0,
             right: 180.0,
           ),
-          child: Text("New Update"),
+          child: Text(
+            "New Update",
+            style: head3,
+          ),
         ),
         Padding(
           padding: const EdgeInsets.all(30.0),
@@ -32,9 +35,11 @@ class NotificationPage extends StatelessWidget {
               borderRadius: const BorderRadius.all(Radius.circular(20)),
             ),
             child: const Padding(
-              padding: EdgeInsets.all(8.0),
+              padding: EdgeInsets.all(20.0),
               child: Text(
-                  "-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, "),
+                "-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, ",
+                style: sub1,
+              ),
             ),
           ),
         ),
