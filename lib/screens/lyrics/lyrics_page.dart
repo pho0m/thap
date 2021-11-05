@@ -59,7 +59,7 @@ class LyricsPage extends StatelessWidget {
               child: ListTile(
                 title: Text(
                   music.title,
-                  style: head2,
+                  style: head3,
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                 ),

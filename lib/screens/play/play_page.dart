@@ -7,13 +7,11 @@ import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import '../route.dart';
 
 class PlayerPage extends StatefulWidget {
-  final int queue;
-  final List<MusicData> musicData;
+  final MusicData musicData;
 
   const PlayerPage({
     Key? key,
     required this.musicData,
-    required this.queue,
   }) : super(key: key);
 
   @override
@@ -22,7 +20,6 @@ class PlayerPage extends StatefulWidget {
 
 class _PlayerPageState extends State<PlayerPage> {
   late MusicData music;
-  late int queue;
 
   bool playing = false;
   bool repeat = false;
@@ -85,22 +82,14 @@ class _PlayerPageState extends State<PlayerPage> {
         padding: const EdgeInsets.all(4),
         icon: const Icon(FeatherIcons.skipForward),
         onPressed: () {
-          // if (!playing) {
-          //   queue++;
-          //   cache.play(music.musicPlay);
-          //   setState(() {
-          //     playBtn();
-          //     playing = true;
-          //   });
-          // } else {
-          //   _player.stop();
-          //   queue++;
-          //   cache.play(music.musicPlay);
-          //   setState(() {
-          //     playBtn();
-          //     playing = true;
-          //   });
-          // }
+          _player.stop();
+          position = const Duration(seconds: 0);
+          playing = false;
+          repeat = false;
+          setState(() {
+            cache.play(music.musicPlay);
+            playing = true;
+          });
         },
       ),
     );
@@ -117,12 +106,12 @@ class _PlayerPageState extends State<PlayerPage> {
         icon: const Icon(FeatherIcons.skipBack),
         onPressed: () {
           _player.stop();
+          position = const Duration(seconds: 0);
+          playing = false;
+          repeat = false;
           setState(() {
-            queue--;
-
-            // playing = false;
-            // queue--;
-            // playing = true;
+            cache.play(music.musicPlay);
+            playing = true;
           });
         },
       ),
@@ -162,8 +151,9 @@ class _PlayerPageState extends State<PlayerPage> {
   void initState() {
     super.initState();
 
-    queue = widget.queue;
-    music = widget.musicData[queue];
+    //queue = widget.queue;
+    music = widget.musicData;
+
     _player = AudioPlayer();
     cache = AudioCache(fixedPlayer: _player);
 
@@ -192,9 +182,6 @@ class _PlayerPageState extends State<PlayerPage> {
 
   @override
   Widget build(BuildContext context) {
-    queue = widget.queue;
-    music = widget.musicData[queue];
-
     double _width = MediaQuery.of(context).size.width;
     double _height = MediaQuery.of(context).size.height;
 
@@ -212,156 +199,55 @@ class _PlayerPageState extends State<PlayerPage> {
       );
     }
 
-    AppBar _appbar(context) {
-      return HomeAppBar(
-        context: context,
-        title: "",
-        style: head3,
-        iconButton: [
-          IconButton(
-            color: Colors.black,
-            icon: const Icon(FeatherIcons.chevronLeft),
-            onPressed: () {
-              _player.stop();
-              Navigator.of(context).pop();
-            },
-          ),
-        ],
-      );
-    }
-
     return Scaffold(
-      appBar: _appbar(context),
       body: SingleChildScrollView(
         physics: const NeverScrollableScrollPhysics(),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: NetworkImage(music.image),
-                  colorFilter: ColorFilter.mode(
-                      Colors.black.withOpacity(0.2), BlendMode.dstATop),
-                  fit: BoxFit.cover,
-                ),
+              padding: const EdgeInsets.fromLTRB(0, 25, 10, 0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  IconButton(
+                    icon: const Icon(FeatherIcons.chevronLeft),
+                    onPressed: () {
+                      _player.stop();
+                      Navigator.of(context).pop();
+                    },
+                  ),
+                ],
               ),
-              child: Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    sizeBoxs10,
-                    MusicImage(
-                      height: _height,
-                      width: _width,
-                      musicImage: music.image,
+            ),
+            Column(
+              children: [
+                Container(
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: NetworkImage(music.image),
+                      colorFilter: ColorFilter.mode(
+                          Colors.black.withOpacity(0.2), BlendMode.dstATop),
+                      fit: BoxFit.cover,
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(right: 50.0, top: 20),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          Card(
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15.0),
-                            ),
-                            elevation: 5,
-                            child: IconButton(
-                              color: Colors.black,
-                              icon: const Icon(FeatherIcons.fileText),
-                              onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => LyricsPage(
-                                      music: music,
-                                    ),
-                                  ),
-                                );
-                              },
-                            ),
-                          ),
-                          Card(
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15.0),
-                            ),
-                            elevation: 5,
-                            child: IconButton(
-                              color: Colors.black,
-                              icon: const Icon(FeatherIcons.heart),
-                              onPressed: () {},
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    sizeBoxs30,
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        sizeBoxs60,
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            ShadowText(
-                              style: head4,
-                              data: music.title,
-                              opacity: 0.2,
-                            ),
-                            sizeBoxs20,
-                            GestureDetector(
-                              child: ShadowText(
-                                style: head4,
-                                data: music.artist,
-                                opacity: 0.2,
-                              ),
-                              onTap: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => ProfileArtistPage(
-                                      music: music,
-                                    ),
-                                  ),
-                                );
-                              },
-                            ),
-                          ],
+                  ),
+                  child: Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        sizeBoxs20,
+                        MusicImage(
+                          height: _height,
+                          width: _width,
+                          musicImage: music.image,
                         ),
-                      ],
-                    ),
-                    sizeBoxs60,
-                    SizedBox(
-                      width: 500.0,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Text(
-                            "${position.inMinutes}:${position.inSeconds.remainder(60)}",
-                            style: head4,
-                          ),
-                          slider(),
-                          Text(
-                            "${musicLength.inMinutes}:${musicLength.inSeconds.remainder(60)}",
-                            style: head4,
-                          ),
-                        ],
-                      ),
-                    ),
-                    sizeBoxs20,
-                    Card(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(15.0),
-                      ),
-                      elevation: 10,
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: SizedBox(
-                          width: _width / 1.27,
-                          height: _height / 6.8,
+                        Padding(
+                          padding: const EdgeInsets.only(right: 50.0, top: 20),
                           child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            mainAxisAlignment: MainAxisAlignment.end,
                             children: [
                               Card(
                                 shape: RoundedRectangleBorder(
@@ -370,22 +256,128 @@ class _PlayerPageState extends State<PlayerPage> {
                                 elevation: 5,
                                 child: IconButton(
                                   color: Colors.black,
-                                  icon: const Icon(FeatherIcons.shuffle),
+                                  icon: const Icon(FeatherIcons.fileText),
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => LyricsPage(
+                                          music: music,
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                ),
+                              ),
+                              Card(
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(15.0),
+                                ),
+                                elevation: 5,
+                                child: IconButton(
+                                  color: Colors.black,
+                                  icon: const Icon(FeatherIcons.heart),
                                   onPressed: () {},
                                 ),
                               ),
-                              previousBtn(),
-                              playBtn(),
-                              nextBtn(),
-                              repeatBtn()
                             ],
                           ),
                         ),
-                      ),
+                        sizeBoxs10,
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            sizeBoxs60,
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                ShadowText(
+                                  style: head4,
+                                  data: music.title,
+                                  opacity: 0.2,
+                                ),
+                                sizeBoxs20,
+                                GestureDetector(
+                                  child: ShadowText(
+                                    style: head4,
+                                    data: music.artist,
+                                    opacity: 0.2,
+                                  ),
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => ProfileArtistPage(
+                                          music: music,
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                        sizeBoxs30,
+                        SizedBox(
+                          width: 500.0,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Text(
+                                "${position.inMinutes}:${position.inSeconds.remainder(60)}",
+                                style: head4,
+                              ),
+                              slider(),
+                              Text(
+                                "${musicLength.inMinutes}:${musicLength.inSeconds.remainder(60)}",
+                                style: head4,
+                              ),
+                            ],
+                          ),
+                        ),
+                        sizeBoxs20,
+                        Card(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15.0),
+                          ),
+                          elevation: 10,
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: SizedBox(
+                              width: _width / 1.27,
+                              height: _height / 6.8,
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  Card(
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(15.0),
+                                    ),
+                                    elevation: 5,
+                                    child: IconButton(
+                                      color: Colors.black,
+                                      icon: const Icon(FeatherIcons.shuffle),
+                                      onPressed: () {},
+                                    ),
+                                  ),
+                                  previousBtn(),
+                                  playBtn(),
+                                  nextBtn(),
+                                  repeatBtn()
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
-                  ],
+                  ),
                 ),
-              ),
+              ],
             ),
           ],
         ),
