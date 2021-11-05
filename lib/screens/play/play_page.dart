@@ -175,7 +175,6 @@ class _PlayerPageState extends State<PlayerPage> {
       setState(() {
         position = const Duration(seconds: 0);
         playing = false;
-        repeat = false;
       });
     });
   }
@@ -283,11 +282,11 @@ class _PlayerPageState extends State<PlayerPage> {
                             ],
                           ),
                         ),
-                        sizeBoxs10,
+                        sizeBoxs20,
                         Row(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            sizeBoxs60,
+                            sizeBoxs30,
                             Column(
                               mainAxisAlignment: MainAxisAlignment.start,
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -298,16 +297,28 @@ class _PlayerPageState extends State<PlayerPage> {
                                   opacity: 0.2,
                                 ),
                                 sizeBoxs20,
-                                ShadowText(
-                                  style: head4,
-                                  data: music.artist,
-                                  opacity: 0.2,
+                                GestureDetector(
+                                  child: ShadowText(
+                                    style: head4,
+                                    data: music.artist,
+                                    opacity: 0.2,
+                                  ),
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => ProfileArtistPage(
+                                          music: music,
+                                        ),
+                                      ),
+                                    );
+                                  },
                                 ),
                               ],
                             ),
                           ],
                         ),
-                        sizeBoxs30,
+                        sizeBoxs10,
                         SizedBox(
                           width: 500.0,
                           child: Row(
@@ -327,36 +338,39 @@ class _PlayerPageState extends State<PlayerPage> {
                           ),
                         ),
                         sizeBoxs20,
-                        Card(
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(15.0),
-                          ),
-                          elevation: 10,
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: SizedBox(
-                              width: _width / 1.27,
-                              height: _height / 6.8,
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
-                                children: [
-                                  Card(
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(15.0),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 15),
+                          child: Card(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15.0),
+                            ),
+                            elevation: 10,
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: SizedBox(
+                                width: _width,
+                                height: _height / 6.8,
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  children: [
+                                    Card(
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(15),
+                                      ),
+                                      elevation: 5,
+                                      child: IconButton(
+                                        color: Colors.black,
+                                        icon: const Icon(FeatherIcons.shuffle),
+                                        onPressed: () {},
+                                      ),
                                     ),
-                                    elevation: 5,
-                                    child: IconButton(
-                                      color: Colors.black,
-                                      icon: const Icon(FeatherIcons.shuffle),
-                                      onPressed: () {},
-                                    ),
-                                  ),
-                                  previousBtn(),
-                                  playBtn(),
-                                  nextBtn(),
-                                  repeatBtn()
-                                ],
+                                    previousBtn(),
+                                    playBtn(),
+                                    nextBtn(),
+                                    repeatBtn()
+                                  ],
+                                ),
                               ),
                             ),
                           ),

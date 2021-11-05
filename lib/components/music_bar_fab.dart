@@ -5,12 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 
 class MusicBar extends StatefulWidget {
-  //MusicData musicData;
   BuildContext context;
   MusicBar({
     Key? key,
     required this.context,
-    //required this.musicData,
   }) : super(key: key);
 
   @override
@@ -27,7 +25,7 @@ class _MusicBarState extends State<MusicBar> {
       height: 65,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20.0),
-        color: Colors.black12,
+        color: Colors.grey[200],
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -47,7 +45,7 @@ class _MusicBarState extends State<MusicBar> {
                       ),
                       fit: BoxFit.cover,
                     ),
-
+                    //FIXME
                     // image: const DecorationImage(
                     //   image: NetworkImage(
                     //       "https://images.squarespace-cdn.com/content/v1/56858337cbced60d3b293aef/1572288107885-V2AZJF8YVG5NARZRU7YE/Albumism_The1975_ABriefInquiryIntoOnlineRelationships_MainImage.png.jpg?format=1000w"),
@@ -58,9 +56,9 @@ class _MusicBarState extends State<MusicBar> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.all(10.0),
+                padding: const EdgeInsets.symmetric(vertical: 10),
                 child: SizedBox(
-                  width: 120,
+                  width: _width / 4,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -92,22 +90,7 @@ class _MusicBarState extends State<MusicBar> {
                 ),
                 IconButton(
                   icon: const Icon(FeatherIcons.play),
-                  onPressed: () {
-                    // if (!playing) {
-                    //   //now let's play the song
-                    //   //cache.play(music.musicPlay);
-                    //   setState(() {
-                    //     playBtn = FeatherIcons.pause;
-                    //     playing = true;
-                    //   });
-                    // } else {
-                    //   _player.pause();
-                    //   setState(() {
-                    //     playBtn = FeatherIcons.play;
-                    //     playing = false;
-                    //   });
-                    // }
-                  },
+                  onPressed: () {},
                 ),
                 IconButton(
                   icon: const Icon(FeatherIcons.skipForward),
