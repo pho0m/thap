@@ -4,19 +4,19 @@ import 'package:flutter/material.dart';
 class MusicData {
   final String title;
   final String artist;
+  final String artistID;
   final String image;
-  final String musicPlay;
+  final String music;
   final String lyrics;
-  final String dataArtist;
   final Color color;
 
   MusicData({
     required this.title,
     required this.artist,
+    required this.artistID,
     required this.image,
-    required this.musicPlay,
+    required this.music,
     required this.lyrics,
-    required this.dataArtist,
     this.color = dtPrimaryColor,
   });
 }

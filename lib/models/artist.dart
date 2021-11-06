@@ -1,10 +1,11 @@
 class Artist {
-  final String artistName;
-  final String pictureProfile;
-  final String artistHistory;
+  final String name;
+  final String image;
+  final String history;
 
-  Artist(
-      {required this.artistName,
-      required this.pictureProfile,
-      required this.artistHistory});
+  Artist({
+    required this.name,
+    required this.image,
+    required this.history,
+  });
 }

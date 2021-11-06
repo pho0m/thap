@@ -1,10 +1,11 @@
-import 'package:dt_app/screens/notification/notification.dart';
 import 'package:flutter/material.dart';
+
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 
-import 'package:dt_app/screens/route.dart';
 import 'package:dt_app/theme/constant.dart';
-import 'package:dt_app/components/components.dart';
+import 'package:dt_app/helpers/helper.dart';
+import 'package:dt_app/mock/mock.dart';
+import '../route.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({
@@ -16,45 +17,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final List<String> imageList = [
-    'assets/images/placeholder-black.jpg',
-    'assets/images/placeholder-black.jpg',
-    'assets/images/placeholder-black.jpg',
-    'assets/images/placeholder-black.jpg',
-    'assets/images/placeholder-black.jpg',
-  ];
-
-  List<MusicData> mockMusicData = [
-    MusicData(
-      title: "if you shy (let me knows)",
-      artist: "1975",
-      image:
-          "https://images.squarespace-cdn.com/content/v1/56858337cbced60d3b293aef/1572288107885-V2AZJF8YVG5NARZRU7YE/Albumism_The1975_ABriefInquiryIntoOnlineRelationships_MainImage.png.jpg?format=1000w",
-      musicPlay: "musics/testmusic.mp3",
-      dataArtist: "test",
-      lyrics: "test lyrics",
-    ),
-    MusicData(
-      title: "cheapest flight",
-      artist: "PERP",
-      image:
-          "https://i1.sndcdn.com/artworks-YTJNfuXwL5a59d4E-xezZzw-t500x500.jpg",
-      musicPlay: "musics/preptestmusic.mp3",
-      dataArtist: "test",
-      lyrics: "test lyrics",
-      color: Colors.lightBlue,
-    ),
-    MusicData(
-      title: "Young Japaness",
-      artist: "OKAMOTO",
-      image: "https://i.ytimg.com/vi/qRrwK84G3fg/maxresdefault.jpg",
-      musicPlay: "musics/youngjapaness.mp3",
-      dataArtist: "test",
-      lyrics: "test lyrics",
-      color: Colors.red,
-    ),
-  ];
-
   AppBar _appbar(BuildContext context) {
     return HomeAppBar(
       context: context,
@@ -92,11 +54,11 @@ class _HomePageState extends State<HomePage> {
           ),
           // leading: const FlutterLogo(size: 56.0),
           title: Text(
-            mockMusicData[0].title,
+            mockAllMusData[0].title,
             style: head4,
           ),
           subtitle: Text(
-            mockMusicData[0].artist,
+            mockAllMusData[0].artist,
             style: sub1,
           ),
           onTap: () {},
@@ -201,6 +163,33 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
+  Future<bool> _onWillPop() async {
+    return (await showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+            title: const Text(
+              'Are you sure?',
+              style: head3,
+            ),
+            content: const Text(
+              'Do you want to exit an App',
+              style: head4,
+            ),
+            actions: <Widget>[
+              TextButton(
+                onPressed: () => Navigator.of(context).pop(false),
+                child: const Text('No'),
+              ),
+              TextButton(
+                onPressed: () => Navigator.of(context).pop(true),
+                child: const Text('Yes'),
+              ),
+            ],
+          ),
+        )) ??
+        false;
+  }
+
   @override
   void initState() {
     super.initState();
@@ -213,32 +202,34 @@ class _HomePageState extends State<HomePage> {
 
     return DefaultTextStyle(
       style: const TextStyle(color: Colors.black),
-      child: Body(
-        haveFAB: true,
-        context: context,
-        appBar: _appbar(context),
-        body: [
-          ImageContent(
-            imageData: imageList,
-          ),
-          Center(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                playlist(),
-                favorite(),
-              ],
+      child: WillPopScope(
+        onWillPop: _onWillPop,
+        child: Body(
+          haveFAB: true,
+          context: context,
+          appBar: _appbar(context),
+          body: [
+            ImageContent(imageData: imagePlaceholder),
+            Center(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  playlist(),
+                  favorite(),
+                ],
+              ),
             ),
-          ),
-          sizeBoxs20,
-          MusicCard(
-            height: _height,
-            width: _width,
-            music: mockMusicData,
-            styletitle: head4,
-            stylesuptitle: head5,
-          ),
-        ],
+            sizeBoxs20,
+            MusicCard(
+              height: _height,
+              width: _width,
+              music: mockAllMusData,
+              styletitle: head4,
+              stylesuptitle: head5,
+            ),
+            sizeBoxs100,
+          ],
+        ),
       ),
     );
   }

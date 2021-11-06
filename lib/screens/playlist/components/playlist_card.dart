@@ -1,8 +1,9 @@
+import 'package:flutter/material.dart';
+
 import 'package:auto_size_text/auto_size_text.dart';
 
 import 'package:dt_app/theme/constant.dart';
-import 'package:flutter/material.dart';
-
+import 'package:dt_app/models/models.dart';
 import '../../route.dart';
 
 class PlaylistCrad extends StatefulWidget {
@@ -41,10 +42,11 @@ class _PlaylistCrad extends State<PlaylistCrad> {
         child: Padding(
           padding: const EdgeInsets.all(20.0),
           child: GridView.builder(
+            physics: const BouncingScrollPhysics(),
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               mainAxisSpacing: 20,
               crossAxisSpacing: 20,
-              childAspectRatio: 0.5,
+              childAspectRatio: 0.8,
               crossAxisCount: 2,
             ),
             itemCount: widget.playList.length,
@@ -56,15 +58,16 @@ class _PlaylistCrad extends State<PlaylistCrad> {
                   children: [
                     Center(
                         child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Container(
                           padding: const EdgeInsets.all(60),
                           decoration: BoxDecoration(
-                            color: Colors.red,
+                            color: Colors.white,
                             borderRadius: BorderRadius.circular(15),
-                            image: const DecorationImage(
-                              image: AssetImage(
-                                'assets/images/placeholder-black.jpg',
+                            image: DecorationImage(
+                              image: NetworkImage(
+                                widget.playList[index].image,
                               ),
                               fit: BoxFit.cover,
                             ),
@@ -72,7 +75,7 @@ class _PlaylistCrad extends State<PlaylistCrad> {
                         ),
                         sizeBoxs10,
                         AutoSizeText(
-                          widget.playList[index].playlistName,
+                          widget.playList[index].name,
                           style: widget.pNameStyle,
                           minFontSize: 10,
                           maxLines: 2,
