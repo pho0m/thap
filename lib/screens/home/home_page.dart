@@ -54,11 +54,11 @@ class _HomePageState extends State<HomePage> {
           ),
           // leading: const FlutterLogo(size: 56.0),
           title: Text(
-            mockMusicData[0].title,
+            mockAllMusData[0].title,
             style: head4,
           ),
           subtitle: Text(
-            mockMusicData[0].artist,
+            mockAllMusData[0].artist,
             style: sub1,
           ),
           onTap: () {},
@@ -211,7 +211,7 @@ class _HomePageState extends State<HomePage> {
             MusicCard(
               height: _height,
               width: _width,
-              music: mockMusicData,
+              music: mockAllMusData,
               styletitle: head4,
               stylesuptitle: head5,
             ),

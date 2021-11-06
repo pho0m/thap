@@ -18,16 +18,6 @@ class ProfileArtistPage extends StatefulWidget {
 }
 
 class _ProfileArtistPage extends State<ProfileArtistPage> {
-  final MusicData mockData = MusicData(
-    title: "if you shy (let me knows)",
-    artist: "1975",
-    image:
-        "https://images.squarespace-cdn.com/content/v1/56858337cbced60d3b293aef/1572288107885-V2AZJF8YVG5NARZRU7YE/Albumism_The1975_ABriefInquiryIntoOnlineRelationships_MainImage.png.jpg?format=1000w",
-    musicPlay: "musics/testmusic.mp3",
-    dataArtist:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-    lyrics: "test lyrics",
-  );
   @override
   Widget build(BuildContext context) {
     return Body(
@@ -81,7 +71,7 @@ class _ProfileArtistPage extends State<ProfileArtistPage> {
                 height: 375,
                 child: ListView(
                   children: [
-                    Text(mockData.dataArtist),
+                    //Text(mockData.dataArtist),
                   ],
                 ),
               ),

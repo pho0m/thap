@@ -56,7 +56,7 @@ class _PlayerPageState extends State<PlayerPage> {
           iconSize: 40,
           onPressed: () {
             if (!playing) {
-              cache.play(music.musicPlay);
+              cache.play(music.music);
               setState(() {
                 playBtn();
                 playing = true;
@@ -89,7 +89,7 @@ class _PlayerPageState extends State<PlayerPage> {
           playing = false;
           repeat = false;
           setState(() {
-            cache.play(music.musicPlay);
+            cache.play(music.music);
             playing = true;
           });
         },
@@ -112,7 +112,7 @@ class _PlayerPageState extends State<PlayerPage> {
           playing = false;
           repeat = false;
           setState(() {
-            cache.play(music.musicPlay);
+            cache.play(music.music);
             playing = true;
           });
         },
@@ -157,7 +157,7 @@ class _PlayerPageState extends State<PlayerPage> {
 
     _player = AudioPlayer();
     cache = AudioCache(fixedPlayer: _player);
-    cache.play(music.musicPlay);
+    cache.play(music.music);
 
     setState(() {
       playBtn();

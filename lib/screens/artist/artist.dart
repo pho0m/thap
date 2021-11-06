@@ -1,1 +1,1 @@
-export 'profile_artist_page.dart';
+export 'artist_page.dart';
