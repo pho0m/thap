@@ -295,6 +295,9 @@ class _PlayerPageState extends State<PlayerPage> {
                                   style: head4,
                                   data: music.title,
                                   opacity: 0.2,
+                                  maxLines: 2,
+                                  minFontSize: 10,
+                                  overflow: TextOverflow.ellipsis,
                                 ),
                                 sizeBoxs20,
                                 GestureDetector(
@@ -302,6 +305,9 @@ class _PlayerPageState extends State<PlayerPage> {
                                     style: head4,
                                     data: music.artist,
                                     opacity: 0.2,
+                                    maxLines: 2,
+                                    minFontSize: 10,
+                                    overflow: TextOverflow.ellipsis,
                                   ),
                                   onTap: () {
                                     Navigator.push(
