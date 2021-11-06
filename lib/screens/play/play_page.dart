@@ -19,8 +19,6 @@ class PlayerPage extends StatefulWidget {
 }
 
 class _PlayerPageState extends State<PlayerPage> {
-  final GlobalKey<NavigatorState> _key = GlobalKey();
-
   late MusicData music;
 
   bool playing = false;
@@ -149,22 +147,14 @@ class _PlayerPageState extends State<PlayerPage> {
     );
   }
 
-  // Future<bool> _onWillPop() {
-  //   _player.stop();
-  //   return _player.stop();
-  //   ;
-  // }
-
   @override
   void initState() {
     super.initState();
 
-    //queue = widget.queue;
     music = widget.musicData;
 
     _player = AudioPlayer();
     cache = AudioCache(fixedPlayer: _player);
-
     cache.play(music.musicPlay);
 
     setState(() {
