@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:dt_app/mock/mock.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
@@ -7,10 +8,10 @@ import 'package:dt_app/theme/constant.dart';
 import 'package:dt_app/helpers/helper.dart';
 import '../route.dart';
 
-class ProfileArtistPage extends StatefulWidget {
+class ArtistPage extends StatefulWidget {
   final MusicData music;
 
-  const ProfileArtistPage({
+  const ArtistPage({
     required this.music,
     Key? key,
   }) : super(key: key);
@@ -19,12 +20,13 @@ class ProfileArtistPage extends StatefulWidget {
   _ProfileArtistPage createState() => _ProfileArtistPage();
 }
 
-class _ProfileArtistPage extends State<ProfileArtistPage> {
+class _ProfileArtistPage extends State<ArtistPage> {
   //FIXME Wait For API
   List<Artist> artist = [
     mockArtist1975,
     mockArtistPREP,
     mockArtistOka,
+    mockNoArtist,
   ];
 
   @override
@@ -34,41 +36,37 @@ class _ProfileArtistPage extends State<ProfileArtistPage> {
 
     return Body(
       context: context,
-      haveFAB: false,
+      haveFAB: true,
       appBar: _appbar(context),
       body: [
         sizeBoxs10,
-        // Center(
-        //   child: Column(
-        //     children: [
-        //       // Container(
-        //       //   width: 300,
-        //       //   height: 200,
-        //       //   decoration: BoxDecoration(
-        //       //     shape: BoxShape.circle,
-        //       //     image: DecorationImage(
-        //       //       image: NetworkImage(),
-        //       //       fit: BoxFit.cover,
-        //       //     ),
-        //       //   ),
-        //       // ),
-        //     ],
-        //   ),
-        // ),
-        sizeBoxs20,
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            // ShadowText(
-            //   style: const TextStyle(fontSize: 30.0),
-            //   data: mockPlaylist.artistName,
-            //   opacity: 0.2,
-            //   maxLines: 2,
-            //   minFontSize: 10,
-            //   overflow: TextOverflow.ellipsis,
-            // )
-          ],
+        Center(
+          child: Column(
+            children: [
+              Container(
+                width: 300,
+                height: 200,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  image: DecorationImage(
+                    image: NetworkImage(
+                      artist[artistID].image,
+                    ),
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+        sizeBoxs30,
+        ShadowText(
+          style: head1,
+          data: artist[artistID].name,
+          opacity: 0.2,
+          maxLines: 2,
+          minFontSize: 10,
+          overflow: TextOverflow.ellipsis,
         ),
         sizeBoxs20,
         Center(
@@ -94,14 +92,12 @@ class _ProfileArtistPage extends State<ProfileArtistPage> {
                   height: 300,
                   child: ListView(
                     children: [
-                      // ShadowText(
-                      //   style: head5,
-                      //   data: mockPlaylist.artistHistory,
-                      //   opacity: 0.2,
-                      //   maxLines: 2,
-                      //   minFontSize: 10,
-                      //   overflow: TextOverflow.ellipsis,
-                      // ),
+                      AutoSizeText(
+                        artist[artistID].history,
+                        style: head4,
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 20,
+                      ),
                     ],
                   ),
                 ),

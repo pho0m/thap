@@ -48,7 +48,6 @@ const head1 = TextStyle(
   fontWeight: FontWeight.bold,
   fontSize: fontSizeH1,
   letterSpacing: 0.4,
-  height: 0.9,
   color: dtDefaultFColor,
 );
 

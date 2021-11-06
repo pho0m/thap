@@ -25,3 +25,10 @@ final Artist mockArtist1975 = Artist(
   history:
       "It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable.",
 );
+
+//mockNoArtist No Artist Data
+final Artist mockNoArtist = Artist(
+  name: "",
+  image: "",
+  history: "",
+);
