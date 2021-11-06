@@ -5,9 +5,14 @@ import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 
 import '../route.dart';
 
-class FavoritePage extends StatelessWidget {
+class FavoritePage extends StatefulWidget {
   const FavoritePage({Key? key}) : super(key: key);
 
+  @override
+  _FavoritePageState createState() => _FavoritePageState();
+}
+
+class _FavoritePageState extends State<FavoritePage> {
   @override
   Widget build(BuildContext context) {
     double _width = MediaQuery.of(context).size.width;
@@ -20,6 +25,8 @@ class FavoritePage extends StatelessWidget {
         image:
             "https://images.squarespace-cdn.com/content/v1/56858337cbced60d3b293aef/1572288107885-V2AZJF8YVG5NARZRU7YE/Albumism_The1975_ABriefInquiryIntoOnlineRelationships_MainImage.png.jpg?format=1000w",
         musicPlay: "musics/testmusic.mp3",
+        dataArtist: "test",
+        lyrics: "test lyrics",
       ),
       MusicData(
         title: "cheapest flight",
@@ -27,6 +34,18 @@ class FavoritePage extends StatelessWidget {
         image:
             "https://i1.sndcdn.com/artworks-YTJNfuXwL5a59d4E-xezZzw-t500x500.jpg",
         musicPlay: "musics/preptestmusic.mp3",
+        dataArtist: "test",
+        lyrics: "test lyrics",
+        color: Colors.lightBlue,
+      ),
+      MusicData(
+        title: "Young Japaness",
+        artist: "OKAMOTO",
+        image: "https://i.ytimg.com/vi/qRrwK84G3fg/maxresdefault.jpg",
+        musicPlay: "musics/youngjapaness.mp3",
+        dataArtist: "test",
+        lyrics: "test lyrics",
+        color: Colors.red,
       ),
     ];
 

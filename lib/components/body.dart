@@ -6,15 +6,15 @@ import 'music_bar_fab.dart';
 class Body extends StatefulWidget {
   List<Widget> body;
   AppBar appBar;
-  bool haveFAB;
+  final bool haveFAB;
   BuildContext context;
 
   Body({
     Key? key,
     required this.body,
     required this.appBar,
-    required this.haveFAB,
     required this.context,
+    required this.haveFAB,
   }) : super(key: key);
 
   @override
@@ -27,22 +27,20 @@ class _BodyState extends State<Body> {
     return widget.haveFAB
         ? Scaffold(
             appBar: widget.appBar,
-            body: SafeArea(
-              child: SingleChildScrollView(
-                child: Column(
-                  children: widget.body,
-                ),
+            body: SingleChildScrollView(
+              physics: const BouncingScrollPhysics(),
+              child: Column(
+                children: widget.body,
               ),
             ),
-            floatingActionButton: MusicBar(context: context))
+            floatingActionButton: MusicBar(context: context),
+          )
         : Scaffold(
-            backgroundColor: Colors.transparent,
             appBar: widget.appBar,
-            body: SafeArea(
-              child: SingleChildScrollView(
-                child: Column(
-                  children: widget.body,
-                ),
+            body: SingleChildScrollView(
+              physics: const BouncingScrollPhysics(),
+              child: Column(
+                children: widget.body,
               ),
             ),
           );

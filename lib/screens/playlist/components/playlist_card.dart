@@ -44,7 +44,7 @@ class _PlaylistCrad extends State<PlaylistCrad> {
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               mainAxisSpacing: 20,
               crossAxisSpacing: 20,
-              childAspectRatio: 0.8,
+              childAspectRatio: 0.5,
               crossAxisCount: 2,
             ),
             itemCount: widget.playList.length,
@@ -55,21 +55,22 @@ class _PlaylistCrad extends State<PlaylistCrad> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Center(
-                      child: Container(
-                        padding: const EdgeInsets.all(60),
-                        decoration: BoxDecoration(
-                          color: Colors.red,
-                          borderRadius: BorderRadius.circular(15),
-                          image: const DecorationImage(
-                              image: AssetImage(
-                                  'assets/images/placeholder-black.jpg'),
-                              fit: BoxFit.cover),
-                        ),
-                      ),
-                    ),
-                    sizeBoxs10,
-                    Column(
+                        child: Column(
                       children: [
+                        Container(
+                          padding: const EdgeInsets.all(60),
+                          decoration: BoxDecoration(
+                            color: Colors.red,
+                            borderRadius: BorderRadius.circular(15),
+                            image: const DecorationImage(
+                              image: AssetImage(
+                                'assets/images/placeholder-black.jpg',
+                              ),
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
+                        sizeBoxs10,
                         AutoSizeText(
                           widget.playList[index].playlistName,
                           style: widget.pNameStyle,
@@ -85,7 +86,7 @@ class _PlaylistCrad extends State<PlaylistCrad> {
                           overflow: TextOverflow.ellipsis,
                         ),
                       ],
-                    )
+                    )),
                   ],
                 ),
                 onTap: () {
