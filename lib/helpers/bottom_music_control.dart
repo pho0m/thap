@@ -1,21 +1,22 @@
-// ignore_for_file: must_be_immutable
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:dt_app/mock/placeholder.dart';
 import 'package:dt_app/theme/constant.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 
-class MusicBar extends StatefulWidget {
-  BuildContext context;
-  MusicBar({
+class BottomMusicControl extends StatefulWidget {
+  final BuildContext context;
+
+  const BottomMusicControl({
     Key? key,
     required this.context,
   }) : super(key: key);
 
   @override
-  _MusicBarState createState() => _MusicBarState();
+  _BottomMusicControlState createState() => _BottomMusicControlState();
 }
 
-class _MusicBarState extends State<MusicBar> {
+class _BottomMusicControlState extends State<BottomMusicControl> {
   @override
   Widget build(BuildContext ctx) {
     double _width = MediaQuery.of(widget.context).size.width;
@@ -25,7 +26,7 @@ class _MusicBarState extends State<MusicBar> {
       height: 65,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20.0),
-        color: Colors.grey[200],
+        color: Colors.black12,
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -38,11 +39,9 @@ class _MusicBarState extends State<MusicBar> {
                   width: 50,
                   height: 50,
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10.0),
+                    borderRadius: BorderRadius.circular(15.0),
                     image: const DecorationImage(
-                      image: AssetImage(
-                        "assets/images/placeholder-black.jpg",
-                      ),
+                      image: AssetImage(blackPlaceholder),
                       fit: BoxFit.cover,
                     ),
                     //FIXME
@@ -55,24 +54,33 @@ class _MusicBarState extends State<MusicBar> {
                   ),
                 ),
               ),
+              sizeBoxs10,
               Padding(
-                padding: const EdgeInsets.symmetric(vertical: 10),
+                padding: const EdgeInsets.symmetric(vertical: 15),
                 child: SizedBox(
                   width: _width / 4,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: const [
-                      AutoSizeText(
-                        "work in progress",
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
+                      SizedBox(
+                        width: 200,
+                        child: AutoSizeText(
+                          "work in progress",
+                          maxLines: 1,
+                          minFontSize: 10,
+                          overflow: TextOverflow.ellipsis,
+                        ),
                       ),
-                      AutoSizeText(
-                        "work in progress",
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        style: cap,
+                      SizedBox(
+                        width: 100,
+                        child: AutoSizeText(
+                          "work in progress",
+                          maxLines: 1,
+                          minFontSize: 5,
+                          overflow: TextOverflow.ellipsis,
+                          style: cap,
+                        ),
                       ),
                     ],
                   ),
@@ -81,20 +89,30 @@ class _MusicBarState extends State<MusicBar> {
             ],
           ),
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.symmetric(vertical: 10),
             child: Row(
               children: [
-                IconButton(
-                  icon: const Icon(FeatherIcons.skipBack),
-                  onPressed: () {},
+                SizedBox(
+                  width: 50,
+                  child: IconButton(
+                    icon: const Icon(FeatherIcons.skipBack),
+                    onPressed: () {},
+                  ),
                 ),
-                IconButton(
-                  icon: const Icon(FeatherIcons.play),
-                  onPressed: () {},
+                SizedBox(
+                  width: 50,
+                  child: IconButton(
+                    icon: const Icon(FeatherIcons.play),
+                    onPressed: () {},
+                  ),
                 ),
-                IconButton(
-                  icon: const Icon(FeatherIcons.skipForward),
-                  onPressed: () {},
+                SizedBox(
+                  width: 50,
+                  child: IconButton(
+                    splashColor: Colors.red,
+                    icon: const Icon(FeatherIcons.skipForward),
+                    onPressed: () {},
+                  ),
                 ),
               ],
             ),

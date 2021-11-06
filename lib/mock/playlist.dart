@@ -31,5 +31,26 @@ final List<Playlist> mockPlaylist = [
     description:
         "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.",
     musicList: mockMus1975,
-  )
+  ),
+  Playlist(
+    image: "https://i.ytimg.com/vi/qRrwK84G3fg/maxresdefault.jpg",
+    name: "OKAMOTO",
+    description:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+    musicList: mockMusOKAMOTO,
+  ),
+  Playlist(
+    image: "https://tweed-24ad1.web.app/images/undraw/logo.png",
+    name: "TWEED PLAY",
+    description:
+        "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.",
+    musicList: mockMusFav,
+  ),
+  Playlist(
+    image: "https://i.ytimg.com/vi/z2_Lrg6rRks/maxresdefault.jpg",
+    name: "Shivers",
+    description:
+        "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
+    musicList: mockMusED,
+  ),
 ];

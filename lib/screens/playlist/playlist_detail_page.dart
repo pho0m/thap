@@ -29,7 +29,7 @@ class _PlaylistDetailPageState extends State<PlaylistDetailPage> {
     AppBar _appbar(BuildContext context) {
       return HomeAppBar(
         context: context,
-        title: playlistData.playlistName,
+        title: playlistData.name,
         style: head3,
         iconButton: [
           IconButton(

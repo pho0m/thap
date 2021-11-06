@@ -35,8 +35,8 @@ final List<MusicData> mockAllMusData = [
     color: Colors.orange,
   ),
   MusicData(
-    title: "Don't Look Back feat. Shownu & So!YoON!",
-    artist: "PERP",
+    title: "Don't Look Back",
+    artist: "PERP feat. Shownu & So!YoON!",
     artistID: "2",
     image: "https://i.ytimg.com/vi/GQGYUm1wtZA/maxresdefault.jpg",
     music: "musics/prepdontlookback.mp3",
@@ -112,6 +112,34 @@ final List<MusicData> mockMus1975 = [
     music: "musics/ifyoushyletmeknow.mp3",
     lyrics:
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+  ),
+];
+
+//mockMusOKAMOTO All music of OKAMOTO Artist
+final List<MusicData> mockMusOKAMOTO = [
+  MusicData(
+    title: "Young Japaness",
+    artist: "OKAMOTO",
+    artistID: "3",
+    image: "https://i.ytimg.com/vi/qRrwK84G3fg/maxresdefault.jpg",
+    music: "musics/youngjapaness.mp3",
+    lyrics:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+    color: Colors.red,
+  ),
+];
+
+//mockMusED All music of ED Sheeran Artist
+final List<MusicData> mockMusED = [
+  MusicData(
+    title: "Shivers",
+    artist: "Ed Sheeran",
+    artistID: "4",
+    image: "https://i.ytimg.com/vi/z2_Lrg6rRks/maxresdefault.jpg",
+    music: "musics/shivers.mp3",
+    lyrics:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+    color: Colors.yellow,
   ),
 ];
 

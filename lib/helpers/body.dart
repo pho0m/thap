@@ -1,7 +1,7 @@
 // ignore_for_file: must_be_immutable
 import 'package:flutter/material.dart';
 
-import 'music_bar_fab.dart';
+import 'bottom_music_control.dart';
 
 class Body extends StatefulWidget {
   List<Widget> body;
@@ -33,7 +33,7 @@ class _BodyState extends State<Body> {
                 children: widget.body,
               ),
             ),
-            floatingActionButton: MusicBar(context: context),
+            floatingActionButton: BottomMusicControl(context: context),
           )
         : Scaffold(
             appBar: widget.appBar,

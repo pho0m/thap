@@ -209,9 +209,7 @@ class _HomePageState extends State<HomePage> {
           context: context,
           appBar: _appbar(context),
           body: [
-            ImageContent(
-              imageData: imageList,
-            ),
+            ImageContent(imageData: imagePlaceholder),
             Center(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -229,6 +227,7 @@ class _HomePageState extends State<HomePage> {
               styletitle: head4,
               stylesuptitle: head5,
             ),
+            sizeBoxs100,
           ],
         ),
       ),
