@@ -1,4 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:dt_app/models/models.dart';
 import 'package:flutter/material.dart';
 
 import '../screens/route.dart';

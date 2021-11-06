@@ -36,9 +36,12 @@ flutter:
           
   assets:
       - assets/images/
-      - assets/musics/testmusic.mp3
-      - assets/musics/preptestmusic.mp3
+      - assets/musics/ifyoushyletmeknow.mp3
+      - assets/musics/prepcheapestflight.mp3
+      - assets/musics/prepdontlookback.mp3
+      - assets/musics/dontbringmedown.mp3
       - assets/musics/youngjapaness.mp3
+      - assets/musics/shivers.mp3
 
   uses-material-design: true
 
