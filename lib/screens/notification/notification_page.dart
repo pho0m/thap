@@ -21,25 +21,36 @@ class NotificationPage extends StatelessWidget {
             top: 20.0,
             right: 180.0,
           ),
-          child: Text(
-            "New Update",
+          child: ShadowText(
             style: head3,
+            data: 'New Update',
+            opacity: 0.2,
+            maxLines: 2,
+            minFontSize: 10,
+            overflow: TextOverflow.ellipsis,
           ),
         ),
-        Padding(
-          padding: const EdgeInsets.all(30.0),
-          child: Container(
-            width: 330,
-            height: 180,
-            decoration: BoxDecoration(
-              color: Colors.grey[300],
-              borderRadius: const BorderRadius.all(Radius.circular(20)),
-            ),
-            child: const Padding(
-              padding: EdgeInsets.all(20.0),
-              child: Text(
-                "-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, ",
-                style: sub1,
+        Center(
+          child: Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Container(
+              width: 330,
+              height: 180,
+              decoration: BoxDecoration(
+                color: Colors.grey[300],
+                borderRadius: const BorderRadius.all(Radius.circular(20)),
+              ),
+              child: const Padding(
+                padding: EdgeInsets.all(20.0),
+                child: ShadowText(
+                  data:
+                      "-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, ",
+                  style: sub1,
+                  opacity: 0.2,
+                  maxLines: 2,
+                  minFontSize: 10,
+                  overflow: TextOverflow.ellipsis,
+                ),
               ),
             ),
           ),
@@ -51,7 +62,7 @@ class NotificationPage extends StatelessWidget {
   AppBar _appbar(BuildContext context) {
     return HomeAppBar(
       context: context,
-      title: "What's new",
+      title: "What's New",
       style: head3,
       iconButton: [
         IconButton(

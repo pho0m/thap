@@ -289,42 +289,6 @@ class _PlayerPageState extends State<PlayerPage> {
                             ),
                           ),
                           sizeBoxs20,
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              sizeBoxs30,
-                              Column(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  ShadowText(
-                                    style: head4,
-                                    data: music.title,
-                                    opacity: 0.2,
-                                  ),
-                                  sizeBoxs20,
-                                  GestureDetector(
-                                    child: ShadowText(
-                                      style: head4,
-                                      data: music.artist,
-                                      opacity: 0.2,
-                                    ),
-                                    onTap: () {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (context) =>
-                                              ProfileArtistPage(
-                                            music: music,
-                                          ),
-                                        ),
-                                      );
-                                    },
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
                           sizeBoxs10,
                           SizedBox(
                             width: 500.0,
@@ -336,11 +300,36 @@ class _PlayerPageState extends State<PlayerPage> {
                                   "${position.inMinutes}:${position.inSeconds.remainder(60)}",
                                   style: head4,
                                 ),
-                                slider(),
-                                Text(
-                                  "${musicLength.inMinutes}:${musicLength.inSeconds.remainder(60)}",
+                                sizeBoxs20,
+                                ShadowText(
                                   style: head4,
+                                  data: music.title,
+                                  opacity: 0.2,
+                                  maxLines: 2,
+                                  minFontSize: 10,
+                                  overflow: TextOverflow.ellipsis,
                                 ),
+                                GestureDetector(
+                                  child: ShadowText(
+                                    style: head4,
+                                    data: music.artist,
+                                    opacity: 0.2,
+                                    maxLines: 2,
+                                    minFontSize: 10,
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => ProfileArtistPage(
+                                          music: music,
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                ),
+                                slider(),
                               ],
                             ),
                           ),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
+
 import 'package:dt_app/helpers/helper.dart';
 import 'package:dt_app/models/models.dart';
 import 'package:dt_app/theme/constant.dart';
@@ -58,18 +58,21 @@ class LyricsPage extends StatelessWidget {
               ),
               color: Colors.grey[300],
               child: ListTile(
-                title: Text(
-                  music.title,
-                  style: head3,
+                title: ShadowText(
+                  data: music.title,
+                  style: head4,
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
+                  minFontSize: 10,
+                  opacity: 0.2,
                 ),
-                subtitle: Text(
-                  music.lyrics,
-                  style: head4,
+                subtitle: ShadowText(
+                  data: music.lyrics,
+                  style: head5,
                   // minFontSize: 10,
                   maxLines: 100,
-                  overflow: TextOverflow.ellipsis,
+                  overflow: TextOverflow.ellipsis, minFontSize: 10,
+                  opacity: 0.2,
                 ),
               ),
             ),

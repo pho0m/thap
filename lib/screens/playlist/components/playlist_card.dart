@@ -1,8 +1,9 @@
-import 'package:auto_size_text/auto_size_text.dart';
-import 'package:dt_app/models/playlist.dart';
-import 'package:dt_app/theme/constant.dart';
 import 'package:flutter/material.dart';
 
+import 'package:auto_size_text/auto_size_text.dart';
+
+import 'package:dt_app/theme/constant.dart';
+import 'package:dt_app/models/models.dart';
 import '../../route.dart';
 
 class PlaylistCrad extends StatefulWidget {
@@ -72,7 +73,7 @@ class _PlaylistCrad extends State<PlaylistCrad> {
                         ),
                         sizeBoxs10,
                         AutoSizeText(
-                          widget.playList[index].playlistName,
+                          widget.playList[index].name,
                           style: widget.pNameStyle,
                           minFontSize: 10,
                           maxLines: 2,

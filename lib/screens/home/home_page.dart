@@ -78,7 +78,14 @@ class _HomePageState extends State<HomePage> {
         children: [
           const Padding(
             padding: EdgeInsets.only(left: 5.0),
-            child: Text("Playlist"),
+            child: ShadowText(
+              style: head3,
+              data: 'Playlist',
+              opacity: 0.2,
+              maxLines: 2,
+              minFontSize: 10,
+              overflow: TextOverflow.ellipsis,
+            ),
           ),
           SizedBox(
             width: 150,
@@ -117,7 +124,14 @@ class _HomePageState extends State<HomePage> {
       children: [
         const Padding(
           padding: EdgeInsets.only(left: 5.0),
-          child: Text("Favorite"),
+          child: ShadowText(
+            style: head3,
+            data: 'Favorite',
+            opacity: 0.2,
+            maxLines: 2,
+            minFontSize: 10,
+            overflow: TextOverflow.ellipsis,
+          ),
         ),
         SizedBox(
           width: 150,

@@ -1,4 +1,4 @@
-import 'package:auto_size_text/auto_size_text.dart';
+import 'package:dt_app/helpers/helper.dart';
 import 'package:dt_app/models/models.dart';
 import 'package:flutter/material.dart';
 
@@ -56,19 +56,21 @@ class _MusicCardState extends State<MusicCard> {
                   fit: BoxFit.cover,
                 ),
               ),
-              title: AutoSizeText(
-                widget.music[index].title,
+              title: ShadowText(
+                data: widget.music[index].title,
                 style: widget.styletitle,
                 minFontSize: 10,
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
+                opacity: 0.2,
               ),
-              subtitle: AutoSizeText(
-                widget.music[index].artist,
+              subtitle: ShadowText(
+                data: widget.music[index].artist,
                 style: widget.stylesuptitle,
                 minFontSize: 10,
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
+                opacity: 0.2,
               ),
               onTap: () {
                 Navigator.of(context).push(MaterialPageRoute(
