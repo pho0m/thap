@@ -38,7 +38,6 @@ class _ProfileArtistPage extends State<ArtistPage> {
       haveFAB: true,
       appBar: _appbar(context),
       body: [
-        // sizeBoxs10,
         Padding(
           padding: const EdgeInsets.all(0.0),
           child: Column(
@@ -58,11 +57,10 @@ class _ProfileArtistPage extends State<ArtistPage> {
             ],
           ),
         ),
-
         Column(
           children: [
             ShadowText(
-              style: head1,
+              style: head2,
               data: artist[artistID].name,
               opacity: 0.2,
               maxLines: 2,
@@ -79,7 +77,7 @@ class _ProfileArtistPage extends State<ArtistPage> {
             ),
           ],
         ),
-
+        sizeBoxs10,
         Padding(
           padding: const EdgeInsets.only(
             left: 20,
@@ -95,7 +93,7 @@ class _ProfileArtistPage extends State<ArtistPage> {
             child: Row(
               children: [
                 SizedBox(
-                  width: 200,
+                  width: 150,
                   height: 130,
                   child: ListView(
                     children: [
@@ -152,7 +150,6 @@ class _ProfileArtistPage extends State<ArtistPage> {
             ),
           ),
         ),
-
         sizeBoxs20,
         Column(
           children: [
@@ -173,7 +170,7 @@ class _ProfileArtistPage extends State<ArtistPage> {
                   color: Colors.grey[300],
                 ),
                 width: 350,
-                height: 300,
+                height: 150,
                 child: ListView(
                   children: [
                     Column(
@@ -200,6 +197,75 @@ class _ProfileArtistPage extends State<ArtistPage> {
               ),
             ),
           ],
+        ),
+        sizeBoxs20,
+        const Padding(
+          padding: EdgeInsets.all(0),
+          child: ShadowText(
+            data: "Playlist",
+            style: head2,
+            opacity: 0.2,
+            minFontSize: 10,
+            maxLines: 2,
+            overflow: TextOverflow.ellipsis,
+          ),
+        ),
+        Container(
+          width: 300,
+          height: 300,
+          padding: const EdgeInsets.all(60),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(15),
+            image: DecorationImage(
+              image: NetworkImage(
+                music.image,
+              ),
+              fit: BoxFit.cover,
+            ),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 30),
+          child: Row(
+            children: const [
+              ShadowText(
+                data: "playlistname",
+                style: sub1,
+                opacity: 0.2,
+                minFontSize: 10,
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+              ),
+              SizedBox(
+                width: 160,
+              ),
+              ShadowText(
+                data: "3 music",
+                style: sub1,
+                opacity: 0.2,
+                minFontSize: 10,
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+              ),
+            ],
+          ),
+        ),
+        sizeBoxs30,
+        const ShadowText(
+          data: "Composing Music",
+          style: head2,
+          opacity: 0.2,
+          minFontSize: 10,
+          maxLines: 2,
+          overflow: TextOverflow.ellipsis,
+        ),
+        MusicCard(
+          music: mockMusFav,
+          styletitle: head4,
+          stylesuptitle: head5,
+          height: 10,
+          width: 10,
         ),
       ],
     );
