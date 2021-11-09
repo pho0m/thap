@@ -59,8 +59,6 @@ class _ProfileArtistPage extends State<ArtistPage> {
           ),
         ),
 
-        sizeBoxs30,
-
         Column(
           children: [
             ShadowText(
@@ -97,7 +95,7 @@ class _ProfileArtistPage extends State<ArtistPage> {
             child: Row(
               children: [
                 SizedBox(
-                  width: 130,
+                  width: 200,
                   height: 130,
                   child: ListView(
                     children: [
@@ -111,18 +109,21 @@ class _ProfileArtistPage extends State<ArtistPage> {
                           style: sub2,
                         ),
                       ),
-                      Column(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Text(
-                              artist[artistID].dataArtist,
-                              style: const TextStyle(fontSize: 8),
-                              maxLines: 10,
-                              overflow: TextOverflow.ellipsis,
+                      Padding(
+                        padding: const EdgeInsets.only(left: 10),
+                        child: Column(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                artist[artistID].dataArtist,
+                                style: const TextStyle(fontSize: 8),
+                                maxLines: 10,
+                                overflow: TextOverflow.ellipsis,
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ],
                   ),
@@ -132,19 +133,16 @@ class _ProfileArtistPage extends State<ArtistPage> {
                   child: SizedBox(
                     width: 150,
                     height: 150,
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                        width: 100,
-                        height: 100,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.rectangle,
-                          image: DecorationImage(
-                            image: NetworkImage(
-                              artist[artistID].imageArtist,
-                            ),
-                            fit: BoxFit.cover,
+                    child: Container(
+                      width: 100,
+                      height: 100,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.rectangle,
+                        image: DecorationImage(
+                          image: NetworkImage(
+                            artist[artistID].imageArtist,
                           ),
+                          fit: BoxFit.cover,
                         ),
                       ),
                     ),
