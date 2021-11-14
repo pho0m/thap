@@ -54,3 +54,22 @@ final List<Playlist> mockPlaylist = [
     musicList: mockMusED,
   ),
 ];
+
+final List<Playlist> mockPlTest = [
+  Playlist(
+    image:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlTS1mGWI-WNFkoxPrvMnTVXrEGNFE8Qx19w&usqp=CAU",
+    name: "Popular Now",
+    description:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+    musicList: mockMusPlaylist1,
+  ),
+  Playlist(
+    image:
+        "https://pbs.twimg.com/profile_images/1024663409349062656/a4pyiAGm.jpg",
+    name: "Like A Boss !",
+    description:
+        "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
+    musicList: mockMusPlaylist2,
+  ),
+];
