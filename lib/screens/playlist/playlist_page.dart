@@ -18,6 +18,7 @@ class _PlaylistPage extends State<PlaylistPage> {
   @override
   Widget build(BuildContext context) {
     double _width = MediaQuery.of(context).size.width;
+    double _height = MediaQuery.of(context).size.height;
 
     AppBar _appbar(BuildContext context) {
       return HomeAppBar(
@@ -44,6 +45,7 @@ class _PlaylistPage extends State<PlaylistPage> {
         sizeBoxs10,
         PlaylistCrad(
           playList: mockPlaylist,
+          height: _height,
           width: _width,
           bgColor: Colors.grey[300],
           cardColor: Colors.grey[400],
