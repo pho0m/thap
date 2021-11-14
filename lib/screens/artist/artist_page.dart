@@ -6,7 +6,6 @@ import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:dt_app/models/models.dart';
 import 'package:dt_app/theme/constant.dart';
 import 'package:dt_app/helpers/helper.dart';
-import '../route.dart';
 
 class ArtistPage extends StatefulWidget {
   final MusicData music;
@@ -39,72 +38,225 @@ class _ProfileArtistPage extends State<ArtistPage> {
       haveFAB: false,
       appBar: _appbar(context),
       body: [
+        Container(
+          padding: const EdgeInsets.all(0.0),
+          width: 400,
+          height: 230,
+          decoration: BoxDecoration(
+            shape: BoxShape.rectangle,
+            image: DecorationImage(
+              image: NetworkImage(
+                artist[artistID].imageSub,
+              ),
+            ),
+          ),
+        ),
+        Column(
+          children: [
+            ShadowText(
+              style: head2,
+              data: artist[artistID].name,
+              opacity: 0.2,
+              maxLines: 2,
+              minFontSize: 10,
+              overflow: TextOverflow.ellipsis,
+            ),
+            ShadowText(
+              data: artist[artistID].name,
+              style: sub1,
+              opacity: 0.2,
+              minFontSize: 10,
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+            ),
+          ],
+        ),
         sizeBoxs10,
-        Center(
-          child: Column(
-            children: [
-              Container(
-                width: 300,
-                height: 200,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  image: DecorationImage(
-                    image: NetworkImage(
-                      artist[artistID].image,
-                    ),
-                    fit: BoxFit.cover,
+        Padding(
+          padding: const EdgeInsets.only(
+            left: 20,
+            right: 20,
+          ),
+          child: Container(
+            decoration: BoxDecoration(
+              color: Colors.grey[300],
+              borderRadius: BorderRadius.circular(15),
+            ),
+            height: 150,
+            width: 400,
+            child: Row(
+              children: [
+                SizedBox(
+                  width: 150,
+                  height: 130,
+                  child: ListView(
+                    children: [
+                      const Padding(
+                        padding: EdgeInsets.only(
+                          top: 10,
+                          left: 8,
+                        ),
+                        child: Text(
+                          "Personal Data",
+                          style: sub2,
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 10),
+                        child: Column(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                artist[artistID].dataArtist,
+                                style: const TextStyle(fontSize: 8),
+                                maxLines: 10,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
                   ),
                 ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 20.0),
+                  child: SizedBox(
+                    width: 125,
+                    height: 125,
+                    child: Container(
+                      width: 100,
+                      height: 100,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15),
+                        image: DecorationImage(
+                          image: NetworkImage(
+                            artist[artistID].imageArtist,
+                          ),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+        sizeBoxs20,
+        Padding(
+          padding: const EdgeInsets.only(
+            right: 20,
+            left: 20,
+          ),
+          child: Container(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 20,
+              vertical: 15,
+            ),
+            decoration: BoxDecoration(
+              borderRadius: const BorderRadius.all(
+                Radius.circular(20),
+              ),
+              color: Colors.grey[300],
+            ),
+            width: 350,
+            height: 150,
+            child: ListView(
+              children: [
+                Column(
+                  children: [
+                    const ShadowText(
+                      data: "History",
+                      style: sub2,
+                      opacity: 0.2,
+                      maxLines: 2,
+                      minFontSize: 10,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                    AutoSizeText(
+                      artist[artistID].history,
+                      style: const TextStyle(fontSize: 8),
+                      maxLines: 20,
+                      minFontSize: 10,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ),
+        sizeBoxs20,
+        const Padding(
+          padding: EdgeInsets.all(0),
+          child: ShadowText(
+            data: "Playlist",
+            style: head2,
+            opacity: 0.2,
+            minFontSize: 10,
+            maxLines: 2,
+            overflow: TextOverflow.ellipsis,
+          ),
+        ),
+        Container(
+          width: 300,
+          height: 300,
+          padding: const EdgeInsets.all(60),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(15),
+            image: DecorationImage(
+              image: NetworkImage(
+                music.image,
+              ),
+              fit: BoxFit.cover,
+            ),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 30),
+          child: Row(
+            children: const [
+              ShadowText(
+                data: "playlistname",
+                style: sub1,
+                opacity: 0.2,
+                minFontSize: 10,
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+              ),
+              SizedBox(
+                width: 160,
+              ),
+              ShadowText(
+                data: "3 music",
+                style: sub1,
+                opacity: 0.2,
+                minFontSize: 10,
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
               ),
             ],
           ),
         ),
         sizeBoxs30,
-        ShadowText(
-          style: head1,
-          data: artist[artistID].name,
+        const ShadowText(
+          data: "Composing Music",
+          style: head2,
           opacity: 0.2,
-          maxLines: 2,
           minFontSize: 10,
+          maxLines: 2,
           overflow: TextOverflow.ellipsis,
         ),
-        sizeBoxs20,
-        Center(
-          child: Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(
-                  right: 20,
-                  left: 20,
-                ),
-                child: Container(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 20,
-                    vertical: 15,
-                  ),
-                  decoration: BoxDecoration(
-                    borderRadius: const BorderRadius.all(
-                      Radius.circular(20),
-                    ),
-                    color: Colors.grey[300],
-                  ),
-                  width: 350,
-                  height: 300,
-                  child: ListView(
-                    children: [
-                      AutoSizeText(
-                        artist[artistID].history,
-                        style: head4,
-                        overflow: TextOverflow.ellipsis,
-                        maxLines: 20,
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ],
-          ),
-        )
+        MusicCard(
+          music: mockMusFav,
+          styletitle: head4,
+          stylesuptitle: head5,
+          height: 10,
+          width: 10,
+        ),
       ],
     );
   }
@@ -112,21 +264,9 @@ class _ProfileArtistPage extends State<ArtistPage> {
   AppBar _appbar(BuildContext context) {
     return HomeAppBar(
       context: context,
-      title: "ArtistProfile",
-      style: head3,
+      title: "",
+      style: head6,
       iconButton: [
-        IconButton(
-          color: Colors.black,
-          icon: const Icon(FeatherIcons.home),
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => const HomePage(),
-              ),
-            );
-          },
-        ),
         IconButton(
           color: Colors.black,
           icon: const Icon(FeatherIcons.chevronLeft),
