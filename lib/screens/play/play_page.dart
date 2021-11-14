@@ -199,112 +199,112 @@ class _PlayerPageState extends State<PlayerPage> {
       );
     }
 
-    return WillPopScope(
-      onWillPop: () async {
-        _player.stop();
-        return true;
-      },
-      child: Container(
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: NetworkImage(music.image),
-            colorFilter:
-                ColorFilter.mode(Colors.black.withOpacity(0.20), BlendMode.dst),
-            fit: BoxFit.cover,
-          ),
+    return Container(
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage(music.image),
+          colorFilter:
+              ColorFilter.mode(Colors.black.withOpacity(0.20), BlendMode.dst),
+          fit: BoxFit.cover,
         ),
-        child: Scaffold(
-          backgroundColor: Colors.white70,
-          body: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              Padding(
-                padding: const EdgeInsets.fromLTRB(0, 25, 10, 0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    const SizedBox(
-                      height: 10,
+      ),
+      child: Scaffold(
+        backgroundColor: Colors.white70,
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            Padding(
+              padding: const EdgeInsets.fromLTRB(0, 25, 10, 0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  IconButton(
+                    icon: const Icon(FeatherIcons.chevronLeft),
+                    onPressed: () {
+                      _player.stop();
+                      Navigator.of(context).pop();
+                    },
+                  ),
+                ],
+              ),
+            ),
+            MusicImage(
+              height: _height,
+              width: _width,
+              musicImage: music.image,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(right: 20.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Card(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15.0),
                     ),
-                    IconButton(
-                      icon: const Icon(FeatherIcons.chevronLeft),
+                    elevation: 5,
+                    child: IconButton(
+                      color: Colors.black,
+                      icon: const Icon(FeatherIcons.fileText),
                       onPressed: () {
-                        _player.stop();
-                        Navigator.of(context).pop();
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => LyricsPage(
+                              music: music,
+                            ),
+                          ),
+                        );
                       },
                     ),
-                  ],
-                ),
+                  ),
+                  Card(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15.0),
+                    ),
+                    elevation: 5,
+                    child: IconButton(
+                      color: Colors.black,
+                      icon: const Icon(FeatherIcons.heart),
+                      onPressed: () {},
+                    ),
+                  ),
+                ],
               ),
-              MusicImage(
-                height: _height,
-                width: _width,
-                musicImage: music.image,
-              ),
-              Padding(
-                padding: const EdgeInsets.only(right: 20.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
+            ),
+            sizeBoxs5,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                sizeBoxs40,
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Card(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(15.0),
-                      ),
-                      elevation: 5,
-                      child: IconButton(
-                        color: Colors.black,
-                        icon: const Icon(FeatherIcons.fileText),
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => LyricsPage(
-                                music: music,
-                              ),
-                            ),
-                          );
-                        },
-                      ),
-                    ),
-                    Card(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(15.0),
-                      ),
-                      elevation: 5,
-                      child: IconButton(
-                        color: Colors.black,
-                        icon: const Icon(FeatherIcons.heart),
-                        onPressed: () {},
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              sizeBoxs5,
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  sizeBoxs40,
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      ShadowText(
+                    SizedBox(
+                      width: _width / 1.2,
+                      child: ShadowText(
                         style: head2,
                         data: music.title,
                         opacity: 0.2,
-                        maxLines: 2,
-                        minFontSize: 10,
+                        maxLines: 1,
+                        minFontSize: 6,
                         overflow: TextOverflow.ellipsis,
                       ),
-                      sizeBoxs20,
-                      GestureDetector(
+                    ),
+                    sizeBoxs20,
+                    SizedBox(
+                      width: _width / 1.2,
+                      child: GestureDetector(
                         child: ShadowText(
                           style: head4,
                           data: music.artist,
                           opacity: 0.2,
-                          maxLines: 2,
-                          minFontSize: 10,
+                          maxLines: 1,
+                          minFontSize: 6,
                           overflow: TextOverflow.ellipsis,
                         ),
                         onTap: () {
@@ -318,67 +318,67 @@ class _PlayerPageState extends State<PlayerPage> {
                           );
                         },
                       ),
-                    ],
-                  ),
-                ],
-              ),
-              SizedBox(
-                width: _width,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Text(
-                      "${position.inMinutes}:${position.inSeconds.remainder(60)}",
-                      style: head4,
-                    ),
-                    slider(),
-                    Text(
-                      "${musicLength.inMinutes}:${musicLength.inSeconds.remainder(60)}",
-                      style: head4,
                     ),
                   ],
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 15),
-                child: Card(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(15.0),
+              ],
+            ),
+            SizedBox(
+              width: _width,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text(
+                    "${position.inMinutes}:${position.inSeconds.remainder(60)}",
+                    style: head4,
                   ),
-                  elevation: 10,
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: SizedBox(
-                      width: _width,
-                      height: _height / 6.8,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          Card(
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15),
-                            ),
-                            elevation: 5,
-                            child: IconButton(
-                              color: Colors.black,
-                              icon: const Icon(FeatherIcons.shuffle),
-                              onPressed: () {},
-                            ),
+                  slider(),
+                  Text(
+                    "${musicLength.inMinutes}:${musicLength.inSeconds.remainder(60)}",
+                    style: head4,
+                  ),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 15),
+              child: Card(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15.0),
+                ),
+                elevation: 10,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: SizedBox(
+                    width: _width,
+                    height: _height / 6.8,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Card(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15),
                           ),
-                          previousBtn(),
-                          playBtn(),
-                          nextBtn(),
-                          repeatBtn()
-                        ],
-                      ),
+                          elevation: 5,
+                          child: IconButton(
+                            color: Colors.black,
+                            icon: const Icon(FeatherIcons.shuffle),
+                            onPressed: () {},
+                          ),
+                        ),
+                        previousBtn(),
+                        playBtn(),
+                        nextBtn(),
+                        repeatBtn()
+                      ],
                     ),
                   ),
                 ),
               ),
-              sizeBoxs30,
-            ],
-          ),
+            ),
+            sizeBoxs30,
+          ],
         ),
       ),
     );

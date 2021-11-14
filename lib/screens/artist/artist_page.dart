@@ -70,7 +70,7 @@ class _ProfileArtistPage extends State<ArtistPage> {
                   decoration: BoxDecoration(
                     shape: BoxShape.rectangle,
                     image: DecorationImage(
-                      image: NetworkImage(
+                      image: AssetImage(
                         artist[artistID].imageSub,
                       ),
                       fit: BoxFit.cover,
@@ -142,7 +142,7 @@ class _ProfileArtistPage extends State<ArtistPage> {
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
                           image: DecorationImage(
-                            image: NetworkImage(
+                            image: AssetImage(
                               artist[artistID].imageArtist,
                             ),
                             fit: BoxFit.cover,
@@ -237,7 +237,7 @@ class _ProfileArtistPage extends State<ArtistPage> {
                                       color: Colors.white,
                                       borderRadius: BorderRadius.circular(15),
                                       image: DecorationImage(
-                                        image: NetworkImage(
+                                        image: AssetImage(
                                           mockPlTest[index].image,
                                         ),
                                         fit: BoxFit.cover,
