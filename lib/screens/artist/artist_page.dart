@@ -38,23 +38,17 @@ class _ProfileArtistPage extends State<ArtistPage> {
       haveFAB: true,
       appBar: _appbar(context),
       body: [
-        Padding(
+        Container(
           padding: const EdgeInsets.all(0.0),
-          child: Column(
-            children: [
-              Container(
-                width: 400,
-                height: 230,
-                decoration: BoxDecoration(
-                  shape: BoxShape.rectangle,
-                  image: DecorationImage(
-                    image: NetworkImage(
-                      artist[artistID].imageSub,
-                    ),
-                  ),
-                ),
+          width: 400,
+          height: 230,
+          decoration: BoxDecoration(
+            shape: BoxShape.rectangle,
+            image: DecorationImage(
+              image: NetworkImage(
+                artist[artistID].imageSub,
               ),
-            ],
+            ),
           ),
         ),
         Column(
@@ -127,15 +121,15 @@ class _ProfileArtistPage extends State<ArtistPage> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(left: 10.0),
+                  padding: const EdgeInsets.only(left: 20.0),
                   child: SizedBox(
-                    width: 150,
-                    height: 150,
+                    width: 125,
+                    height: 125,
                     child: Container(
                       width: 100,
                       height: 100,
                       decoration: BoxDecoration(
-                        shape: BoxShape.rectangle,
+                        borderRadius: BorderRadius.circular(15),
                         image: DecorationImage(
                           image: NetworkImage(
                             artist[artistID].imageArtist,
@@ -151,52 +145,48 @@ class _ProfileArtistPage extends State<ArtistPage> {
           ),
         ),
         sizeBoxs20,
-        Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(
-                right: 20,
-                left: 20,
+        Padding(
+          padding: const EdgeInsets.only(
+            right: 20,
+            left: 20,
+          ),
+          child: Container(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 20,
+              vertical: 15,
+            ),
+            decoration: BoxDecoration(
+              borderRadius: const BorderRadius.all(
+                Radius.circular(20),
               ),
-              child: Container(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 20,
-                  vertical: 15,
-                ),
-                decoration: BoxDecoration(
-                  borderRadius: const BorderRadius.all(
-                    Radius.circular(20),
-                  ),
-                  color: Colors.grey[300],
-                ),
-                width: 350,
-                height: 150,
-                child: ListView(
+              color: Colors.grey[300],
+            ),
+            width: 350,
+            height: 150,
+            child: ListView(
+              children: [
+                Column(
                   children: [
-                    Column(
-                      children: [
-                        const ShadowText(
-                          data: "History",
-                          style: sub2,
-                          opacity: 0.2,
-                          maxLines: 2,
-                          minFontSize: 10,
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                        AutoSizeText(
-                          artist[artistID].history,
-                          style: const TextStyle(fontSize: 8),
-                          maxLines: 20,
-                          minFontSize: 10,
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                      ],
+                    const ShadowText(
+                      data: "History",
+                      style: sub2,
+                      opacity: 0.2,
+                      maxLines: 2,
+                      minFontSize: 10,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                    AutoSizeText(
+                      artist[artistID].history,
+                      style: const TextStyle(fontSize: 8),
+                      maxLines: 20,
+                      minFontSize: 10,
+                      overflow: TextOverflow.ellipsis,
                     ),
                   ],
                 ),
-              ),
+              ],
             ),
-          ],
+          ),
         ),
         sizeBoxs20,
         const Padding(
