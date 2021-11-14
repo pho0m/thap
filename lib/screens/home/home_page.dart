@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
@@ -181,7 +183,7 @@ class _HomePageState extends State<HomePage> {
                 child: const Text('No'),
               ),
               TextButton(
-                onPressed: () => Navigator.of(context).pop(true),
+                onPressed: () => exit(0),
                 child: const Text('Yes'),
               ),
             ],
@@ -205,7 +207,7 @@ class _HomePageState extends State<HomePage> {
       child: WillPopScope(
         onWillPop: _onWillPop,
         child: Body(
-          haveFAB: true,
+          haveFAB: false,
           context: context,
           appBar: _appbar(context),
           body: [
