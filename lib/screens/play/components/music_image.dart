@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 
-// ignore: must_be_immutable
 class MusicImage extends StatelessWidget {
-  double width;
-  double height;
+  final double width;
+  final double height;
   final String musicImage;
 
-  MusicImage({
+  const MusicImage({
     Key? key,
     required this.width,
     required this.height,
@@ -21,12 +20,12 @@ class MusicImage extends StatelessWidget {
       ),
       elevation: 5,
       child: Container(
-        width: width / 1.3,
-        height: height / 3.0,
+        width: width - 50,
+        height: height / 2.8,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(30.0),
           image: DecorationImage(
-            image: NetworkImage(musicImage),
+            image: AssetImage(musicImage),
             fit: BoxFit.cover,
           ),
           shape: BoxShape.rectangle,

@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
@@ -67,102 +69,6 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget playlist() {
-    return GestureDetector(
-      onTap: () {
-        Navigator.push(context,
-            MaterialPageRoute(builder: (context) => const PlaylistPage()));
-      },
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const Padding(
-            padding: EdgeInsets.only(left: 5.0),
-            child: ShadowText(
-              style: head3,
-              data: 'Playlist',
-              opacity: 0.2,
-              maxLines: 2,
-              minFontSize: 10,
-              overflow: TextOverflow.ellipsis,
-            ),
-          ),
-          SizedBox(
-            width: 150,
-            height: 150,
-            child: Card(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10.0),
-              ),
-              color: Colors.grey[300],
-              child: InkWell(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const PlaylistPage(),
-                    ),
-                  );
-                },
-                child: const SizedBox(
-                  child: Icon(
-                    FeatherIcons.list,
-                    size: 40.0,
-                  ),
-                ),
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget favorite() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const Padding(
-          padding: EdgeInsets.only(left: 5.0),
-          child: ShadowText(
-            style: head3,
-            data: 'Favorite',
-            opacity: 0.2,
-            maxLines: 2,
-            minFontSize: 10,
-            overflow: TextOverflow.ellipsis,
-          ),
-        ),
-        SizedBox(
-          width: 150,
-          height: 150,
-          child: Card(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10.0),
-              ),
-              color: Colors.grey[300],
-              child: InkWell(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const FavoritePage(),
-                    ),
-                  );
-                },
-                child: const SizedBox(
-                  child: Icon(
-                    Icons.favorite,
-                    color: Colors.black,
-                    size: 40.0,
-                  ),
-                ),
-              )),
-        ),
-      ],
-    );
-  }
-
   Future<bool> _onWillPop() async {
     return (await showDialog(
           context: context,
@@ -181,7 +87,7 @@ class _HomePageState extends State<HomePage> {
                 child: const Text('No'),
               ),
               TextButton(
-                onPressed: () => Navigator.of(context).pop(true),
+                onPressed: () => exit(0),
                 child: const Text('Yes'),
               ),
             ],
@@ -200,23 +106,124 @@ class _HomePageState extends State<HomePage> {
     double _width = MediaQuery.of(context).size.width;
     double _height = MediaQuery.of(context).size.height;
 
+    Widget playlist() {
+      return GestureDetector(
+        onTap: () {
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => const PlaylistPage()));
+        },
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Padding(
+              padding: EdgeInsets.only(left: 5.0),
+              child: ShadowText(
+                style: head3,
+                data: 'Playlist',
+                opacity: 0.2,
+                maxLines: 2,
+                minFontSize: 10,
+                overflow: TextOverflow.ellipsis,
+              ),
+            ),
+            sizeBoxs5,
+            SizedBox(
+              width: _width / 2.2,
+              height: _height / 5,
+              child: Card(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
+                color: Colors.grey[300],
+                child: InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const PlaylistPage(),
+                      ),
+                    );
+                  },
+                  child: const SizedBox(
+                    child: Icon(
+                      FeatherIcons.list,
+                      size: 50.0,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      );
+    }
+
+    Widget favorite() {
+      return Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Padding(
+            padding: EdgeInsets.only(left: 5.0),
+            child: ShadowText(
+              style: head3,
+              data: 'Favorite',
+              opacity: 0.2,
+              maxLines: 2,
+              minFontSize: 10,
+              overflow: TextOverflow.ellipsis,
+            ),
+          ),
+          sizeBoxs5,
+          SizedBox(
+            width: _width / 2.2,
+            height: _height / 5,
+            child: Card(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
+                color: Colors.grey[300],
+                child: InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const FavoritePage(),
+                      ),
+                    );
+                  },
+                  child: const SizedBox(
+                    child: Icon(
+                      Icons.favorite,
+                      color: Colors.black,
+                      size: 50.0,
+                    ),
+                  ),
+                )),
+          ),
+        ],
+      );
+    }
+
     return DefaultTextStyle(
       style: const TextStyle(color: Colors.black),
       child: WillPopScope(
         onWillPop: _onWillPop,
         child: Body(
-          haveFAB: true,
+          haveFAB: false,
           context: context,
           appBar: _appbar(context),
           body: [
             ImageContent(imageData: imagePlaceholder),
-            Center(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  playlist(),
-                  favorite(),
-                ],
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 15),
+              child: Center(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    playlist(),
+                    favorite(),
+                  ],
+                ),
               ),
             ),
             sizeBoxs20,

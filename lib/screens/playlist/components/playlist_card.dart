@@ -8,6 +8,7 @@ import '../../route.dart';
 
 class PlaylistCrad extends StatefulWidget {
   final double width;
+  final double height;
   final List<Playlist> playList;
   final Color? bgColor;
   final Color? cardColor;
@@ -17,6 +18,7 @@ class PlaylistCrad extends StatefulWidget {
   const PlaylistCrad({
     Key? key,
     required this.width,
+    required this.height,
     required this.playList,
     required this.bgColor,
     required this.cardColor,
@@ -37,7 +39,7 @@ class _PlaylistCrad extends State<PlaylistCrad> {
           color: widget.bgColor,
           borderRadius: BorderRadius.circular(15),
         ),
-        height: 700,
+        height: widget.height - 120,
         width: widget.width - 30,
         child: Padding(
           padding: const EdgeInsets.all(20.0),
@@ -46,7 +48,7 @@ class _PlaylistCrad extends State<PlaylistCrad> {
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               mainAxisSpacing: 20,
               crossAxisSpacing: 20,
-              childAspectRatio: 0.8,
+              childAspectRatio: 0.68,
               crossAxisCount: 2,
             ),
             itemCount: widget.playList.length,
@@ -66,7 +68,7 @@ class _PlaylistCrad extends State<PlaylistCrad> {
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(15),
                             image: DecorationImage(
-                              image: NetworkImage(
+                              image: AssetImage(
                                 widget.playList[index].image,
                               ),
                               fit: BoxFit.cover,

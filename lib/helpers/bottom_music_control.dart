@@ -1,5 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:dt_app/mock/placeholder.dart';
+import 'package:dt_app/mock/home.dart';
 import 'package:dt_app/theme/constant.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
