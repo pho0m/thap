@@ -22,7 +22,6 @@ class ArtistPage extends StatefulWidget {
 }
 
 class _ProfileArtistPage extends State<ArtistPage> {
-  //FIXME Wait For API
   List<Artist> artist = [
     mockArtist1975,
     mockArtistPREP,
