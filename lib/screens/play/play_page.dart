@@ -202,7 +202,7 @@ class _PlayerPageState extends State<PlayerPage> {
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: NetworkImage(music.image),
+          image: AssetImage(music.image),
           colorFilter:
               ColorFilter.mode(Colors.black.withOpacity(0.20), BlendMode.dst),
           fit: BoxFit.cover,

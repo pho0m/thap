@@ -36,12 +36,16 @@ flutter:
           
   assets:
       - assets/images/
-      - assets/musics/ifyoushyletmeknow.mp3
-      - assets/musics/prepcheapestflight.mp3
-      - assets/musics/prepdontlookback.mp3
-      - assets/musics/prepdontbringmedown.mp3
-      - assets/musics/youngjapaness.mp3
-      - assets/musics/shivers.mp3
+      - assets/images/musics/
+      - assets/images/artists/      
+      - assets/images/playlists/
+      - assets/musics/KhamenSaiYok.mp3
+      - assets/musics/LaoCharoenSi.mp3
+      - assets/musics/LaoDuangDuean.mp3
+      - assets/musics/LaoKhamHom.mp3
+      - assets/musics/LaoSiangThian.mp3
+      - assets/musics/NangKhruan.mp3
+      - assets/musics/RatriPradapDao.mp3
 
   uses-material-design: true
 

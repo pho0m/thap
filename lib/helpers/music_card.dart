@@ -50,7 +50,7 @@ class _MusicCardState extends State<MusicCard> {
                 width: 50,
                 height: 50,
                 child: Image(
-                  image: NetworkImage(
+                  image: AssetImage(
                     widget.music[index].image,
                   ),
                   fit: BoxFit.cover,

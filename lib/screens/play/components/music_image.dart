@@ -26,7 +26,7 @@ class MusicImage extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(30.0),
           image: DecorationImage(
-            image: NetworkImage(musicImage),
+            image: AssetImage(musicImage),
             fit: BoxFit.cover,
           ),
           shape: BoxShape.rectangle,

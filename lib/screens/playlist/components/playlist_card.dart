@@ -66,7 +66,7 @@ class _PlaylistCrad extends State<PlaylistCrad> {
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(15),
                             image: DecorationImage(
-                              image: NetworkImage(
+                              image: AssetImage(
                                 widget.playList[index].image,
                               ),
                               fit: BoxFit.cover,

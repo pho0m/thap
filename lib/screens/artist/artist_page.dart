@@ -45,7 +45,7 @@ class _ProfileArtistPage extends State<ArtistPage> {
           decoration: BoxDecoration(
             shape: BoxShape.rectangle,
             image: DecorationImage(
-              image: NetworkImage(
+              image: AssetImage(
                 artist[artistID].imageSub,
               ),
             ),
@@ -131,7 +131,7 @@ class _ProfileArtistPage extends State<ArtistPage> {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(15),
                         image: DecorationImage(
-                          image: NetworkImage(
+                          image: AssetImage(
                             artist[artistID].imageArtist,
                           ),
                           fit: BoxFit.cover,
@@ -208,7 +208,7 @@ class _ProfileArtistPage extends State<ArtistPage> {
             color: Colors.white,
             borderRadius: BorderRadius.circular(15),
             image: DecorationImage(
-              image: NetworkImage(
+              image: AssetImage(
                 music.image,
               ),
               fit: BoxFit.cover,
@@ -251,7 +251,7 @@ class _ProfileArtistPage extends State<ArtistPage> {
           overflow: TextOverflow.ellipsis,
         ),
         MusicCard(
-          music: mockMusFav,
+          music: mockAllMusData,
           styletitle: head4,
           stylesuptitle: head5,
           height: 10,
