@@ -27,6 +27,8 @@ class _ProfileArtistPage extends State<ArtistPage> {
     mockArtistPREP,
     mockArtistOka,
     mockNoArtist,
+    mockNoArtist,
+    mockNoArtist,
   ];
 
   @override
