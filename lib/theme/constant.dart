@@ -45,7 +45,7 @@ const TextTheme textTheme = TextTheme(
 
 const head1 = TextStyle(
   fontFamily: dtFontFamily,
-  fontWeight: FontWeight.bold,
+  fontWeight: FontWeight.w800,
   fontSize: fontSizeH1,
   letterSpacing: 0.4,
   color: dtDefaultFColor,

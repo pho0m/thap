@@ -16,7 +16,7 @@ final List<MusicData> mockAllMusData = [
   MusicData(
     title: "Lao Charoen Si",
     artist: "ChaoPhraya Thewet WongWiwat",
-    artistID: "2",
+    artistID: "3",
     image: "assets/images/musics/LaoCharoenSi.jpg",
     music: "musics/LaoCharoenSi.mp3",
     color: Colors.amber,
@@ -26,7 +26,7 @@ final List<MusicData> mockAllMusData = [
   MusicData(
     title: "Lao Duang Duean",
     artist: "Krom Muen Phi Chai Ma Hin Ta Ro Dom",
-    artistID: "3",
+    artistID: "2",
     image: "assets/images/musics/LaoDuangDuean.jpg",
     music: "musics/LaoDuangDuean.mp3",
     lyrics:
