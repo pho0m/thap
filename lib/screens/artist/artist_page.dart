@@ -23,12 +23,12 @@ class ArtistPage extends StatefulWidget {
 
 class _ProfileArtistPage extends State<ArtistPage> {
   List<Artist> artist = [
-    mockArtist1975,
-    mockArtistPREP,
-    mockArtistOka,
-    mockNoArtist,
-    mockNoArtist,
-    mockNoArtist,
+    mockArtistUnknow,
+    mockArtistPhrayaNaritRaNuWatTiWong,
+    mockArtistKromMuenPhiChaiMaHinTaRoDom,
+    mockArtistChaoPhrayaThewetWongWiwat,
+    mockArtistPhrayaPrasanDuRiyaSap,
+    mockArtistPhraBatSomdetPhraPokklaoChaoYuHuaRatchakanThi7,
   ];
 
   @override
@@ -93,8 +93,8 @@ class _ProfileArtistPage extends State<ArtistPage> {
                       ),
                       ShadowText(
                         data: artist[artistID].name,
-                        style: head3,
-                        opacity: 0.2,
+                        style: head2,
+                        opacity: 0,
                         minFontSize: 12,
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
