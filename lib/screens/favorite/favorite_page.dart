@@ -38,7 +38,6 @@ class _FavoritePageState extends State<FavoritePage> {
 
     return Body(
       context: context,
-      haveFAB: false,
       appBar: _appbar(context),
       body: [
         MusicCard(

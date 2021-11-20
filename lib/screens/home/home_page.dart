@@ -27,12 +27,12 @@ class _HomePageState extends State<HomePage> {
       iconButton: [
         IconButton(
           color: Colors.black,
-          icon: const Icon(FeatherIcons.bell),
+          icon: const Icon(FeatherIcons.coffee),
           onPressed: () {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => const NotificationPage(),
+                builder: (context) => const ContactUsPage(),
               ),
             );
           },

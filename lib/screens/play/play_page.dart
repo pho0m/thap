@@ -367,9 +367,9 @@ class _PlayerPageState extends State<PlayerPage> {
                             onPressed: () {},
                           ),
                         ),
-                        previousBtn(),
+                        // previousBtn(),
                         playBtn(),
-                        nextBtn(),
+                        //nextBtn(),
                         repeatBtn()
                       ],
                     ),

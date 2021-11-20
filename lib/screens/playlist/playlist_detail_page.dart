@@ -45,7 +45,6 @@ class _PlaylistDetailPageState extends State<PlaylistDetailPage> {
 
     return Body(
       context: context,
-      haveFAB: false,
       appBar: _appbar(context),
       body: [
         MusicCard(

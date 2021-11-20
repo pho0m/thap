@@ -16,7 +16,6 @@ class _ShowProblemState extends State<ShowProblem> {
   Widget build(BuildContext context) {
     return Body(
       context: context,
-      haveFAB: false,
       appBar: _appbar(context),
       body: [
         Container(

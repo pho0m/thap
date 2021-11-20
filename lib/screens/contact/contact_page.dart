@@ -11,52 +11,36 @@ class ContactUsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double _width = MediaQuery.of(context).size.width;
+    double _height = MediaQuery.of(context).size.height;
+
     return Body(
       context: context,
-      haveFAB: false,
       appBar: _appbar(context),
       body: [
         Padding(
-          padding: const EdgeInsets.only(
-            right: 40,
-            left: 40,
-          ),
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
           child: Container(
-            width: 400,
-            height: 600,
+            width: _width,
+            height: _height / 1.25,
             decoration: BoxDecoration(
               color: Colors.grey[300],
               borderRadius: const BorderRadius.all(Radius.circular(20)),
             ),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Padding(
-                  padding: const EdgeInsets.only(top: 20, bottom: 20),
-                  child: Image.asset(
-                    'assets/images/qrcode-contact.png',
-                    cacheHeight: 150,
-                  ),
-                ),
-                const Padding(
-                  padding: EdgeInsets.only(right: 130),
-                  child: ShadowText(
-                    data: "Contact",
-                    style: head2,
-                    opacity: 0.2,
-                    maxLines: 2,
-                    minFontSize: 10,
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                ),
-                const Padding(
-                  padding: EdgeInsets.only(right: 80),
-                  child: ShadowText(
-                    data: "Phoom : 0987654321",
-                    style: sub1,
-                    opacity: 0.2,
-                    maxLines: 2,
-                    minFontSize: 10,
-                    overflow: TextOverflow.ellipsis,
+                Center(
+                  child: Padding(
+                    padding: const EdgeInsets.all(50.0),
+                    child: SizedBox(
+                      child: Image.asset(
+                        'assets/images/qrcode-contact.png',
+                        width: _width / 2,
+                        height: _height / 4,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
                   ),
                 ),
                 const Padding(
@@ -64,14 +48,18 @@ class ContactUsPage extends StatelessWidget {
                     right: 10,
                     left: 30,
                   ),
-                  child: ShadowText(
-                    data:
-                        "address :  is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only",
-                    style: sub1,
-                    opacity: 0.2,
-                    maxLines: 2,
-                    minFontSize: 10,
-                    overflow: TextOverflow.ellipsis,
+                  child: Text(
+                    "Contact",
+                    style: head2,
+                  ),
+                ),
+                const Padding(
+                  padding: EdgeInsets.only(
+                    right: 10,
+                    left: 30,
+                  ),
+                  child: Text(
+                    "pho0m2000s@gmail.com pho0m tweed",
                   ),
                 ),
               ],

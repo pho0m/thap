@@ -39,7 +39,6 @@ class _PlaylistPage extends State<PlaylistPage> {
 
     return Body(
       context: context,
-      haveFAB: false,
       appBar: _appbar(context),
       body: [
         sizeBoxs10,
