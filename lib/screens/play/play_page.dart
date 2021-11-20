@@ -1,7 +1,7 @@
 import 'package:audioplayers/audioplayers.dart';
-import 'package:dt_app/helpers/helper.dart';
-import 'package:dt_app/models/models.dart';
-import 'package:dt_app/theme/constant.dart';
+import 'package:thap_mobile/helpers/helper.dart';
+import 'package:thap_mobile/models/models.dart';
+import 'package:thap_mobile/theme/constant.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 

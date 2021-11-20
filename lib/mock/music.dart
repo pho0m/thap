@@ -1,4 +1,4 @@
-import 'package:dt_app/models/models.dart';
+import 'package:thap_mobile/models/models.dart';
 import 'package:flutter/material.dart';
 
 //mockAllMusData to use mock all music list

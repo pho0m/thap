@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 
-import 'package:dt_app/helpers/helper.dart';
-import 'package:dt_app/models/playlist.dart';
-import 'package:dt_app/theme/constant.dart';
+import 'package:thap_mobile/helpers/helper.dart';
+import 'package:thap_mobile/models/playlist.dart';
+import 'package:thap_mobile/theme/constant.dart';
 
 class PlaylistDetailPage extends StatefulWidget {
   final Playlist playlistData;

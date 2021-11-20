@@ -1,6 +1,6 @@
 {
-    "name": "dt_app",
-    "short_name": "dt_app",
+    "name": "thap_mobile",
+    "short_name": "thap_mobile",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

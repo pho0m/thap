@@ -1,4 +1,4 @@
-name: dt_app
+name: thap_mobile
 description: A new Flutter project.
 publish_to: 'none' 
 version: 1.0.0+1
@@ -16,6 +16,7 @@ dependencies:
   audioplayers: ^0.20.0
   auto_size_text: ^3.0.0-nullsafety.0
   pull_to_refresh: ^2.0.0
+  lottie: ^1.2.1
 
 dev_dependencies:
   flutter_test:
@@ -42,6 +43,7 @@ flutter:
           
   assets:
       - assets/images/
+      - assets/lottie/music-loader.json
       - assets/images/musics/
       - assets/images/artists/      
       - assets/images/playlists/

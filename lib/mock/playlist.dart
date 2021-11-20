@@ -1,4 +1,4 @@
-import 'package:dt_app/models/models.dart';
+import 'package:thap_mobile/models/models.dart';
 import './mock.dart';
 
 final List<Playlist> mockPlaylist = [
