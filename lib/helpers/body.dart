@@ -14,7 +14,7 @@ class Body extends StatefulWidget {
     required this.body,
     required this.appBar,
     required this.context,
-    required this.haveFAB,
+    this.haveFAB = false,
   }) : super(key: key);
 
   @override

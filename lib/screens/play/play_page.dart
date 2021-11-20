@@ -1,7 +1,7 @@
 import 'package:audioplayers/audioplayers.dart';
-import 'package:dt_app/helpers/helper.dart';
-import 'package:dt_app/models/models.dart';
-import 'package:dt_app/theme/constant.dart';
+import 'package:thap_mobile/helpers/helper.dart';
+import 'package:thap_mobile/models/models.dart';
+import 'package:thap_mobile/theme/constant.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 
@@ -148,6 +148,57 @@ class _PlayerPageState extends State<PlayerPage> {
     );
   }
 
+  Widget lyricsBtn() {
+    return Card(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(15.0),
+      ),
+      elevation: 5,
+      child: IconButton(
+        color: Colors.black,
+        icon: const Icon(FeatherIcons.fileText),
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => LyricsPage(
+                music: music,
+              ),
+            ),
+          );
+        },
+      ),
+    );
+  }
+
+  Widget favoriteBtn() {
+    return Card(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(15.0),
+      ),
+      elevation: 5,
+      child: IconButton(
+        color: Colors.black,
+        icon: const Icon(FeatherIcons.heart),
+        onPressed: () {},
+      ),
+    );
+  }
+
+  Widget muteBtn() {
+    return Card(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(15.0),
+      ),
+      elevation: 5,
+      child: IconButton(
+        color: Colors.black,
+        icon: const Icon(FeatherIcons.volume2),
+        onPressed: () {},
+      ),
+    );
+  }
+
   @override
   void initState() {
     super.initState();
@@ -236,45 +287,6 @@ class _PlayerPageState extends State<PlayerPage> {
               width: _width,
               musicImage: music.image,
             ),
-            Padding(
-              padding: const EdgeInsets.only(right: 20.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Card(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15.0),
-                    ),
-                    elevation: 5,
-                    child: IconButton(
-                      color: Colors.black,
-                      icon: const Icon(FeatherIcons.fileText),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => LyricsPage(
-                              music: music,
-                            ),
-                          ),
-                        );
-                      },
-                    ),
-                  ),
-                  Card(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15.0),
-                    ),
-                    elevation: 5,
-                    child: IconButton(
-                      color: Colors.black,
-                      icon: const Icon(FeatherIcons.heart),
-                      onPressed: () {},
-                    ),
-                  ),
-                ],
-              ),
-            ),
             sizeBoxs5,
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
@@ -356,20 +368,23 @@ class _PlayerPageState extends State<PlayerPage> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        Card(
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(15),
-                          ),
-                          elevation: 5,
-                          child: IconButton(
-                            color: Colors.black,
-                            icon: const Icon(FeatherIcons.shuffle),
-                            onPressed: () {},
-                          ),
-                        ),
-                        previousBtn(),
+                        // Card(
+                        //   shape: RoundedRectangleBorder(
+                        //     borderRadius: BorderRadius.circular(15),
+                        //   ),
+                        //   elevation: 5,
+                        //   child: IconButton(
+                        //     color: Colors.black,
+                        //     icon: const Icon(FeatherIcons.shuffle),
+                        //     onPressed: () {},
+                        //   ),
+                        // ),
+                        // previousBtn(),
+                        muteBtn(),
+                        lyricsBtn(),
                         playBtn(),
-                        nextBtn(),
+                        favoriteBtn(),
+                        //nextBtn(),
                         repeatBtn()
                       ],
                     ),

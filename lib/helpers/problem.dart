@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 
-import 'package:dt_app/helpers/helper.dart';
-import 'package:dt_app/theme/constant.dart';
+import 'package:thap_mobile/helpers/helper.dart';
+import 'package:thap_mobile/theme/constant.dart';
 
 class ShowProblem extends StatefulWidget {
   const ShowProblem({Key? key}) : super(key: key);
@@ -16,7 +16,6 @@ class _ShowProblemState extends State<ShowProblem> {
   Widget build(BuildContext context) {
     return Body(
       context: context,
-      haveFAB: false,
       appBar: _appbar(context),
       body: [
         Container(

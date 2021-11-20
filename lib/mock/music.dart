@@ -1,4 +1,4 @@
-import 'package:dt_app/models/models.dart';
+import 'package:thap_mobile/models/models.dart';
 import 'package:flutter/material.dart';
 
 //mockAllMusData to use mock all music list
@@ -9,7 +9,7 @@ final List<MusicData> mockAllMusData = [
     artistID: "1",
     image: "assets/images/musics/KhamenSaiYok.jpg",
     music: "musics/KhamenSaiYok.mp3",
-    color: Colors.amber,
+    color: Colors.lightGreen.shade800,
     lyrics:
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
   ),
@@ -19,7 +19,7 @@ final List<MusicData> mockAllMusData = [
     artistID: "3",
     image: "assets/images/musics/LaoCharoenSi.jpg",
     music: "musics/LaoCharoenSi.mp3",
-    color: Colors.amber,
+    color: Colors.orange.shade800,
     lyrics:
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
   ),
@@ -29,6 +29,7 @@ final List<MusicData> mockAllMusData = [
     artistID: "2",
     image: "assets/images/musics/LaoDuangDuean.jpg",
     music: "musics/LaoDuangDuean.mp3",
+    color: Colors.brown.shade800,
     lyrics:
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
   ),
@@ -38,6 +39,7 @@ final List<MusicData> mockAllMusData = [
     artistID: "4",
     image: "assets/images/musics/LaoKhamHom.jpg",
     music: "musics/LaoKhamHom.mp3",
+    color: Colors.amber,
     lyrics:
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
   ),
@@ -47,6 +49,7 @@ final List<MusicData> mockAllMusData = [
     artistID: "0",
     image: "assets/images/musics/LaoSiangThian.jpeg",
     music: "musics/LaoSiangThian.mp3",
+    color: Colors.green.shade900,
     lyrics:
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
   ),
@@ -56,6 +59,7 @@ final List<MusicData> mockAllMusData = [
     artistID: "0",
     image: "assets/images/musics/NangKhruan.jpg",
     music: "musics/NangKhruan.mp3",
+    color: Colors.purple,
     lyrics:
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
   ),
@@ -65,6 +69,7 @@ final List<MusicData> mockAllMusData = [
     artistID: "5",
     image: "assets/images/musics/RatriPradapDao.jpg",
     music: "musics/RatriPradapDao.mp3",
+    color: Colors.cyan,
     lyrics:
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
   ),

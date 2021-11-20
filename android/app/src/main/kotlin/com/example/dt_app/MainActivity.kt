@@ -1,4 +1,4 @@
-package com.example.dt_app
+package com.example.thap_mobile
 
 import io.flutter.embedding.android.FlutterActivity
 

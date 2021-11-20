@@ -1,4 +1,4 @@
-import 'package:dt_app/theme/constant.dart';
+import 'package:thap_mobile/theme/constant.dart';
 import 'package:flutter/material.dart';
 
 class MusicData {
