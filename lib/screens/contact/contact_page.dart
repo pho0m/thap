@@ -59,7 +59,7 @@ class ContactUsPage extends StatelessWidget {
                     left: 30,
                   ),
                   child: Text(
-                    "pho0m2000s@gmail.com pho0m tweed",
+                    "pho0m2000s@gmail.com\npho0m tweed\ntel: 080-423-7373",
                   ),
                 ),
               ],
@@ -76,18 +76,6 @@ class ContactUsPage extends StatelessWidget {
       title: "",
       style: head3,
       iconButton: [
-        IconButton(
-          color: Colors.black,
-          icon: const Icon(FeatherIcons.home),
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => const HomePage(),
-              ),
-            );
-          },
-        ),
         IconButton(
           color: Colors.black,
           icon: const Icon(FeatherIcons.chevronLeft),
