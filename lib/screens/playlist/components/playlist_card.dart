@@ -1,12 +1,14 @@
-import 'package:auto_size_text/auto_size_text.dart';
-import 'package:dt_app/models/playlist.dart';
-import 'package:dt_app/theme/constant.dart';
 import 'package:flutter/material.dart';
 
+import 'package:auto_size_text/auto_size_text.dart';
+
+import 'package:thap_mobile/theme/constant.dart';
+import 'package:thap_mobile/models/models.dart';
 import '../../route.dart';
 
 class PlaylistCrad extends StatefulWidget {
   final double width;
+  final double height;
   final List<Playlist> playList;
   final Color? bgColor;
   final Color? cardColor;
@@ -16,6 +18,7 @@ class PlaylistCrad extends StatefulWidget {
   const PlaylistCrad({
     Key? key,
     required this.width,
+    required this.height,
     required this.playList,
     required this.bgColor,
     required this.cardColor,
@@ -36,15 +39,16 @@ class _PlaylistCrad extends State<PlaylistCrad> {
           color: widget.bgColor,
           borderRadius: BorderRadius.circular(15),
         ),
-        height: 700,
+        height: widget.height - 120,
         width: widget.width - 30,
         child: Padding(
           padding: const EdgeInsets.all(20.0),
           child: GridView.builder(
+            physics: const BouncingScrollPhysics(),
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               mainAxisSpacing: 20,
               crossAxisSpacing: 20,
-              childAspectRatio: 0.8,
+              childAspectRatio: 0.68,
               crossAxisCount: 2,
             ),
             itemCount: widget.playList.length,
@@ -55,25 +59,25 @@ class _PlaylistCrad extends State<PlaylistCrad> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Center(
-                      child: Container(
-                        padding: const EdgeInsets.all(60),
-                        decoration: BoxDecoration(
-                          color: Colors.red,
-                          borderRadius: BorderRadius.circular(15),
-                          image: const DecorationImage(
-                            image: AssetImage(
-                              'assets/images/placeholder-black.jpg',
+                        child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          padding: const EdgeInsets.all(60),
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(15),
+                            image: DecorationImage(
+                              image: AssetImage(
+                                widget.playList[index].image,
+                              ),
+                              fit: BoxFit.cover,
                             ),
-                            fit: BoxFit.cover,
                           ),
                         ),
-                      ),
-                    ),
-                    sizeBoxs10,
-                    Column(
-                      children: [
+                        sizeBoxs10,
                         AutoSizeText(
-                          widget.playList[index].playlistName,
+                          widget.playList[index].name,
                           style: widget.pNameStyle,
                           minFontSize: 10,
                           maxLines: 2,
@@ -87,7 +91,7 @@ class _PlaylistCrad extends State<PlaylistCrad> {
                           overflow: TextOverflow.ellipsis,
                         ),
                       ],
-                    )
+                    )),
                   ],
                 ),
                 onTap: () {

@@ -1,9 +1,13 @@
-import 'package:dt_app/components/components.dart';
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 
-import 'package:dt_app/screens/route.dart';
-import 'package:dt_app/theme/constant.dart';
+import 'package:thap_mobile/theme/constant.dart';
+import 'package:thap_mobile/helpers/helper.dart';
+import 'package:thap_mobile/mock/mock.dart';
+import '../route.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({
@@ -15,49 +19,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final List<String> imageList = [
-    'assets/images/placeholder-black.jpg',
-    'assets/images/placeholder-black.jpg',
-    'assets/images/placeholder-black.jpg',
-    'assets/images/placeholder-black.jpg',
-    'assets/images/placeholder-black.jpg',
-  ];
-
-  @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    //double _width = MediaQuery.of(context).size.width;
-    //double _height = MediaQuery.of(context).size.height;
-
-    return DefaultTextStyle(
-      style: const TextStyle(color: Colors.black),
-      child: Body(
-        haveFAB: true,
-        context: context,
-        appBar: _appbar(context),
-        body: [
-          ImageContent(
-            imageData: imageList,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              playlist(),
-              sizeBoxs20,
-              favorite(),
-              sizeBoxs20,
-            ],
-          ),
-          testPlay(),
-        ],
-      ),
-    );
-  }
-
   AppBar _appbar(BuildContext context) {
     return HomeAppBar(
       context: context,
@@ -66,62 +27,17 @@ class _HomePageState extends State<HomePage> {
       iconButton: [
         IconButton(
           color: Colors.black,
-          icon: const Icon(FeatherIcons.bell),
-          onPressed: () {},
-        ),
-        IconButton(
-          color: Colors.black,
-          icon: const Icon(FeatherIcons.search),
-          onPressed: () {},
-        ),
-      ],
-    );
-  }
-
-  final MusicData mockData = MusicData(
-    title: "if you shy (let me knows)",
-    artist: "1975",
-    image:
-        "https://images.squarespace-cdn.com/content/v1/56858337cbced60d3b293aef/1572288107885-V2AZJF8YVG5NARZRU7YE/Albumism_The1975_ABriefInquiryIntoOnlineRelationships_MainImage.png.jpg?format=1000w",
-    musicPlay: "musics/testmusic.mp3",
-    lyrics: "test",
-    dataArtist: "test",
-  );
-
-  Widget testPlay() {
-    return Padding(
-      padding: const EdgeInsets.all(20.0),
-      child: Card(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(25.15),
-        ),
-        color: Colors.grey[300],
-        child: ListTile(
-          leading: const Icon(
-            FeatherIcons.headphones,
-            size: 40.0,
-          ),
-          // leading: const FlutterLogo(size: 56.0),
-          title: Text(
-            mockData.title,
-            style: head4,
-          ),
-          subtitle: Text(
-            mockData.artist,
-            style: sub1,
-          ),
-          onTap: () {
+          icon: const Icon(FeatherIcons.coffee),
+          onPressed: () {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => PlayerPage(
-                  musicData: mockData,
-                ),
+                builder: (context) => const ContactUsPage(),
               ),
             );
           },
         ),
-      ),
+      ],
     );
   }
 
@@ -140,11 +56,11 @@ class _HomePageState extends State<HomePage> {
           ),
           // leading: const FlutterLogo(size: 56.0),
           title: Text(
-            mockData.title,
+            mockAllMusData[0].title,
             style: head4,
           ),
           subtitle: Text(
-            mockData.artist,
+            mockAllMusData[0].artist,
             style: sub1,
           ),
           onTap: () {},
@@ -153,35 +69,175 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget playlist() {
-    return ElevatedButton(
-      child: const Text("Playlist"),
-      style: ElevatedButton.styleFrom(
-        primary: Colors.grey,
-        padding: const EdgeInsets.all(20),
-      ),
-      onPressed: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => const PlaylistPage()),
-        );
-      },
-    );
+  Future<bool> _onWillPop() async {
+    return (await showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+            title: const Text(
+              'Are you sure?',
+              style: head3,
+            ),
+            content: const Text(
+              'Do you want to exit an App',
+              style: head4,
+            ),
+            actions: <Widget>[
+              TextButton(
+                onPressed: () => Navigator.of(context).pop(false),
+                child: const Text('No'),
+              ),
+              TextButton(
+                onPressed: () => exit(0),
+                child: const Text('Yes'),
+              ),
+            ],
+          ),
+        )) ??
+        false;
   }
 
-  Widget favorite() {
-    return ElevatedButton(
-      child: const Text("favorite"),
-      style: ElevatedButton.styleFrom(
-        primary: Colors.grey,
-        padding: const EdgeInsets.all(20),
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    double _width = MediaQuery.of(context).size.width;
+    double _height = MediaQuery.of(context).size.height;
+
+    Widget playlist() {
+      return GestureDetector(
+        onTap: () {
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => const PlaylistPage()));
+        },
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Padding(
+              padding: EdgeInsets.only(left: 5.0),
+              child: ShadowText(
+                style: head3,
+                data: 'Playlist',
+                opacity: 0.2,
+                maxLines: 2,
+                minFontSize: 10,
+                overflow: TextOverflow.ellipsis,
+              ),
+            ),
+            sizeBoxs5,
+            SizedBox(
+              width: _width / 2.2,
+              height: _height / 5,
+              child: Card(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
+                color: Colors.grey[300],
+                child: InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const PlaylistPage(),
+                      ),
+                    );
+                  },
+                  child: const SizedBox(
+                    child: Icon(
+                      FeatherIcons.list,
+                      size: 50.0,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      );
+    }
+
+    Widget favorite() {
+      return Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Padding(
+            padding: EdgeInsets.only(left: 5.0),
+            child: ShadowText(
+              style: head3,
+              data: 'Favorite',
+              opacity: 0.2,
+              maxLines: 2,
+              minFontSize: 10,
+              overflow: TextOverflow.ellipsis,
+            ),
+          ),
+          sizeBoxs5,
+          SizedBox(
+            width: _width / 2.2,
+            height: _height / 5,
+            child: Card(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
+                color: Colors.grey[300],
+                child: InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const FavoritePage(),
+                      ),
+                    );
+                  },
+                  child: const SizedBox(
+                    child: Icon(
+                      Icons.favorite,
+                      color: Colors.black,
+                      size: 50.0,
+                    ),
+                  ),
+                )),
+          ),
+        ],
+      );
+    }
+
+    return DefaultTextStyle(
+      style: const TextStyle(color: Colors.black),
+      child: WillPopScope(
+        onWillPop: _onWillPop,
+        child: Body(
+          haveFAB: false,
+          context: context,
+          appBar: _appbar(context),
+          body: [
+            ImageContent(imageData: imagePlaceholder),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 15),
+              child: Center(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    playlist(),
+                    favorite(),
+                  ],
+                ),
+              ),
+            ),
+            sizeBoxs20,
+            MusicCard(
+              height: _height,
+              width: _width,
+              music: mockAllMusData,
+              styletitle: head4,
+              stylesuptitle: head5,
+            ),
+            sizeBoxs100,
+          ],
+        ),
       ),
-      onPressed: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => const FavoritePage()),
-        );
-      },
     );
   }
 }

@@ -1,4 +1,4 @@
-name: dt_app
+name: thap_mobile
 description: A new Flutter project.
 publish_to: 'none' 
 version: 1.0.0+1
@@ -15,12 +15,21 @@ dependencies:
   carousel_slider: ^4.0.0
   audioplayers: ^0.20.0
   auto_size_text: ^3.0.0-nullsafety.0
+  pull_to_refresh: ^2.0.0
+  lottie: ^1.2.1
+  flutter_translate: ^3.0.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
   flutter_lints: ^1.0.0
+  flutter_launcher_icons: "^0.9.2"
+
+flutter_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/images/icon.png"
 
 flutter:
   fonts:
@@ -35,8 +44,17 @@ flutter:
           
   assets:
       - assets/images/
-      - assets/musics/testmusic.mp3
-      - assets/musics/preptestmusic.mp3
+      - assets/lottie/music-loader.json
+      - assets/images/musics/
+      - assets/images/artists/      
+      - assets/images/playlists/
+      - assets/musics/KhamenSaiYok.mp3
+      - assets/musics/LaoCharoenSi.mp3
+      - assets/musics/LaoDuangDuean.mp3
+      - assets/musics/LaoKhamHom.mp3
+      - assets/musics/LaoSiangThian.mp3
+      - assets/musics/NangKhruan.mp3
+      - assets/musics/RatriPradapDao.mp3
 
   uses-material-design: true
 

@@ -17,6 +17,11 @@ const double fontSizeH4 = 15.00;
 const double fontSizeH5 = 12.00;
 const double fontSizeH6 = 10.00;
 
+const sizeBoxs100 = SizedBox(height: 100, width: 100);
+const sizeBoxs60 = SizedBox(height: 60, width: 60);
+const sizeBoxs50 = SizedBox(height: 50, width: 50);
+const sizeBoxs40 = SizedBox(height: 40, width: 40);
+const sizeBoxs30 = SizedBox(height: 30, width: 30);
 const sizeBoxs20 = SizedBox(height: 20, width: 20);
 const sizeBoxs10 = SizedBox(height: 10, width: 10);
 const sizeBoxs5 = SizedBox(height: 5, width: 5);
@@ -40,10 +45,9 @@ const TextTheme textTheme = TextTheme(
 
 const head1 = TextStyle(
   fontFamily: dtFontFamily,
-  fontWeight: FontWeight.bold,
+  fontWeight: FontWeight.w800,
   fontSize: fontSizeH1,
   letterSpacing: 0.4,
-  height: 0.9,
   color: dtDefaultFColor,
 );
 

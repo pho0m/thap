@@ -28,14 +28,13 @@ class _ImageContentState extends State<ImageContent> {
               (e) => ClipRRect(
                 borderRadius: BorderRadius.circular(8),
                 child: Stack(
-                  fit: StackFit.expand,
                   children: <Widget>[
                     Image.asset(
                       e,
                       width: 1050,
                       height: 350,
                       fit: BoxFit.cover,
-                    )
+                    ),
                   ],
                 ),
               ),
