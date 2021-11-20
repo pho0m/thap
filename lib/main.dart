@@ -1,4 +1,3 @@
-import 'package:flutter_translate/flutter_translate.dart';
 import 'package:thap_mobile/screens/route.dart';
 import 'package:thap_mobile/theme/constant.dart';
 import 'package:flutter/material.dart';

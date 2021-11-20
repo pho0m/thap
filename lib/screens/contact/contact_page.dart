@@ -4,7 +4,6 @@ import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 
 import 'package:thap_mobile/theme/constant.dart';
 import 'package:thap_mobile/helpers/helper.dart';
-import '../route.dart';
 
 class ContactUsPage extends StatelessWidget {
   const ContactUsPage({Key? key}) : super(key: key);
